@@ -1,0 +1,2997 @@
+{
+  "summary": {
+    "checkedAt": "2026-10-08T04:30:33.183Z",
+    "collectionItems": 135,
+    "httpRequests": 137,
+    "assertions": 293,
+    "passedAssertions": 293,
+    "failedAssertions": 0,
+    "passedCases": 135,
+    "failedCases": 0,
+    "executionErrors": 0,
+    "postmanCli": "1.70.0",
+    "executionMethod": "Official Postman CLI và Newman chạy collection cục bộ; không điều khiển ứng dụng Postman desktop",
+    "secretsRemoved": true
+  },
+  "findings": [
+    {
+      "id": "F01",
+      "priority": "Cao",
+      "cases": "DI01 DI02",
+      "problem": "Thu hồi phiên Identity chưa đồng bộ với Authentication",
+      "actual": "Thu hồi phiên đồng bộ cutoff giữa Auth và IAM, thu hồi toàn bộ refresh token. Token cũ bị chặn ở cả hai dịch vụ; phiên đăng nhập mới vẫn hoạt động.",
+      "effect": "Kết quả đối chiếu: DI01: HTTP 401, đạt; DI02: HTTP 401, đạt.",
+      "previousActual": "IAM từ chối token cũ nhưng /users/me và /auth/refresh của Auth vẫn trả 200.",
+      "status": "Đã sửa và kiểm thử đạt"
+    },
+    {
+      "id": "F02",
+      "priority": "Vừa",
+      "cases": "AC03 AC04 AC05 AC25 GW04",
+      "problem": "Sai mã HTTP khi thiếu quyền Account Admin",
+      "actual": "Trả JSON 403 cho người đã đăng nhập nhưng thiếu quyền; thiếu hoặc hết phiên vẫn trả 401.",
+      "effect": "Kết quả đối chiếu: AC03: HTTP 403, đạt; AC04: HTTP 403, đạt; AC05: HTTP 403, đạt; AC25: HTTP 403, đạt; GW04: HTTP 403, đạt.",
+      "previousActual": "Nhận 401, trong khi tài khoản đã đăng nhập cần nhận 403.",
+      "status": "Đã sửa và kiểm thử đạt"
+    },
+    {
+      "id": "F03",
+      "priority": "Vừa",
+      "cases": "DI03",
+      "problem": "Vai trò không hợp lệ trả lỗi 500",
+      "actual": "Role không hợp lệ trả JSON 400; không làm API trả lỗi máy chủ.",
+      "effect": "Kết quả đối chiếu: DI03: HTTP 400, đạt.",
+      "previousActual": "Chuỗi enum role sai làm API trả 500 thay vì 400.",
+      "status": "Đã sửa và kiểm thử đạt"
+    },
+    {
+      "id": "F04",
+      "priority": "Vừa",
+      "cases": "RG01 RG02",
+      "problem": "accountCode thiếu trong phản hồi đăng ký",
+      "actual": "Dùng entity đã lưu và flush trước khi tạo DTO; phản hồi đăng ký có accountCode ngay.",
+      "effect": "Kết quả đối chiếu: RG01: HTTP 200, đạt; RG02: HTTP 200, đạt.",
+      "previousActual": "accountCode null ngay sau đăng ký; đọc lại hoặc đăng nhập có mã TK.",
+      "status": "Đã sửa và kiểm thử đạt"
+    },
+    {
+      "id": "F05",
+      "priority": "Thấp",
+      "cases": "DI04",
+      "problem": "Email đăng nhập chưa chuẩn hóa nhất quán",
+      "actual": "Chuẩn hóa trim/chữ thường và tra email không phân biệt chữ hoa, đồng thời giữ kiểm tra email trùng.",
+      "effect": "Kết quả đối chiếu: DI04: HTTP 200, đạt.",
+      "previousActual": "Email chữ hoa không đăng nhập được dù bản chữ thường tồn tại.",
+      "status": "Đã sửa và kiểm thử đạt"
+    }
+  ],
+  "results": [
+    {
+      "id": "H01",
+      "name": "Gateway đang hoạt động",
+      "group": "00 Chuẩn bị và sức khỏe dịch vụ",
+      "method": "GET",
+      "url": "{{gatewayBase}}/actuator/health",
+      "expected": "200",
+      "actual": 200,
+      "responseTimeMs": 27,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "H01 HTTP 200 - Gateway đang hoạt động",
+          "passed": true
+        },
+        {
+          "name": "Không trả password hash",
+          "passed": true
+        },
+        {
+          "name": "Gateway UP",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "H02",
+      "name": "Identity đang hoạt động",
+      "group": "00 Chuẩn bị và sức khỏe dịch vụ",
+      "method": "GET",
+      "url": "{{identityBase}}/actuator/health",
+      "expected": "200",
+      "actual": 200,
+      "responseTimeMs": 9,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "H02 HTTP 200 - Identity đang hoạt động",
+          "passed": true
+        },
+        {
+          "name": "Không trả password hash",
+          "passed": true
+        },
+        {
+          "name": "Core UP",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "H03",
+      "name": "Doctor đang hoạt động",
+      "group": "00 Chuẩn bị và sức khỏe dịch vụ",
+      "method": "GET",
+      "url": "{{doctorBase}}/actuator/health",
+      "expected": "200",
+      "actual": 200,
+      "responseTimeMs": 8,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "H03 HTTP 200 - Doctor đang hoạt động",
+          "passed": true
+        },
+        {
+          "name": "Không trả password hash",
+          "passed": true
+        },
+        {
+          "name": "Core UP",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "H04",
+      "name": "Patient đang hoạt động",
+      "group": "00 Chuẩn bị và sức khỏe dịch vụ",
+      "method": "GET",
+      "url": "{{patientBase}}/actuator/health",
+      "expected": "200",
+      "actual": 200,
+      "responseTimeMs": 6,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "H04 HTTP 200 - Patient đang hoạt động",
+          "passed": true
+        },
+        {
+          "name": "Không trả password hash",
+          "passed": true
+        },
+        {
+          "name": "Core UP",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "H05",
+      "name": "Appointment đang hoạt động",
+      "group": "00 Chuẩn bị và sức khỏe dịch vụ",
+      "method": "GET",
+      "url": "{{appointmentBase}}/actuator/health",
+      "expected": "200",
+      "actual": 200,
+      "responseTimeMs": 6,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "H05 HTTP 200 - Appointment đang hoạt động",
+          "passed": true
+        },
+        {
+          "name": "Không trả password hash",
+          "passed": true
+        },
+        {
+          "name": "Core UP",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "H06",
+      "name": "Billing đang hoạt động",
+      "group": "00 Chuẩn bị và sức khỏe dịch vụ",
+      "method": "GET",
+      "url": "{{billingBase}}/actuator/health",
+      "expected": "200",
+      "actual": 200,
+      "responseTimeMs": 8,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "H06 HTTP 200 - Billing đang hoạt động",
+          "passed": true
+        },
+        {
+          "name": "Không trả password hash",
+          "passed": true
+        },
+        {
+          "name": "Core UP",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "AU01",
+      "name": "Đăng nhập admin",
+      "group": "01 Authentication và loại token",
+      "method": "POST",
+      "url": "{{gatewayBase}}/s1/auth/api/auth/login",
+      "expected": "200",
+      "actual": 200,
+      "responseTimeMs": 164,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "AU01 HTTP 200 - Đăng nhập admin",
+          "passed": true
+        },
+        {
+          "name": "Không trả password hash",
+          "passed": true
+        },
+        {
+          "name": "Đúng loại dữ liệu đăng nhập",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "AU02",
+      "name": "Đăng nhập doctor",
+      "group": "01 Authentication và loại token",
+      "method": "POST",
+      "url": "{{gatewayBase}}/s1/auth/api/auth/login",
+      "expected": "200",
+      "actual": 200,
+      "responseTimeMs": 193,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "AU02 HTTP 200 - Đăng nhập doctor",
+          "passed": true
+        },
+        {
+          "name": "Không trả password hash",
+          "passed": true
+        },
+        {
+          "name": "Đúng loại dữ liệu đăng nhập",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "AU03",
+      "name": "Đăng nhập staff",
+      "group": "01 Authentication và loại token",
+      "method": "POST",
+      "url": "{{gatewayBase}}/s1/auth/api/auth/login",
+      "expected": "200",
+      "actual": 200,
+      "responseTimeMs": 198,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "AU03 HTTP 200 - Đăng nhập staff",
+          "passed": true
+        },
+        {
+          "name": "Không trả password hash",
+          "passed": true
+        },
+        {
+          "name": "Đúng loại dữ liệu đăng nhập",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "AU04",
+      "name": "Đăng nhập patient",
+      "group": "01 Authentication và loại token",
+      "method": "POST",
+      "url": "{{gatewayBase}}/s1/auth/api/auth/login",
+      "expected": "200",
+      "actual": 200,
+      "responseTimeMs": 115,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "AU04 HTTP 200 - Đăng nhập patient",
+          "passed": true
+        },
+        {
+          "name": "Không trả password hash",
+          "passed": true
+        },
+        {
+          "name": "Đúng loại dữ liệu đăng nhập",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "AU05",
+      "name": "Đăng nhập platform",
+      "group": "01 Authentication và loại token",
+      "method": "POST",
+      "url": "{{gatewayBase}}/s1/auth/api/auth/login",
+      "expected": "200",
+      "actual": 200,
+      "responseTimeMs": 298,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "AU05 HTTP 200 - Đăng nhập platform",
+          "passed": true
+        },
+        {
+          "name": "Không trả password hash",
+          "passed": true
+        },
+        {
+          "name": "Đúng loại dữ liệu đăng nhập",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "AU06",
+      "name": "Đọc tài khoản admin",
+      "group": "01 Authentication và loại token",
+      "method": "GET",
+      "url": "{{gatewayBase}}/s1/auth/api/users/me",
+      "expected": "200",
+      "actual": 200,
+      "responseTimeMs": 16,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "AU06 HTTP 200 - Đọc tài khoản admin",
+          "passed": true
+        },
+        {
+          "name": "Không trả password hash",
+          "passed": true
+        },
+        {
+          "name": "Chỉ trả chủ token",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "AU07",
+      "name": "Đọc tài khoản doctor",
+      "group": "01 Authentication và loại token",
+      "method": "GET",
+      "url": "{{gatewayBase}}/s1/auth/api/users/me",
+      "expected": "200",
+      "actual": 200,
+      "responseTimeMs": 18,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "AU07 HTTP 200 - Đọc tài khoản doctor",
+          "passed": true
+        },
+        {
+          "name": "Không trả password hash",
+          "passed": true
+        },
+        {
+          "name": "Chỉ trả chủ token",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "AU08",
+      "name": "Đọc tài khoản staff",
+      "group": "01 Authentication và loại token",
+      "method": "GET",
+      "url": "{{gatewayBase}}/s1/auth/api/users/me",
+      "expected": "200",
+      "actual": 200,
+      "responseTimeMs": 12,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "AU08 HTTP 200 - Đọc tài khoản staff",
+          "passed": true
+        },
+        {
+          "name": "Không trả password hash",
+          "passed": true
+        },
+        {
+          "name": "Chỉ trả chủ token",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "AU09",
+      "name": "Đọc tài khoản patient",
+      "group": "01 Authentication và loại token",
+      "method": "GET",
+      "url": "{{gatewayBase}}/s1/auth/api/users/me",
+      "expected": "200",
+      "actual": 200,
+      "responseTimeMs": 10,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "AU09 HTTP 200 - Đọc tài khoản patient",
+          "passed": true
+        },
+        {
+          "name": "Không trả password hash",
+          "passed": true
+        },
+        {
+          "name": "Chỉ trả chủ token",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "AU10",
+      "name": "Đọc tài khoản platform",
+      "group": "01 Authentication và loại token",
+      "method": "GET",
+      "url": "{{gatewayBase}}/s1/auth/api/users/me",
+      "expected": "200",
+      "actual": 200,
+      "responseTimeMs": 10,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "AU10 HTTP 200 - Đọc tài khoản platform",
+          "passed": true
+        },
+        {
+          "name": "Không trả password hash",
+          "passed": true
+        },
+        {
+          "name": "Chỉ trả chủ token",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "AU11",
+      "name": "Sai mật khẩu",
+      "group": "01 Authentication và loại token",
+      "method": "POST",
+      "url": "{{gatewayBase}}/s1/auth/api/auth/login",
+      "expected": "401",
+      "actual": 401,
+      "responseTimeMs": 100,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "AU11 HTTP 401 - Sai mật khẩu",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "AU12",
+      "name": "Email chưa đăng ký",
+      "group": "01 Authentication và loại token",
+      "method": "POST",
+      "url": "{{gatewayBase}}/s1/auth/api/auth/login",
+      "expected": "401",
+      "actual": 401,
+      "responseTimeMs": 15,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "AU12 HTTP 401 - Email chưa đăng ký",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "AU13",
+      "name": "Email không hợp lệ",
+      "group": "01 Authentication và loại token",
+      "method": "POST",
+      "url": "{{gatewayBase}}/s1/auth/api/auth/login",
+      "expected": "400",
+      "actual": 400,
+      "responseTimeMs": 191,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "AU13 HTTP 400 - Email không hợp lệ",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "AU14",
+      "name": "Thiếu mật khẩu",
+      "group": "01 Authentication và loại token",
+      "method": "POST",
+      "url": "{{gatewayBase}}/s1/auth/api/auth/login",
+      "expected": "400",
+      "actual": 400,
+      "responseTimeMs": 15,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "AU14 HTTP 400 - Thiếu mật khẩu",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "AU15",
+      "name": "Đọc tài khoản khi chưa đăng nhập",
+      "group": "01 Authentication và loại token",
+      "method": "GET",
+      "url": "{{gatewayBase}}/s1/auth/api/users/me",
+      "expected": "401",
+      "actual": 401,
+      "responseTimeMs": 263,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "AU15 HTTP 401 - Đọc tài khoản khi chưa đăng nhập",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "AU16",
+      "name": "Token sai chữ ký",
+      "group": "01 Authentication và loại token",
+      "method": "GET",
+      "url": "{{gatewayBase}}/s1/auth/api/users/me",
+      "expected": "401",
+      "actual": 401,
+      "responseTimeMs": 7,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "AU16 HTTP 401 - Token sai chữ ký",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "AU17",
+      "name": "Refresh token không được làm access token",
+      "group": "01 Authentication và loại token",
+      "method": "GET",
+      "url": "{{gatewayBase}}/s1/auth/api/users/me",
+      "expected": "401",
+      "actual": 401,
+      "responseTimeMs": 6,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "AU17 HTTP 401 - Refresh token không được làm access token",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "AU18",
+      "name": "Access token không được dùng để refresh",
+      "group": "01 Authentication và loại token",
+      "method": "POST",
+      "url": "{{gatewayBase}}/s1/auth/api/auth/refresh",
+      "expected": "401",
+      "actual": 401,
+      "responseTimeMs": 11,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "AU18 HTTP 401 - Access token không được dùng để refresh",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "AU19",
+      "name": "Refresh token không tồn tại",
+      "group": "01 Authentication và loại token",
+      "method": "POST",
+      "url": "{{gatewayBase}}/s1/auth/api/auth/refresh",
+      "expected": "401",
+      "actual": 401,
+      "responseTimeMs": 8,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "AU19 HTTP 401 - Refresh token không tồn tại",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "AU20",
+      "name": "Tạo tài khoản với mật khẩu quá ngắn",
+      "group": "01 Authentication và loại token",
+      "method": "POST",
+      "url": "{{gatewayBase}}/s1/auth/api/auth/register",
+      "expected": "400",
+      "actual": 400,
+      "responseTimeMs": 41,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "AU20 HTTP 400 - Tạo tài khoản với mật khẩu quá ngắn",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "AU21",
+      "name": "Tạo tài khoản thiếu họ tên",
+      "group": "01 Authentication và loại token",
+      "method": "POST",
+      "url": "{{gatewayBase}}/s1/auth/api/auth/register",
+      "expected": "400",
+      "actual": 400,
+      "responseTimeMs": 26,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "AU21 HTTP 400 - Tạo tài khoản thiếu họ tên",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "ID01",
+      "name": "Đăng nhập bệnh nhân B để kiểm tra chủ dữ liệu",
+      "group": "01 Authentication và loại token",
+      "method": "POST",
+      "url": "{{gatewayBase}}/s1/auth/api/auth/login",
+      "expected": "200",
+      "actual": 200,
+      "responseTimeMs": 84,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "ID01 HTTP 200 - Đăng nhập bệnh nhân B để kiểm tra chủ dữ liệu",
+          "passed": true
+        },
+        {
+          "name": "Không trả password hash",
+          "passed": true
+        },
+        {
+          "name": "Đúng loại dữ liệu đăng nhập",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "ID02",
+      "name": "Hồ sơ bệnh nhân A",
+      "group": "01 Authentication và loại token",
+      "method": "GET",
+      "url": "{{gatewayBase}}/s1/patient/api/me/patient-profile",
+      "expected": "200",
+      "actual": 200,
+      "responseTimeMs": 962,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "ID02 HTTP 200 - Hồ sơ bệnh nhân A",
+          "passed": true
+        },
+        {
+          "name": "Không trả password hash",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "ID03",
+      "name": "Hồ sơ bệnh nhân B",
+      "group": "01 Authentication và loại token",
+      "method": "GET",
+      "url": "{{gatewayBase}}/s1/patient/api/me/patient-profile",
+      "expected": "200",
+      "actual": 200,
+      "responseTimeMs": 36,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "ID03 HTTP 200 - Hồ sơ bệnh nhân B",
+          "passed": true
+        },
+        {
+          "name": "Không trả password hash",
+          "passed": true
+        },
+        {
+          "name": "Hai chủ hồ sơ khác nhau",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "ID04",
+      "name": "Query patientId B không đổi chủ hồ sơ A",
+      "group": "01 Authentication và loại token",
+      "method": "GET",
+      "url": "{{gatewayBase}}/s1/patient/api/me/patient-profile?patientId={{patient_profile_b_id}}",
+      "expected": "200",
+      "actual": 200,
+      "responseTimeMs": 35,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "ID04 HTTP 200 - Query patientId B không đổi chủ hồ sơ A",
+          "passed": true
+        },
+        {
+          "name": "Không trả password hash",
+          "passed": true
+        },
+        {
+          "name": "Hồ sơ vẫn của A",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "ID05",
+      "name": "A không đọc lịch hẹn của B qua ID",
+      "group": "01 Authentication và loại token",
+      "method": "GET",
+      "url": "{{gatewayBase}}/s1/appointment/api/me/appointments?clinicId={{clinicId}}&patientId={{patient_profile_b_id}}",
+      "expected": "403",
+      "actual": 403,
+      "responseTimeMs": 2082,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "ID05 HTTP 403 - A không đọc lịch hẹn của B qua ID",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "ID06",
+      "name": "A không đọc giờ giữ của B qua ID",
+      "group": "01 Authentication và loại token",
+      "method": "GET",
+      "url": "{{gatewayBase}}/s1/appointment/api/me/appointment-holds?clinicId={{clinicId}}&patientId={{patient_profile_b_id}}",
+      "expected": "403",
+      "actual": 403,
+      "responseTimeMs": 115,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "ID06 HTTP 403 - A không đọc giờ giữ của B qua ID",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "RG01",
+      "name": "Đăng ký tài khoản qa_a",
+      "group": "02 Đăng ký và xoay vòng refresh token",
+      "method": "POST",
+      "url": "{{gatewayBase}}/s1/auth/api/auth/register",
+      "expected": "200",
+      "actual": 200,
+      "responseTimeMs": 939,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "RG01 HTTP 200 - Đăng ký tài khoản qa_a",
+          "passed": true
+        },
+        {
+          "name": "Không trả password hash",
+          "passed": true
+        },
+        {
+          "name": "Đúng loại dữ liệu đăng nhập",
+          "passed": true
+        },
+        {
+          "name": "Không tự nâng quyền qua payload",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "RG02",
+      "name": "Đăng ký tài khoản qa_b",
+      "group": "02 Đăng ký và xoay vòng refresh token",
+      "method": "POST",
+      "url": "{{gatewayBase}}/s1/auth/api/auth/register",
+      "expected": "200",
+      "actual": 200,
+      "responseTimeMs": 100,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "RG02 HTTP 200 - Đăng ký tài khoản qa_b",
+          "passed": true
+        },
+        {
+          "name": "Không trả password hash",
+          "passed": true
+        },
+        {
+          "name": "Đúng loại dữ liệu đăng nhập",
+          "passed": true
+        },
+        {
+          "name": "Không tự nâng quyền qua payload",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "RG03",
+      "name": "Email trùng bị từ chối",
+      "group": "02 Đăng ký và xoay vòng refresh token",
+      "method": "POST",
+      "url": "{{gatewayBase}}/s1/auth/api/auth/register",
+      "expected": "409",
+      "actual": 409,
+      "responseTimeMs": 13,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "RG03 HTTP 409 - Email trùng bị từ chối",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "RG04",
+      "name": "Refresh token được xoay vòng",
+      "group": "02 Đăng ký và xoay vòng refresh token",
+      "method": "POST",
+      "url": "{{gatewayBase}}/s1/auth/api/auth/refresh",
+      "expected": "200",
+      "actual": 200,
+      "responseTimeMs": 352,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "RG04 HTTP 200 - Refresh token được xoay vòng",
+          "passed": true
+        },
+        {
+          "name": "Không trả password hash",
+          "passed": true
+        },
+        {
+          "name": "Đúng loại dữ liệu đăng nhập",
+          "passed": true
+        },
+        {
+          "name": "Refresh mới khác cũ",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "RG05",
+      "name": "Refresh cũ không dùng lại được",
+      "group": "02 Đăng ký và xoay vòng refresh token",
+      "method": "POST",
+      "url": "{{gatewayBase}}/s1/auth/api/auth/refresh",
+      "expected": "401",
+      "actual": 401,
+      "responseTimeMs": 28,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "RG05 HTTP 401 - Refresh cũ không dùng lại được",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "RG06",
+      "name": "Refresh đồng thời chỉ một request thành công",
+      "group": "02 Đăng ký và xoay vòng refresh token",
+      "method": "GET",
+      "url": "{{gatewayBase}}/s1/auth/api/users/me",
+      "expected": "200",
+      "actual": 401,
+      "responseTimeMs": 421,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "RG06 HTTP 200 - Refresh đồng thời chỉ một request thành công",
+          "passed": true
+        },
+        {
+          "name": "Không trả password hash",
+          "passed": true
+        },
+        {
+          "name": "Hai request cạnh tranh trả 200 và 401",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "RG07",
+      "name": "Logout thu hồi refresh đang dùng",
+      "group": "02 Đăng ký và xoay vòng refresh token",
+      "method": "POST",
+      "url": "{{gatewayBase}}/s1/auth/api/auth/logout",
+      "expected": "200",
+      "actual": 200,
+      "responseTimeMs": 54,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "RG07 HTTP 200 - Logout thu hồi refresh đang dùng",
+          "passed": true
+        },
+        {
+          "name": "Không trả password hash",
+          "passed": true
+        },
+        {
+          "name": "Thành công",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "RG08",
+      "name": "Refresh sau logout bị từ chối",
+      "group": "02 Đăng ký và xoay vòng refresh token",
+      "method": "POST",
+      "url": "{{gatewayBase}}/s1/auth/api/auth/refresh",
+      "expected": "401",
+      "actual": 401,
+      "responseTimeMs": 23,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "RG08 HTTP 401 - Refresh sau logout bị từ chối",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "RG09",
+      "name": "Kiểm chứng access còn hạn sau logout Auth",
+      "group": "02 Đăng ký và xoay vòng refresh token",
+      "method": "GET",
+      "url": "{{gatewayBase}}/s1/auth/api/users/me",
+      "expected": "200",
+      "actual": 200,
+      "responseTimeMs": 12,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "RG09 HTTP 200 - Kiểm chứng access còn hạn sau logout Auth",
+          "passed": true
+        },
+        {
+          "name": "Không trả password hash",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "RG10",
+      "name": "Đăng nhập lại A để chạy các ca IAM",
+      "group": "02 Đăng ký và xoay vòng refresh token",
+      "method": "POST",
+      "url": "{{gatewayBase}}/s1/auth/api/auth/login",
+      "expected": "200",
+      "actual": 200,
+      "responseTimeMs": 118,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "RG10 HTTP 200 - Đăng nhập lại A để chạy các ca IAM",
+          "passed": true
+        },
+        {
+          "name": "Không trả password hash",
+          "passed": true
+        },
+        {
+          "name": "Đúng loại dữ liệu đăng nhập",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "AC01",
+      "name": "Danh sách tài khoản phân trang",
+      "group": "03 Account quản lý tài khoản",
+      "method": "GET",
+      "url": "{{gatewayBase}}/s1/auth/api/users/admin?page=0&size=10",
+      "expected": "200",
+      "actual": 200,
+      "responseTimeMs": 982,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "AC01 HTTP 200 - Danh sách tài khoản phân trang",
+          "passed": true
+        },
+        {
+          "name": "Không trả password hash",
+          "passed": true
+        },
+        {
+          "name": "Phân trang hợp lệ",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "AC02",
+      "name": "Giới hạn trang tối đa 100",
+      "group": "03 Account quản lý tài khoản",
+      "method": "GET",
+      "url": "{{gatewayBase}}/s1/auth/api/users/admin?page=0&size=101",
+      "expected": "400",
+      "actual": 400,
+      "responseTimeMs": 9,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "AC02 HTTP 400 - Giới hạn trang tối đa 100",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "AC03",
+      "name": "Bệnh nhân không đọc danh sách quản trị",
+      "group": "03 Account quản lý tài khoản",
+      "method": "GET",
+      "url": "{{gatewayBase}}/s1/auth/api/users/admin",
+      "expected": "403",
+      "actual": 403,
+      "responseTimeMs": 9,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "AC03 HTTP 403 - Bệnh nhân không đọc danh sách quản trị",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "AC04",
+      "name": "Bác sĩ không đọc danh sách quản trị",
+      "group": "03 Account quản lý tài khoản",
+      "method": "GET",
+      "url": "{{gatewayBase}}/s1/auth/api/users/admin",
+      "expected": "403",
+      "actual": 403,
+      "responseTimeMs": 10,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "AC04 HTTP 403 - Bác sĩ không đọc danh sách quản trị",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "AC05",
+      "name": "Lễ tân không đọc danh sách quản trị",
+      "group": "03 Account quản lý tài khoản",
+      "method": "GET",
+      "url": "{{gatewayBase}}/s1/auth/api/users/admin",
+      "expected": "403",
+      "actual": 403,
+      "responseTimeMs": 9,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "AC05 HTTP 403 - Lễ tân không đọc danh sách quản trị",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "AC06",
+      "name": "Tạo tài khoản do quản trị cấp",
+      "group": "03 Account quản lý tài khoản",
+      "method": "POST",
+      "url": "{{gatewayBase}}/s1/auth/api/users/admin",
+      "expected": "200",
+      "actual": 200,
+      "responseTimeMs": 129,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "AC06 HTTP 200 - Tạo tài khoản do quản trị cấp",
+          "passed": true
+        },
+        {
+          "name": "Không trả password hash",
+          "passed": true
+        },
+        {
+          "name": "Đúng tài khoản mới",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "AC07",
+      "name": "Đọc chi tiết tài khoản vừa tạo",
+      "group": "03 Account quản lý tài khoản",
+      "method": "GET",
+      "url": "{{gatewayBase}}/s1/auth/api/users/admin/{{qa_managed_id}}",
+      "expected": "200",
+      "actual": 200,
+      "responseTimeMs": 11,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "AC07 HTTP 200 - Đọc chi tiết tài khoản vừa tạo",
+          "passed": true
+        },
+        {
+          "name": "Không trả password hash",
+          "passed": true
+        },
+        {
+          "name": "Thông tin tài khoản đầy đủ",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "AC08",
+      "name": "Không tạo trùng email quản trị",
+      "group": "03 Account quản lý tài khoản",
+      "method": "POST",
+      "url": "{{gatewayBase}}/s1/auth/api/users/admin",
+      "expected": "409",
+      "actual": 409,
+      "responseTimeMs": 15,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "AC08 HTTP 409 - Không tạo trùng email quản trị",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "AC09",
+      "name": "Không tạo tài khoản thiếu vai trò",
+      "group": "03 Account quản lý tài khoản",
+      "method": "POST",
+      "url": "{{gatewayBase}}/s1/auth/api/users/admin",
+      "expected": "400",
+      "actual": 400,
+      "responseTimeMs": 13,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "AC09 HTTP 400 - Không tạo tài khoản thiếu vai trò",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "AC10",
+      "name": "Cập nhật thông tin tài khoản",
+      "group": "03 Account quản lý tài khoản",
+      "method": "PUT",
+      "url": "{{gatewayBase}}/s1/auth/api/users/admin/{{qa_managed_id}}",
+      "expected": "200",
+      "actual": 200,
+      "responseTimeMs": 313,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "AC10 HTTP 200 - Cập nhật thông tin tài khoản",
+          "passed": true
+        },
+        {
+          "name": "Không trả password hash",
+          "passed": true
+        },
+        {
+          "name": "Tên mới đã lưu",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "AC11",
+      "name": "Đăng nhập tài khoản mới",
+      "group": "03 Account quản lý tài khoản",
+      "method": "POST",
+      "url": "{{gatewayBase}}/s1/auth/api/auth/login",
+      "expected": "200",
+      "actual": 200,
+      "responseTimeMs": 81,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "AC11 HTTP 200 - Đăng nhập tài khoản mới",
+          "passed": true
+        },
+        {
+          "name": "Không trả password hash",
+          "passed": true
+        },
+        {
+          "name": "Đúng loại dữ liệu đăng nhập",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "AC12",
+      "name": "Khóa tài khoản",
+      "group": "03 Account quản lý tài khoản",
+      "method": "PATCH",
+      "url": "{{gatewayBase}}/s1/auth/api/users/admin/{{qa_managed_id}}/status",
+      "expected": "200",
+      "actual": 200,
+      "responseTimeMs": 23,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "AC12 HTTP 200 - Khóa tài khoản",
+          "passed": true
+        },
+        {
+          "name": "Không trả password hash",
+          "passed": true
+        },
+        {
+          "name": "Trạng thái LOCKED",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "AC13",
+      "name": "Tài khoản khóa không đăng nhập được",
+      "group": "03 Account quản lý tài khoản",
+      "method": "POST",
+      "url": "{{gatewayBase}}/s1/auth/api/auth/login",
+      "expected": "401",
+      "actual": 401,
+      "responseTimeMs": 19,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "AC13 HTTP 401 - Tài khoản khóa không đăng nhập được",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "AC14",
+      "name": "Token cũ của tài khoản khóa bị từ chối",
+      "group": "03 Account quản lý tài khoản",
+      "method": "GET",
+      "url": "{{gatewayBase}}/s1/auth/api/users/me",
+      "expected": "401",
+      "actual": 401,
+      "responseTimeMs": 9,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "AC14 HTTP 401 - Token cũ của tài khoản khóa bị từ chối",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "AC15",
+      "name": "Refresh của tài khoản khóa bị từ chối",
+      "group": "03 Account quản lý tài khoản",
+      "method": "POST",
+      "url": "{{gatewayBase}}/s1/auth/api/auth/refresh",
+      "expected": "401",
+      "actual": 401,
+      "responseTimeMs": 12,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "AC15 HTTP 401 - Refresh của tài khoản khóa bị từ chối",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "AC16",
+      "name": "Mở khóa tài khoản",
+      "group": "03 Account quản lý tài khoản",
+      "method": "PATCH",
+      "url": "{{gatewayBase}}/s1/auth/api/users/admin/{{qa_managed_id}}/status",
+      "expected": "200",
+      "actual": 200,
+      "responseTimeMs": 36,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "AC16 HTTP 200 - Mở khóa tài khoản",
+          "passed": true
+        },
+        {
+          "name": "Không trả password hash",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "AC16B",
+      "name": "Mở khóa không làm token cũ sống lại",
+      "group": "03 Account quản lý tài khoản",
+      "method": "GET",
+      "url": "{{gatewayBase}}/s1/auth/api/users/me",
+      "expected": "401",
+      "actual": 401,
+      "responseTimeMs": 8,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "AC16B HTTP 401 - Mở khóa không làm token cũ sống lại",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "AC17",
+      "name": "Đăng nhập sau mở khóa",
+      "group": "03 Account quản lý tài khoản",
+      "method": "POST",
+      "url": "{{gatewayBase}}/s1/auth/api/auth/login",
+      "expected": "200",
+      "actual": 200,
+      "responseTimeMs": 80,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "AC17 HTTP 200 - Đăng nhập sau mở khóa",
+          "passed": true
+        },
+        {
+          "name": "Không trả password hash",
+          "passed": true
+        },
+        {
+          "name": "Đúng loại dữ liệu đăng nhập",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "AC18",
+      "name": "Cấp thêm vai trò bác sĩ cho tài khoản riêng",
+      "group": "03 Account quản lý tài khoản",
+      "method": "POST",
+      "url": "{{gatewayBase}}/s1/auth/api/users/admin/{{qa_managed_id}}/roles/ROLE_DOCTOR",
+      "expected": "200",
+      "actual": 200,
+      "responseTimeMs": 73,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "AC18 HTTP 200 - Cấp thêm vai trò bác sĩ cho tài khoản riêng",
+          "passed": true
+        },
+        {
+          "name": "Không trả password hash",
+          "passed": true
+        },
+        {
+          "name": "Có role bác sĩ",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "AC19",
+      "name": "Đổi vai trò thu hồi access token cũ",
+      "group": "03 Account quản lý tài khoản",
+      "method": "GET",
+      "url": "{{gatewayBase}}/s1/auth/api/users/me",
+      "expected": "401",
+      "actual": 401,
+      "responseTimeMs": 8,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "AC19 HTTP 401 - Đổi vai trò thu hồi access token cũ",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "AC20",
+      "name": "Refresh trước khi đổi role đã bị thu hồi",
+      "group": "03 Account quản lý tài khoản",
+      "method": "POST",
+      "url": "{{gatewayBase}}/s1/auth/api/auth/refresh",
+      "expected": "401",
+      "actual": 401,
+      "responseTimeMs": 13,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "AC20 HTTP 401 - Refresh trước khi đổi role đã bị thu hồi",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "AC20B",
+      "name": "Đăng nhập lại sau đổi vai trò",
+      "group": "03 Account quản lý tài khoản",
+      "method": "POST",
+      "url": "{{gatewayBase}}/s1/auth/api/auth/login",
+      "expected": "200",
+      "actual": 200,
+      "responseTimeMs": 81,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "AC20B HTTP 200 - Đăng nhập lại sau đổi vai trò",
+          "passed": true
+        },
+        {
+          "name": "Không trả password hash",
+          "passed": true
+        },
+        {
+          "name": "Đúng loại dữ liệu đăng nhập",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "AC20C",
+      "name": "Phiên mới nhận đúng vai trò đã cấp",
+      "group": "03 Account quản lý tài khoản",
+      "method": "GET",
+      "url": "{{gatewayBase}}/s1/auth/api/users/me",
+      "expected": "200",
+      "actual": 200,
+      "responseTimeMs": 9,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "AC20C HTTP 200 - Phiên mới nhận đúng vai trò đã cấp",
+          "passed": true
+        },
+        {
+          "name": "Không trả password hash",
+          "passed": true
+        },
+        {
+          "name": "Phiên mới có vai trò bác sĩ",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "AC21",
+      "name": "Thu hồi vai trò bác sĩ",
+      "group": "03 Account quản lý tài khoản",
+      "method": "DELETE",
+      "url": "{{gatewayBase}}/s1/auth/api/users/admin/{{qa_managed_id}}/roles/ROLE_DOCTOR",
+      "expected": "200",
+      "actual": 200,
+      "responseTimeMs": 23,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "AC21 HTTP 200 - Thu hồi vai trò bác sĩ",
+          "passed": true
+        },
+        {
+          "name": "Không trả password hash",
+          "passed": true
+        },
+        {
+          "name": "Không còn role bác sĩ",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "AC22",
+      "name": "Không bỏ vai trò cuối cùng",
+      "group": "03 Account quản lý tài khoản",
+      "method": "PUT",
+      "url": "{{gatewayBase}}/s1/auth/api/users/admin/{{qa_managed_id}}/roles",
+      "expected": "400",
+      "actual": 400,
+      "responseTimeMs": 13,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "AC22 HTTP 400 - Không bỏ vai trò cuối cùng",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "AC23",
+      "name": "Không tự bỏ quyền quản trị đang dùng",
+      "group": "03 Account quản lý tài khoản",
+      "method": "DELETE",
+      "url": "{{gatewayBase}}/s1/auth/api/users/admin/{{admin_id}}/roles/ROLE_ADMIN",
+      "expected": "409",
+      "actual": 409,
+      "responseTimeMs": 12,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "AC23 HTTP 409 - Không tự bỏ quyền quản trị đang dùng",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "AC24",
+      "name": "Không tự khóa tài khoản quản trị",
+      "group": "03 Account quản lý tài khoản",
+      "method": "PATCH",
+      "url": "{{gatewayBase}}/s1/auth/api/users/admin/{{admin_id}}/status",
+      "expected": "409",
+      "actual": 409,
+      "responseTimeMs": 12,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "AC24 HTTP 409 - Không tự khóa tài khoản quản trị",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "AC25",
+      "name": "Bệnh nhân A không đọc tài khoản B qua URL",
+      "group": "03 Account quản lý tài khoản",
+      "method": "GET",
+      "url": "{{gatewayBase}}/s1/auth/api/users/admin/{{qa_b_id}}",
+      "expected": "403",
+      "actual": 403,
+      "responseTimeMs": 8,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "AC25 HTTP 403 - Bệnh nhân A không đọc tài khoản B qua URL",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "AC26",
+      "name": "ID tài khoản không tồn tại",
+      "group": "03 Account quản lý tài khoản",
+      "method": "GET",
+      "url": "{{gatewayBase}}/s1/auth/api/users/admin/00000000-0000-0000-0000-000000000000",
+      "expected": "404",
+      "actual": 404,
+      "responseTimeMs": 12,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "AC26 HTTP 404 - ID tài khoản không tồn tại",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "AC27",
+      "name": "Query userId B không đổi chủ /users/me",
+      "group": "03 Account quản lý tài khoản",
+      "method": "GET",
+      "url": "{{gatewayBase}}/s1/auth/api/users/me?userId={{qa_b_id}}",
+      "expected": "200",
+      "actual": 200,
+      "responseTimeMs": 10,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "AC27 HTTP 200 - Query userId B không đổi chủ /users/me",
+          "passed": true
+        },
+        {
+          "name": "Không trả password hash",
+          "passed": true
+        },
+        {
+          "name": "Kết quả vẫn của A",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "IA01",
+      "name": "Danh tính hiện tại admin",
+      "group": "04 Identity IAM vai trò và phạm vi",
+      "method": "GET",
+      "url": "{{gatewayBase}}/s1/identity/api/me/current",
+      "expected": "200",
+      "actual": 200,
+      "responseTimeMs": 15,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "IA01 HTTP 200 - Danh tính hiện tại admin",
+          "passed": true
+        },
+        {
+          "name": "Không trả password hash",
+          "passed": true
+        },
+        {
+          "name": "Đúng actor",
+          "passed": true
+        },
+        {
+          "name": "Quản trị phòng khám không mặc định là kiểm duyệt",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "IA02",
+      "name": "Danh tính hiện tại doctor",
+      "group": "04 Identity IAM vai trò và phạm vi",
+      "method": "GET",
+      "url": "{{gatewayBase}}/s1/identity/api/me/current",
+      "expected": "200",
+      "actual": 200,
+      "responseTimeMs": 13,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "IA02 HTTP 200 - Danh tính hiện tại doctor",
+          "passed": true
+        },
+        {
+          "name": "Không trả password hash",
+          "passed": true
+        },
+        {
+          "name": "Đúng actor",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "IA03",
+      "name": "Danh tính hiện tại staff",
+      "group": "04 Identity IAM vai trò và phạm vi",
+      "method": "GET",
+      "url": "{{gatewayBase}}/s1/identity/api/me/current",
+      "expected": "200",
+      "actual": 200,
+      "responseTimeMs": 14,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "IA03 HTTP 200 - Danh tính hiện tại staff",
+          "passed": true
+        },
+        {
+          "name": "Không trả password hash",
+          "passed": true
+        },
+        {
+          "name": "Đúng actor",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "IA04",
+      "name": "Danh tính hiện tại patient",
+      "group": "04 Identity IAM vai trò và phạm vi",
+      "method": "GET",
+      "url": "{{gatewayBase}}/s1/identity/api/me/current",
+      "expected": "200",
+      "actual": 200,
+      "responseTimeMs": 13,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "IA04 HTTP 200 - Danh tính hiện tại patient",
+          "passed": true
+        },
+        {
+          "name": "Không trả password hash",
+          "passed": true
+        },
+        {
+          "name": "Đúng actor",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "IA05",
+      "name": "Danh tính hiện tại platform",
+      "group": "04 Identity IAM vai trò và phạm vi",
+      "method": "GET",
+      "url": "{{gatewayBase}}/s1/identity/api/me/current",
+      "expected": "200",
+      "actual": 200,
+      "responseTimeMs": 22,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "IA05 HTTP 200 - Danh tính hiện tại platform",
+          "passed": true
+        },
+        {
+          "name": "Không trả password hash",
+          "passed": true
+        },
+        {
+          "name": "Đúng actor",
+          "passed": true
+        },
+        {
+          "name": "Có quyền nền tảng",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "IA06",
+      "name": "Phạm vi phòng khám admin",
+      "group": "04 Identity IAM vai trò và phạm vi",
+      "method": "GET",
+      "url": "{{gatewayBase}}/s1/identity/api/me/contexts",
+      "expected": "200",
+      "actual": 200,
+      "responseTimeMs": 18,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "IA06 HTTP 200 - Phạm vi phòng khám admin",
+          "passed": true
+        },
+        {
+          "name": "Không trả password hash",
+          "passed": true
+        },
+        {
+          "name": "Danh sách phạm vi hợp lệ",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "IA07",
+      "name": "Phạm vi phòng khám doctor",
+      "group": "04 Identity IAM vai trò và phạm vi",
+      "method": "GET",
+      "url": "{{gatewayBase}}/s1/identity/api/me/contexts",
+      "expected": "200",
+      "actual": 200,
+      "responseTimeMs": 18,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "IA07 HTTP 200 - Phạm vi phòng khám doctor",
+          "passed": true
+        },
+        {
+          "name": "Không trả password hash",
+          "passed": true
+        },
+        {
+          "name": "Danh sách phạm vi hợp lệ",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "IA08",
+      "name": "Phạm vi phòng khám staff",
+      "group": "04 Identity IAM vai trò và phạm vi",
+      "method": "GET",
+      "url": "{{gatewayBase}}/s1/identity/api/me/contexts",
+      "expected": "200",
+      "actual": 200,
+      "responseTimeMs": 18,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "IA08 HTTP 200 - Phạm vi phòng khám staff",
+          "passed": true
+        },
+        {
+          "name": "Không trả password hash",
+          "passed": true
+        },
+        {
+          "name": "Danh sách phạm vi hợp lệ",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "IA09",
+      "name": "Phạm vi phòng khám patient",
+      "group": "04 Identity IAM vai trò và phạm vi",
+      "method": "GET",
+      "url": "{{gatewayBase}}/s1/identity/api/me/contexts",
+      "expected": "200",
+      "actual": 200,
+      "responseTimeMs": 20,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "IA09 HTTP 200 - Phạm vi phòng khám patient",
+          "passed": true
+        },
+        {
+          "name": "Không trả password hash",
+          "passed": true
+        },
+        {
+          "name": "Danh sách phạm vi hợp lệ",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "IA10",
+      "name": "Không token không đọc được IAM",
+      "group": "04 Identity IAM vai trò và phạm vi",
+      "method": "GET",
+      "url": "{{gatewayBase}}/s1/identity/api/me/current",
+      "expected": "401",
+      "actual": 401,
+      "responseTimeMs": 6,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "IA10 HTTP 401 - Không token không đọc được IAM",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "IA11",
+      "name": "Refresh token bị IAM từ chối",
+      "group": "04 Identity IAM vai trò và phạm vi",
+      "method": "GET",
+      "url": "{{gatewayBase}}/s1/identity/api/me/current",
+      "expected": "401",
+      "actual": 401,
+      "responseTimeMs": 7,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "IA11 HTTP 401 - Refresh token bị IAM từ chối",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "IA12",
+      "name": "Danh sách nhân sự phòng khám",
+      "group": "04 Identity IAM vai trò và phạm vi",
+      "method": "GET",
+      "url": "{{gatewayBase}}/s1/identity/api/clinics/{{clinicId}}/memberships",
+      "expected": "200",
+      "actual": 200,
+      "responseTimeMs": 48,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "IA12 HTTP 200 - Danh sách nhân sự phòng khám",
+          "passed": true
+        },
+        {
+          "name": "Không trả password hash",
+          "passed": true
+        },
+        {
+          "name": "Có nhân sự trong phòng khám",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "IA13",
+      "name": "Bác sĩ không quản lý membership",
+      "group": "04 Identity IAM vai trò và phạm vi",
+      "method": "GET",
+      "url": "{{gatewayBase}}/s1/identity/api/clinics/{{clinicId}}/memberships",
+      "expected": "403",
+      "actual": 403,
+      "responseTimeMs": 18,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "IA13 HTTP 403 - Bác sĩ không quản lý membership",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "IA14",
+      "name": "Lễ tân không quản lý membership",
+      "group": "04 Identity IAM vai trò và phạm vi",
+      "method": "GET",
+      "url": "{{gatewayBase}}/s1/identity/api/clinics/{{clinicId}}/memberships",
+      "expected": "403",
+      "actual": 403,
+      "responseTimeMs": 17,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "IA14 HTTP 403 - Lễ tân không quản lý membership",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "IA15",
+      "name": "Bệnh nhân không quản lý membership",
+      "group": "04 Identity IAM vai trò và phạm vi",
+      "method": "GET",
+      "url": "{{gatewayBase}}/s1/identity/api/clinics/{{clinicId}}/memberships",
+      "expected": "403",
+      "actual": 403,
+      "responseTimeMs": 24,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "IA15 HTTP 403 - Bệnh nhân không quản lý membership",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "IA16",
+      "name": "Đổi clinicId không vượt phạm vi",
+      "group": "04 Identity IAM vai trò và phạm vi",
+      "method": "GET",
+      "url": "{{gatewayBase}}/s1/identity/api/clinics/00000000-0000-0000-0000-000000000000/memberships",
+      "expected": "403",
+      "actual": 403,
+      "responseTimeMs": 18,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "IA16 HTTP 403 - Đổi clinicId không vượt phạm vi",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "IA17",
+      "name": "Mời tài khoản A vào phòng khám",
+      "group": "04 Identity IAM vai trò và phạm vi",
+      "method": "POST",
+      "url": "{{gatewayBase}}/s1/identity/api/clinics/{{clinicId}}/memberships",
+      "expected": "201",
+      "actual": 201,
+      "responseTimeMs": 98,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "IA17 HTTP 201 - Mời tài khoản A vào phòng khám",
+          "passed": true
+        },
+        {
+          "name": "Không trả password hash",
+          "passed": true
+        },
+        {
+          "name": "Đang chờ chấp nhận",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "IA18",
+      "name": "A xem được lời mời của mình",
+      "group": "04 Identity IAM vai trò và phạm vi",
+      "method": "GET",
+      "url": "{{gatewayBase}}/s1/identity/api/me/invitations",
+      "expected": "200",
+      "actual": 200,
+      "responseTimeMs": 20,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "IA18 HTTP 200 - A xem được lời mời của mình",
+          "passed": true
+        },
+        {
+          "name": "Không trả password hash",
+          "passed": true
+        },
+        {
+          "name": "Có đúng lời mời",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "IA19",
+      "name": "B không chấp nhận lời mời của A",
+      "group": "04 Identity IAM vai trò và phạm vi",
+      "method": "POST",
+      "url": "{{gatewayBase}}/s1/identity/api/memberships/{{qa_membership_id}}/activate",
+      "expected": "404",
+      "actual": 404,
+      "responseTimeMs": 19,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "IA19 HTTP 404 - B không chấp nhận lời mời của A",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "IA20",
+      "name": "A chấp nhận lời mời",
+      "group": "04 Identity IAM vai trò và phạm vi",
+      "method": "POST",
+      "url": "{{gatewayBase}}/s1/identity/api/memberships/{{qa_membership_id}}/activate",
+      "expected": "200",
+      "actual": 200,
+      "responseTimeMs": 33,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "IA20 HTTP 200 - A chấp nhận lời mời",
+          "passed": true
+        },
+        {
+          "name": "Không trả password hash",
+          "passed": true
+        },
+        {
+          "name": "Membership ACTIVE",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "IA21",
+      "name": "Chấp nhận lại không tạo membership thứ hai",
+      "group": "04 Identity IAM vai trò và phạm vi",
+      "method": "POST",
+      "url": "{{gatewayBase}}/s1/identity/api/memberships/{{qa_membership_id}}/activate",
+      "expected": "409",
+      "actual": 409,
+      "responseTimeMs": 21,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "IA21 HTTP 409 - Chấp nhận lại không tạo membership thứ hai",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "IA22",
+      "name": "Cấp quyền địa điểm cho A",
+      "group": "04 Identity IAM vai trò và phạm vi",
+      "method": "POST",
+      "url": "{{gatewayBase}}/s1/identity/api/clinics/{{clinicId}}/memberships/{{qa_membership_id}}/branches",
+      "expected": "200",
+      "actual": 200,
+      "responseTimeMs": 51,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "IA22 HTTP 200 - Cấp quyền địa điểm cho A",
+          "passed": true
+        },
+        {
+          "name": "Không trả password hash",
+          "passed": true
+        },
+        {
+          "name": "Đúng branch grant",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "IA23",
+      "name": "Cấp branch lặp không tăng bản ghi",
+      "group": "04 Identity IAM vai trò và phạm vi",
+      "method": "POST",
+      "url": "{{gatewayBase}}/s1/identity/api/clinics/{{clinicId}}/memberships/{{qa_membership_id}}/branches",
+      "expected": "200",
+      "actual": 200,
+      "responseTimeMs": 62,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "IA23 HTTP 200 - Cấp branch lặp không tăng bản ghi",
+          "passed": true
+        },
+        {
+          "name": "Không trả password hash",
+          "passed": true
+        },
+        {
+          "name": "Chỉ một grant cho branch",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "IA24",
+      "name": "A nhìn thấy quyền đang được cấp",
+      "group": "04 Identity IAM vai trò và phạm vi",
+      "method": "GET",
+      "url": "{{gatewayBase}}/s1/identity/api/me/contexts",
+      "expected": "200",
+      "actual": 200,
+      "responseTimeMs": 21,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "IA24 HTTP 200 - A nhìn thấy quyền đang được cấp",
+          "passed": true
+        },
+        {
+          "name": "Không trả password hash",
+          "passed": true
+        },
+        {
+          "name": "Nhìn thấy membership",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "IA25",
+      "name": "Đổi vai trò có kiểm tra phiên bản",
+      "group": "04 Identity IAM vai trò và phạm vi",
+      "method": "PUT",
+      "url": "{{gatewayBase}}/s1/identity/api/clinics/{{clinicId}}/staff/{{qa_membership_id}}/role",
+      "expected": "200",
+      "actual": 200,
+      "responseTimeMs": 42,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "IA25 HTTP 200 - Đổi vai trò có kiểm tra phiên bản",
+          "passed": true
+        },
+        {
+          "name": "Không trả password hash",
+          "passed": true
+        },
+        {
+          "name": "Đã đổi vai trò DOCTOR",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "IA26",
+      "name": "Phiên bản cũ bị từ chối",
+      "group": "04 Identity IAM vai trò và phạm vi",
+      "method": "PUT",
+      "url": "{{gatewayBase}}/s1/identity/api/clinics/{{clinicId}}/staff/{{qa_membership_id}}/role",
+      "expected": "409",
+      "actual": 409,
+      "responseTimeMs": 20,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "IA26 HTTP 409 - Phiên bản cũ bị từ chối",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "IA27",
+      "name": "Thu hồi branch grant",
+      "group": "04 Identity IAM vai trò và phạm vi",
+      "method": "POST",
+      "url": "{{gatewayBase}}/s1/identity/api/clinics/{{clinicId}}/memberships/{{qa_membership_id}}/branches/{{branchId}}/revoke",
+      "expected": "200",
+      "actual": 200,
+      "responseTimeMs": 30,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "IA27 HTTP 200 - Thu hồi branch grant",
+          "passed": true
+        },
+        {
+          "name": "Không trả password hash",
+          "passed": true
+        },
+        {
+          "name": "Grant đã thu hồi",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "IA28",
+      "name": "Thu hồi membership",
+      "group": "04 Identity IAM vai trò và phạm vi",
+      "method": "POST",
+      "url": "{{gatewayBase}}/s1/identity/api/clinics/{{clinicId}}/memberships/{{qa_membership_id}}/revoke",
+      "expected": "200",
+      "actual": 200,
+      "responseTimeMs": 29,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "IA28 HTTP 200 - Thu hồi membership",
+          "passed": true
+        },
+        {
+          "name": "Không trả password hash",
+          "passed": true
+        },
+        {
+          "name": "Membership REVOKED",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "IA29",
+      "name": "Token còn hạn không giữ quyền đã thu hồi",
+      "group": "04 Identity IAM vai trò và phạm vi",
+      "method": "GET",
+      "url": "{{gatewayBase}}/s1/identity/api/me/contexts",
+      "expected": "200",
+      "actual": 200,
+      "responseTimeMs": 21,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "IA29 HTTP 200 - Token còn hạn không giữ quyền đã thu hồi",
+          "passed": true
+        },
+        {
+          "name": "Không trả password hash",
+          "passed": true
+        },
+        {
+          "name": "Không còn membership đã thu hồi",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "IA30",
+      "name": "Lịch sử cấp và thu hồi quyền",
+      "group": "04 Identity IAM vai trò và phạm vi",
+      "method": "GET",
+      "url": "{{gatewayBase}}/s1/identity/api/clinics/{{clinicId}}/membership-events",
+      "expected": "200",
+      "actual": 200,
+      "responseTimeMs": 74,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "IA30 HTTP 200 - Lịch sử cấp và thu hồi quyền",
+          "passed": true
+        },
+        {
+          "name": "Không trả password hash",
+          "passed": true
+        },
+        {
+          "name": "Có sự kiện thu hồi",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "ST01",
+      "name": "Danh sách nhân sự qua Account",
+      "group": "05 Account nhân sự và liên kết IAM",
+      "method": "GET",
+      "url": "{{gatewayBase}}/s1/auth/api/clinic-staff/{{clinicId}}",
+      "expected": "200",
+      "actual": 200,
+      "responseTimeMs": 112,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "ST01 HTTP 200 - Danh sách nhân sự qua Account",
+          "passed": true
+        },
+        {
+          "name": "Không trả password hash",
+          "passed": true
+        },
+        {
+          "name": "Có membership và account",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "ST02",
+      "name": "Tìm tài khoản bằng email",
+      "group": "05 Account nhân sự và liên kết IAM",
+      "method": "GET",
+      "url": "{{gatewayBase}}/s1/auth/api/clinic-staff/{{clinicId}}/lookup?email={{qa_managed_email}}",
+      "expected": "200",
+      "actual": 200,
+      "responseTimeMs": 115,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "ST02 HTTP 200 - Tìm tài khoản bằng email",
+          "passed": true
+        },
+        {
+          "name": "Không trả password hash",
+          "passed": true
+        },
+        {
+          "name": "Tìm thấy đúng tài khoản",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "ST03",
+      "name": "Bác sĩ không tìm tài khoản qua màn nhân sự",
+      "group": "05 Account nhân sự và liên kết IAM",
+      "method": "GET",
+      "url": "{{gatewayBase}}/s1/auth/api/clinic-staff/{{clinicId}}/lookup?email={{qa_managed_email}}",
+      "expected": "403",
+      "actual": 403,
+      "responseTimeMs": 63,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "ST03 HTTP 403 - Bác sĩ không tìm tài khoản qua màn nhân sự",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "ST04",
+      "name": "Thêm tài khoản hiện có làm nhân viên",
+      "group": "05 Account nhân sự và liên kết IAM",
+      "method": "POST",
+      "url": "{{gatewayBase}}/s1/auth/api/clinic-staff/{{clinicId}}",
+      "expected": "200",
+      "actual": 200,
+      "responseTimeMs": 115,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "ST04 HTTP 200 - Thêm tài khoản hiện có làm nhân viên",
+          "passed": true
+        },
+        {
+          "name": "Không trả password hash",
+          "passed": true
+        },
+        {
+          "name": "Liên kết đúng tài khoản",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "ST05",
+      "name": "Thêm lại cùng vai trò trả cùng membership",
+      "group": "05 Account nhân sự và liên kết IAM",
+      "method": "POST",
+      "url": "{{gatewayBase}}/s1/auth/api/clinic-staff/{{clinicId}}",
+      "expected": "200",
+      "actual": 200,
+      "responseTimeMs": 92,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "ST05 HTTP 200 - Thêm lại cùng vai trò trả cùng membership",
+          "passed": true
+        },
+        {
+          "name": "Không trả password hash",
+          "passed": true
+        },
+        {
+          "name": "Không tạo bản ghi trùng",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "ST06",
+      "name": "Không cấp ROLE_ADMIN bằng form bác sĩ lễ tân",
+      "group": "05 Account nhân sự và liên kết IAM",
+      "method": "POST",
+      "url": "{{gatewayBase}}/s1/auth/api/clinic-staff/{{clinicId}}",
+      "expected": "400",
+      "actual": 400,
+      "responseTimeMs": 12,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "ST06 HTTP 400 - Không cấp ROLE_ADMIN bằng form bác sĩ lễ tân",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "ST07",
+      "name": "Cập nhật liên hệ nhân viên",
+      "group": "05 Account nhân sự và liên kết IAM",
+      "method": "PUT",
+      "url": "{{gatewayBase}}/s1/auth/api/clinic-staff/{{clinicId}}/{{qa_staff_membership_id}}",
+      "expected": "200",
+      "actual": 200,
+      "responseTimeMs": 86,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "ST07 HTTP 200 - Cập nhật liên hệ nhân viên",
+          "passed": true
+        },
+        {
+          "name": "Không trả password hash",
+          "passed": true
+        },
+        {
+          "name": "Tên đã cập nhật",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "ST08",
+      "name": "Không sửa chủ phòng khám tại màn nhân sự",
+      "group": "05 Account nhân sự và liên kết IAM",
+      "method": "PUT",
+      "url": "{{gatewayBase}}/s1/auth/api/clinic-staff/{{clinicId}}/{{owner_membership_id}}",
+      "expected": "403",
+      "actual": 403,
+      "responseTimeMs": 51,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "ST08 HTTP 403 - Không sửa chủ phòng khám tại màn nhân sự",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "ST09",
+      "name": "Đặt lại mật khẩu nhân viên riêng",
+      "group": "05 Account nhân sự và liên kết IAM",
+      "method": "POST",
+      "url": "{{gatewayBase}}/s1/auth/api/clinic-staff/{{clinicId}}/{{qa_staff_membership_id}}/reset-password",
+      "expected": "200",
+      "actual": 200,
+      "responseTimeMs": 211,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "ST09 HTTP 200 - Đặt lại mật khẩu nhân viên riêng",
+          "passed": true
+        },
+        {
+          "name": "Không trả password hash",
+          "passed": true
+        },
+        {
+          "name": "Đúng nhân viên được đặt lại",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "ST10",
+      "name": "Mật khẩu cũ không đăng nhập được",
+      "group": "05 Account nhân sự và liên kết IAM",
+      "method": "POST",
+      "url": "{{gatewayBase}}/s1/auth/api/auth/login",
+      "expected": "401",
+      "actual": 401,
+      "responseTimeMs": 74,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "ST10 HTTP 401 - Mật khẩu cũ không đăng nhập được",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "ST11",
+      "name": "Đăng nhập bằng mật khẩu mới",
+      "group": "05 Account nhân sự và liên kết IAM",
+      "method": "POST",
+      "url": "{{gatewayBase}}/s1/auth/api/auth/login",
+      "expected": "200",
+      "actual": 200,
+      "responseTimeMs": 82,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "ST11 HTTP 200 - Đăng nhập bằng mật khẩu mới",
+          "passed": true
+        },
+        {
+          "name": "Không trả password hash",
+          "passed": true
+        },
+        {
+          "name": "Đúng loại dữ liệu đăng nhập",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "ST12",
+      "name": "Khóa nhân viên qua clinic staff",
+      "group": "05 Account nhân sự và liên kết IAM",
+      "method": "PATCH",
+      "url": "{{gatewayBase}}/s1/auth/api/clinic-staff/{{clinicId}}/{{qa_staff_membership_id}}/status",
+      "expected": "200",
+      "actual": 200,
+      "responseTimeMs": 63,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "ST12 HTTP 200 - Khóa nhân viên qua clinic staff",
+          "passed": true
+        },
+        {
+          "name": "Không trả password hash",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "ST13",
+      "name": "IAM từ chối token của tài khoản bị khóa",
+      "group": "05 Account nhân sự và liên kết IAM",
+      "method": "GET",
+      "url": "{{gatewayBase}}/s1/identity/api/me/current",
+      "expected": "401",
+      "actual": 401,
+      "responseTimeMs": 50,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "ST13 HTTP 401 - IAM từ chối token của tài khoản bị khóa",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "ST14",
+      "name": "Mở khóa nhân viên sau kiểm tra",
+      "group": "05 Account nhân sự và liên kết IAM",
+      "method": "PATCH",
+      "url": "{{gatewayBase}}/s1/auth/api/clinic-staff/{{clinicId}}/{{qa_staff_membership_id}}/status",
+      "expected": "200",
+      "actual": 200,
+      "responseTimeMs": 66,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "ST14 HTTP 200 - Mở khóa nhân viên sau kiểm tra",
+          "passed": true
+        },
+        {
+          "name": "Không trả password hash",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "GW01",
+      "name": "Route module không tồn tại",
+      "group": "06 API Gateway định tuyến và bảo vệ biên",
+      "method": "GET",
+      "url": "{{gatewayBase}}/s1/not-a-module/api/me",
+      "expected": "404",
+      "actual": 404,
+      "responseTimeMs": 88,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "GW01 HTTP 404 - Route module không tồn tại",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "GW02",
+      "name": "Không đưa actuator module qua alias API",
+      "group": "06 API Gateway định tuyến và bảo vệ biên",
+      "method": "GET",
+      "url": "{{gatewayBase}}/s1/auth/actuator/env",
+      "expected": "404",
+      "actual": 404,
+      "responseTimeMs": 8,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "GW02 HTTP 404 - Không đưa actuator module qua alias API",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "GW03",
+      "name": "Chặn đường dẫn traversal mã hóa",
+      "group": "06 API Gateway định tuyến và bảo vệ biên",
+      "method": "GET",
+      "url": "{{gatewayBase}}/s1/auth/api/%2e%2e/users/me",
+      "expected": "400/404",
+      "actual": 404,
+      "responseTimeMs": 11,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "GW03 HTTP 400/404 - Chặn đường dẫn traversal mã hóa",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "GW04",
+      "name": "Chuyển tiếp denial của module",
+      "group": "06 API Gateway định tuyến và bảo vệ biên",
+      "method": "GET",
+      "url": "{{gatewayBase}}/s1/auth/api/users/admin",
+      "expected": "403",
+      "actual": 403,
+      "responseTimeMs": 12,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "GW04 HTTP 403 - Chuyển tiếp denial của module",
+          "passed": true
+        },
+        {
+          "name": "Không biến denial thành thành công",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "GW05",
+      "name": "Giữ response JSON và nosniff",
+      "group": "06 API Gateway định tuyến và bảo vệ biên",
+      "method": "GET",
+      "url": "{{gatewayBase}}/s1/auth/api/users/me",
+      "expected": "200",
+      "actual": 200,
+      "responseTimeMs": 10,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "GW05 HTTP 200 - Giữ response JSON và nosniff",
+          "passed": true
+        },
+        {
+          "name": "Không trả password hash",
+          "passed": true
+        },
+        {
+          "name": "Đúng Content-Type",
+          "passed": true
+        },
+        {
+          "name": "nosniff",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "GW06",
+      "name": "Giữ query phân trang",
+      "group": "06 API Gateway định tuyến và bảo vệ biên",
+      "method": "GET",
+      "url": "{{gatewayBase}}/s1/auth/api/users/admin?page=1&size=2",
+      "expected": "200",
+      "actual": 200,
+      "responseTimeMs": 16,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "GW06 HTTP 200 - Giữ query phân trang",
+          "passed": true
+        },
+        {
+          "name": "Không trả password hash",
+          "passed": true
+        },
+        {
+          "name": "Query page size giữ nguyên",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "GW07",
+      "name": "Không dùng header giả danh thay token",
+      "group": "06 API Gateway định tuyến và bảo vệ biên",
+      "method": "GET",
+      "url": "{{gatewayBase}}/s1/auth/api/users/admin",
+      "expected": "401",
+      "actual": 401,
+      "responseTimeMs": 5,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "GW07 HTTP 401 - Không dùng header giả danh thay token",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "GW08",
+      "name": "Tương đương gọi Identity trực tiếp",
+      "group": "06 API Gateway định tuyến và bảo vệ biên",
+      "method": "GET",
+      "url": "{{identityBase}}/modules/auth/api/users/me",
+      "expected": "200",
+      "actual": 200,
+      "responseTimeMs": 6,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "GW08 HTTP 200 - Tương đương gọi Identity trực tiếp",
+          "passed": true
+        },
+        {
+          "name": "Không trả password hash",
+          "passed": true
+        },
+        {
+          "name": "Cùng tài khoản qua core",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "SE01",
+      "name": "Thu hồi phiên IAM của B",
+      "group": "07 Phạm vi thu hồi phiên và chẩn đoán thiếu sót",
+      "method": "POST",
+      "url": "{{gatewayBase}}/s1/identity/api/sessions/revoke-current",
+      "expected": "200",
+      "actual": 200,
+      "responseTimeMs": 45,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "SE01 HTTP 200 - Thu hồi phiên IAM của B",
+          "passed": true
+        },
+        {
+          "name": "Không trả password hash",
+          "passed": true
+        },
+        {
+          "name": "Có mốc invalidBefore",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "SE02",
+      "name": "Token B cũ bị IAM từ chối ngay",
+      "group": "07 Phạm vi thu hồi phiên và chẩn đoán thiếu sót",
+      "method": "GET",
+      "url": "{{gatewayBase}}/s1/identity/api/me/current",
+      "expected": "401",
+      "actual": 401,
+      "responseTimeMs": 10,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "SE02 HTTP 401 - Token B cũ bị IAM từ chối ngay",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "DI01",
+      "name": "Thu hồi phiên cũng phải chặn Auth access cũ",
+      "group": "07 Phạm vi thu hồi phiên và chẩn đoán thiếu sót",
+      "method": "GET",
+      "url": "{{gatewayBase}}/s1/auth/api/users/me",
+      "expected": "401",
+      "actual": 401,
+      "responseTimeMs": 8,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "DI01 HTTP 401 - Thu hồi phiên cũng phải chặn Auth access cũ",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "DI02",
+      "name": "Thu hồi phiên phải chặn refresh cũ",
+      "group": "07 Phạm vi thu hồi phiên và chẩn đoán thiếu sót",
+      "method": "POST",
+      "url": "{{gatewayBase}}/s1/auth/api/auth/refresh",
+      "expected": "401",
+      "actual": 401,
+      "responseTimeMs": 9,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "DI02 HTTP 401 - Thu hồi phiên phải chặn refresh cũ",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "DI03",
+      "name": "Vai trò JSON sai phải trả lỗi đầu vào 400",
+      "group": "07 Phạm vi thu hồi phiên và chẩn đoán thiếu sót",
+      "method": "PUT",
+      "url": "{{gatewayBase}}/s1/auth/api/users/admin/{{qa_managed_id}}/roles",
+      "expected": "400",
+      "actual": 400,
+      "responseTimeMs": 38,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "DI03 HTTP 400 - Vai trò JSON sai phải trả lỗi đầu vào 400",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "DI04",
+      "name": "Email đăng nhập không phân biệt chữ hoa",
+      "group": "07 Phạm vi thu hồi phiên và chẩn đoán thiếu sót",
+      "method": "POST",
+      "url": "{{gatewayBase}}/s1/auth/api/auth/login",
+      "expected": "200",
+      "actual": 200,
+      "responseTimeMs": 79,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "DI04 HTTP 200 - Email đăng nhập không phân biệt chữ hoa",
+          "passed": true
+        },
+        {
+          "name": "Không trả password hash",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "CL01",
+      "name": "Thu hồi membership nhân viên riêng",
+      "group": "08 Kết thúc kiểm thử",
+      "method": "POST",
+      "url": "{{gatewayBase}}/s1/identity/api/clinics/{{clinicId}}/memberships/{{qa_staff_membership_id}}/revoke",
+      "expected": "200",
+      "actual": 200,
+      "responseTimeMs": 19,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "CL01 HTTP 200 - Thu hồi membership nhân viên riêng",
+          "passed": true
+        },
+        {
+          "name": "Không trả password hash",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "CL02",
+      "name": "Ngưng tài khoản riêng qa_a",
+      "group": "08 Kết thúc kiểm thử",
+      "method": "PATCH",
+      "url": "{{gatewayBase}}/s1/auth/api/users/admin/{{qa_a_id}}/status",
+      "expected": "200",
+      "actual": 200,
+      "responseTimeMs": 22,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "CL02 HTTP 200 - Ngưng tài khoản riêng qa_a",
+          "passed": true
+        },
+        {
+          "name": "Không trả password hash",
+          "passed": true
+        },
+        {
+          "name": "Tài khoản kiểm thử đã ngưng",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "CL03",
+      "name": "Ngưng tài khoản riêng qa_b",
+      "group": "08 Kết thúc kiểm thử",
+      "method": "PATCH",
+      "url": "{{gatewayBase}}/s1/auth/api/users/admin/{{qa_b_id}}/status",
+      "expected": "200",
+      "actual": 200,
+      "responseTimeMs": 19,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "CL03 HTTP 200 - Ngưng tài khoản riêng qa_b",
+          "passed": true
+        },
+        {
+          "name": "Không trả password hash",
+          "passed": true
+        },
+        {
+          "name": "Tài khoản kiểm thử đã ngưng",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "CL04",
+      "name": "Ngưng tài khoản riêng qa_managed",
+      "group": "08 Kết thúc kiểm thử",
+      "method": "PATCH",
+      "url": "{{gatewayBase}}/s1/auth/api/users/admin/{{qa_managed_id}}/status",
+      "expected": "200",
+      "actual": 200,
+      "responseTimeMs": 100,
+      "passed": true,
+      "assertions": [
+        {
+          "name": "CL04 HTTP 200 - Ngưng tài khoản riêng qa_managed",
+          "passed": true
+        },
+        {
+          "name": "Không trả password hash",
+          "passed": true
+        },
+        {
+          "name": "Tài khoản kiểm thử đã ngưng",
+          "passed": true
+        }
+      ]
+    }
+  ]
+}

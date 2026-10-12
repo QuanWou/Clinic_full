@@ -1,0 +1,873 @@
+No authorization data found. Please use the `postman login` command.
+Refer:https://learning.postman.com/docs/postman-cli/postman-cli-options/#postman-login
+
+Running your collection...
+postman
+
+Clinic Identity Gateway Authentication Account
+
+Folder 00 Chuẩn bị và sức khỏe dịch vụ
+Sub-folder H01 Gateway đang hoạt động
+
+  GET http://127.0.0.1:18090/actuator/health [200 OK, 179 B, 193 ms]
+  Pass  H01 HTTP 200 - Gateway đang hoạt động
+  Pass  Không trả password hash
+  Pass  Gateway UP
+
+Sub-folder H02 Identity đang hoạt động
+
+  GET http://127.0.0.1:18001/actuator/health [200 OK, 211 B, 12 ms]
+  Pass  H02 HTTP 200 - Identity đang hoạt động
+  Pass  Không trả password hash
+  Pass  Core UP
+
+Sub-folder H03 Doctor đang hoạt động
+
+  GET http://127.0.0.1:18002/actuator/health [200 OK, 209 B, 11 ms]
+  Pass  H03 HTTP 200 - Doctor đang hoạt động
+  Pass  Không trả password hash
+  Pass  Core UP
+
+Sub-folder H04 Patient đang hoạt động
+
+  GET http://127.0.0.1:18003/actuator/health [200 OK, 210 B, 7 ms]
+  Pass  H04 HTTP 200 - Patient đang hoạt động
+  Pass  Không trả password hash
+  Pass  Core UP
+
+Sub-folder H05 Appointment đang hoạt động
+
+  GET http://127.0.0.1:18004/actuator/health [200 OK, 214 B, 6 ms]
+  Pass  H05 HTTP 200 - Appointment đang hoạt động
+  Pass  Không trả password hash
+  Pass  Core UP
+
+Sub-folder H06 Billing đang hoạt động
+
+  GET http://127.0.0.1:18005/actuator/health [200 OK, 210 B, 7 ms]
+  Pass  H06 HTTP 200 - Billing đang hoạt động
+  Pass  Không trả password hash
+  Pass  Core UP
+
+Folder 01 Authentication và loại token
+Sub-folder AU01 Đăng nhập admin
+
+  POST http://127.0.0.1:18090/s1/auth/api/auth/login [200 OK, 1.32 KB, 295 ms]
+  Pass  AU01 HTTP 200 - Đăng nhập admin
+  Pass  Không trả password hash
+  Pass  Đúng loại dữ liệu đăng nhập
+
+Sub-folder AU02 Đăng nhập doctor
+
+  POST http://127.0.0.1:18090/s1/auth/api/auth/login [200 OK, 1.31 KB, 9.9 s]
+  Pass  AU02 HTTP 200 - Đăng nhập doctor
+  Pass  Không trả password hash
+  Pass  Đúng loại dữ liệu đăng nhập
+
+Sub-folder AU03 Đăng nhập staff
+
+  POST http://127.0.0.1:18090/s1/auth/api/auth/login [200 OK, 1.34 KB, 2 s]
+  Pass  AU03 HTTP 200 - Đăng nhập staff
+  Pass  Không trả password hash
+  Pass  Đúng loại dữ liệu đăng nhập
+
+Sub-folder AU04 Đăng nhập patient
+
+  POST http://127.0.0.1:18090/s1/auth/api/auth/login [200 OK, 1.33 KB, 198 ms]
+  Pass  AU04 HTTP 200 - Đăng nhập patient
+  Pass  Không trả password hash
+  Pass  Đúng loại dữ liệu đăng nhập
+
+Sub-folder AU05 Đăng nhập platform
+
+  POST http://127.0.0.1:18090/s1/auth/api/auth/login [200 OK, 1.33 KB, 134 ms]
+  Pass  AU05 HTTP 200 - Đăng nhập platform
+  Pass  Không trả password hash
+  Pass  Đúng loại dữ liệu đăng nhập
+
+Sub-folder AU06 Đọc tài khoản admin
+
+  GET http://127.0.0.1:18090/s1/auth/api/users/me [200 OK, 549 B, 10 ms]
+  Pass  AU06 HTTP 200 - Đọc tài khoản admin
+  Pass  Không trả password hash
+  Pass  Chỉ trả chủ token
+
+Sub-folder AU07 Đọc tài khoản doctor
+
+  GET http://127.0.0.1:18090/s1/auth/api/users/me [200 OK, 541 B, 7 ms]
+  Pass  AU07 HTTP 200 - Đọc tài khoản doctor
+  Pass  Không trả password hash
+  Pass  Chỉ trả chủ token
+
+Sub-folder AU08 Đọc tài khoản staff
+
+  GET http://127.0.0.1:18090/s1/auth/api/users/me [200 OK, 556 B, 9 ms]
+  Pass  AU08 HTTP 200 - Đọc tài khoản staff
+  Pass  Không trả password hash
+  Pass  Chỉ trả chủ token
+
+Sub-folder AU09 Đọc tài khoản patient
+
+  GET http://127.0.0.1:18090/s1/auth/api/users/me [200 OK, 552 B, 8 ms]
+  Pass  AU09 HTTP 200 - Đọc tài khoản patient
+  Pass  Không trả password hash
+  Pass  Chỉ trả chủ token
+
+Sub-folder AU10 Đọc tài khoản platform
+
+  GET http://127.0.0.1:18090/s1/auth/api/users/me [200 OK, 550 B, 7 ms]
+  Pass  AU10 HTTP 200 - Đọc tài khoản platform
+  Pass  Không trả password hash
+  Pass  Chỉ trả chủ token
+
+Sub-folder AU11 Sai mật khẩu
+
+  POST http://127.0.0.1:18090/s1/auth/api/auth/login [401 Unauthorized, 388 B, 93 ms]
+  Pass  AU11 HTTP 401 - Sai mật khẩu
+
+Sub-folder AU12 Email chưa đăng ký
+
+  POST http://127.0.0.1:18090/s1/auth/api/auth/login [401 Unauthorized, 384 B, 14 ms]
+  Pass  AU12 HTTP 401 - Email chưa đăng ký
+
+Sub-folder AU13 Email không hợp lệ
+
+  POST http://127.0.0.1:18090/s1/auth/api/auth/login [400 Bad Request, 374 B, 17 ms]
+  Pass  AU13 HTTP 400 - Email không hợp lệ
+
+Sub-folder AU14 Thiếu mật khẩu
+
+  POST http://127.0.0.1:18090/s1/auth/api/auth/login [400 Bad Request, 356 B, 26 ms]
+  Pass  AU14 HTTP 400 - Thiếu mật khẩu
+
+Sub-folder AU15 Đọc tài khoản khi chưa đăng nhập
+
+  GET http://127.0.0.1:18090/s1/auth/api/users/me [401 Unauthorized, 341 B, 11 ms]
+  Pass  AU15 HTTP 401 - Đọc tài khoản khi chưa đăng nhập
+
+Sub-folder AU16 Token sai chữ ký
+
+  GET http://127.0.0.1:18090/s1/auth/api/users/me [401 Unauthorized, 341 B, 7 ms]
+  Pass  AU16 HTTP 401 - Token sai chữ ký
+
+Sub-folder AU17 Refresh token không được làm access token
+
+  GET http://127.0.0.1:18090/s1/auth/api/users/me [401 Unauthorized, 341 B, 7 ms]
+  Pass  AU17 HTTP 401 - Refresh token không được làm access token
+
+Sub-folder AU18 Access token không được dùng để refresh
+
+  POST http://127.0.0.1:18090/s1/auth/api/auth/refresh [401 Unauthorized, 386 B, 17 ms]
+  Pass  AU18 HTTP 401 - Access token không được dùng để refresh
+
+Sub-folder AU19 Refresh token không tồn tại
+
+  POST http://127.0.0.1:18090/s1/auth/api/auth/refresh [401 Unauthorized, 386 B, 8 ms]
+  Pass  AU19 HTTP 401 - Refresh token không tồn tại
+
+Sub-folder AU20 Tạo tài khoản với mật khẩu quá ngắn
+
+  POST http://127.0.0.1:18090/s1/auth/api/auth/register [400 Bad Request, 369 B, 8 ms]
+  Pass  AU20 HTTP 400 - Tạo tài khoản với mật khẩu quá ngắn
+
+Sub-folder AU21 Tạo tài khoản thiếu họ tên
+
+  POST http://127.0.0.1:18090/s1/auth/api/auth/register [400 Bad Request, 356 B, 12 ms]
+  Pass  AU21 HTTP 400 - Tạo tài khoản thiếu họ tên
+
+Sub-folder ID01 Đăng nhập bệnh nhân B để kiểm tra chủ dữ liệu
+
+  POST http://127.0.0.1:18090/s1/auth/api/auth/login [200 OK, 1.33 KB, 88 ms]
+  Pass  ID01 HTTP 200 - Đăng nhập bệnh nhân B để kiểm tra chủ dữ liệu
+  Pass  Không trả password hash
+  Pass  Đúng loại dữ liệu đăng nhập
+
+Sub-folder ID02 Hồ sơ bệnh nhân A
+
+  GET http://127.0.0.1:18090/s1/patient/api/me/patient-profile [200 OK, 436 B, 27 ms]
+  Pass  ID02 HTTP 200 - Hồ sơ bệnh nhân A
+  Pass  Không trả password hash
+
+Sub-folder ID03 Hồ sơ bệnh nhân B
+
+  GET http://127.0.0.1:18090/s1/patient/api/me/patient-profile [200 OK, 438 B, 37 ms]
+  Pass  ID03 HTTP 200 - Hồ sơ bệnh nhân B
+  Pass  Không trả password hash
+  Pass  Hai chủ hồ sơ khác nhau
+
+Sub-folder ID04 Query patientId B không đổi chủ hồ sơ A
+
+  GET http://127.0.0.1:18090/s1/patient/api/me/patient-profile?patientId=c2ee744b-d55c-4d59-8bf9-00bb0b06262c [200 OK, 436 B, 25 ms]
+  Pass  ID04 HTTP 200 - Query patientId B không đổi chủ hồ sơ A
+  Pass  Không trả password hash
+  Pass  Hồ sơ vẫn của A
+
+Sub-folder ID05 A không đọc lịch hẹn của B qua ID
+
+  GET http://127.0.0.1:18090/s1/appointment/api/me/appointments?clinicId=03136db2-48e0-4320-bbdd-5c49e24b6db3&patientId=c2ee744b-d55c-4d59-8bf9-00bb0b06262c [403 Forbidden, 327 B, 31 ms]
+  Pass  ID05 HTTP 403 - A không đọc lịch hẹn của B qua ID
+
+Sub-folder ID06 A không đọc giờ giữ của B qua ID
+
+  GET http://127.0.0.1:18090/s1/appointment/api/me/appointment-holds?clinicId=03136db2-48e0-4320-bbdd-5c49e24b6db3&patientId=c2ee744b-d55c-4d59-8bf9-00bb0b06262c [403 Forbidden, 327 B, 33 ms]
+  Pass  ID06 HTTP 403 - A không đọc giờ giữ của B qua ID
+
+Folder 02 Đăng ký và xoay vòng refresh token
+Sub-folder RG01 Đăng ký tài khoản qa_a
+
+  POST http://127.0.0.1:18090/s1/auth/api/auth/register [200 OK, 1.39 KB, 119 ms]
+  Pass  RG01 HTTP 200 - Đăng ký tài khoản qa_a
+  Pass  Không trả password hash
+  Pass  Đúng loại dữ liệu đăng nhập
+  Pass  Không tự nâng quyền qua payload
+
+Sub-folder RG02 Đăng ký tài khoản qa_b
+
+  POST http://127.0.0.1:18090/s1/auth/api/auth/register [200 OK, 1.39 KB, 91 ms]
+  Pass  RG02 HTTP 200 - Đăng ký tài khoản qa_b
+  Pass  Không trả password hash
+  Pass  Đúng loại dữ liệu đăng nhập
+  Pass  Không tự nâng quyền qua payload
+
+Sub-folder RG03 Email trùng bị từ chối
+
+  POST http://127.0.0.1:18090/s1/auth/api/auth/register [409 Conflict, 377 B, 11 ms]
+  Pass  RG03 HTTP 409 - Email trùng bị từ chối
+
+Sub-folder RG04 Refresh token được xoay vòng
+
+  POST http://127.0.0.1:18090/s1/auth/api/auth/refresh [200 OK, 1.4 KB, 24 ms]
+  Pass  RG04 HTTP 200 - Refresh token được xoay vòng
+  Pass  Không trả password hash
+  Pass  Đúng loại dữ liệu đăng nhập
+  Pass  Refresh mới khác cũ
+
+Sub-folder RG05 Refresh cũ không dùng lại được
+
+  POST http://127.0.0.1:18090/s1/auth/api/auth/refresh [401 Unauthorized, 415 B, 14 ms]
+  Pass  RG05 HTTP 401 - Refresh cũ không dùng lại được
+
+Sub-folder RG06 Refresh đồng thời chỉ một request thành công
+
+  GET http://127.0.0.1:18090/s1/auth/api/users/me [200 OK, 591 B, 12 ms]
+  Pass  RG06 HTTP 200 - Refresh đồng thời chỉ một request thành công
+  Pass  Không trả password hash
+  POST http://127.0.0.1:18090/s1/auth/api/auth/refresh   POST http://127.0.0.1:18090/s1/auth/api/auth/refresh [200 OK, 1.4 KB, 20 ms]
+[401 Unauthorized, 415 B, 23 ms]
+  Pass  Hai request cạnh tranh trả 200 và 401
+
+Sub-folder RG07 Logout thu hồi refresh đang dùng
+
+  POST http://127.0.0.1:18090/s1/auth/api/auth/logout [200 OK, 358 B, 15 ms]
+  Pass  RG07 HTTP 200 - Logout thu hồi refresh đang dùng
+  Pass  Không trả password hash
+  Pass  Thành công
+
+Sub-folder RG08 Refresh sau logout bị từ chối
+
+  POST http://127.0.0.1:18090/s1/auth/api/auth/refresh [401 Unauthorized, 415 B, 10 ms]
+  Pass  RG08 HTTP 401 - Refresh sau logout bị từ chối
+
+Sub-folder RG09 Kiểm chứng access còn hạn sau logout Auth
+
+  GET http://127.0.0.1:18090/s1/auth/api/users/me [200 OK, 591 B, 15 ms]
+  Pass  RG09 HTTP 200 - Kiểm chứng access còn hạn sau logout Auth
+  Pass  Không trả password hash
+
+Sub-folder RG10 Đăng nhập lại A để chạy các ca IAM
+
+  POST http://127.0.0.1:18090/s1/auth/api/auth/login [200 OK, 1.39 KB, 79 ms]
+  Pass  RG10 HTTP 200 - Đăng nhập lại A để chạy các ca IAM
+  Pass  Không trả password hash
+  Pass  Đúng loại dữ liệu đăng nhập
+
+Folder 03 Account quản lý tài khoản
+Sub-folder AC01 Danh sách tài khoản phân trang
+
+  GET http://127.0.0.1:18090/s1/auth/api/users/admin?page=0&size=10 [200 OK, 3.3 KB, 15 ms]
+  Pass  AC01 HTTP 200 - Danh sách tài khoản phân trang
+  Pass  Không trả password hash
+  Pass  Phân trang hợp lệ
+
+Sub-folder AC02 Giới hạn trang tối đa 100
+
+  GET http://127.0.0.1:18090/s1/auth/api/users/admin?page=0&size=101 [400 Bad Request, 363 B, 9 ms]
+  Pass  AC02 HTTP 400 - Giới hạn trang tối đa 100
+
+Sub-folder AC03 Bệnh nhân không đọc danh sách quản trị
+
+  GET http://127.0.0.1:18090/s1/auth/api/users/admin [403 Forbidden, 335 B, 12 ms]
+  Pass  AC03 HTTP 403 - Bệnh nhân không đọc danh sách quản trị
+
+Sub-folder AC04 Bác sĩ không đọc danh sách quản trị
+
+  GET http://127.0.0.1:18090/s1/auth/api/users/admin [403 Forbidden, 335 B, 9 ms]
+  Pass  AC04 HTTP 403 - Bác sĩ không đọc danh sách quản trị
+
+Sub-folder AC05 Lễ tân không đọc danh sách quản trị
+
+  GET http://127.0.0.1:18090/s1/auth/api/users/admin [403 Forbidden, 335 B, 8 ms]
+  Pass  AC05 HTTP 403 - Lễ tân không đọc danh sách quản trị
+
+Sub-folder AC06 Tạo tài khoản do quản trị cấp
+
+  POST http://127.0.0.1:18090/s1/auth/api/users/admin [200 OK, 666 B, 84 ms]
+  Pass  AC06 HTTP 200 - Tạo tài khoản do quản trị cấp
+  Pass  Không trả password hash
+  Pass  Đúng tài khoản mới
+
+Sub-folder AC07 Đọc chi tiết tài khoản vừa tạo
+
+  GET http://127.0.0.1:18090/s1/auth/api/users/admin/2b453ae0-aaa4-49b3-8532-8ea454c1ad7d [200 OK, 657 B, 10 ms]
+  Pass  AC07 HTTP 200 - Đọc chi tiết tài khoản vừa tạo
+  Pass  Không trả password hash
+  Pass  Thông tin tài khoản đầy đủ
+
+Sub-folder AC08 Không tạo trùng email quản trị
+
+  POST http://127.0.0.1:18090/s1/auth/api/users/admin [409 Conflict, 377 B, 16 ms]
+  Pass  AC08 HTTP 409 - Không tạo trùng email quản trị
+
+Sub-folder AC09 Không tạo tài khoản thiếu vai trò
+
+  POST http://127.0.0.1:18090/s1/auth/api/users/admin [400 Bad Request, 356 B, 10 ms]
+  Pass  AC09 HTTP 400 - Không tạo tài khoản thiếu vai trò
+
+Sub-folder AC10 Cập nhật thông tin tài khoản
+
+  PUT http://127.0.0.1:18090/s1/auth/api/users/admin/2b453ae0-aaa4-49b3-8532-8ea454c1ad7d [200 OK, 655 B, 44 ms]
+  Pass  AC10 HTTP 200 - Cập nhật thông tin tài khoản
+  Pass  Không trả password hash
+  Pass  Tên mới đã lưu
+
+Sub-folder AC11 Đăng nhập tài khoản mới
+
+  POST http://127.0.0.1:18090/s1/auth/api/auth/login [200 OK, 1.39 KB, 102 ms]
+  Pass  AC11 HTTP 200 - Đăng nhập tài khoản mới
+  Pass  Không trả password hash
+  Pass  Đúng loại dữ liệu đăng nhập
+
+Sub-folder AC12 Khóa tài khoản
+
+  PATCH http://127.0.0.1:18090/s1/auth/api/users/admin/2b453ae0-aaa4-49b3-8532-8ea454c1ad7d/status [200 OK, 657 B, 37 ms]
+  Pass  AC12 HTTP 200 - Khóa tài khoản
+  Pass  Không trả password hash
+  Pass  Trạng thái LOCKED
+
+Sub-folder AC13 Tài khoản khóa không đăng nhập được
+
+  POST http://127.0.0.1:18090/s1/auth/api/auth/login [401 Unauthorized, 388 B, 20 ms]
+  Pass  AC13 HTTP 401 - Tài khoản khóa không đăng nhập được
+
+Sub-folder AC14 Token cũ của tài khoản khóa bị từ chối
+
+  GET http://127.0.0.1:18090/s1/auth/api/users/me [401 Unauthorized, 341 B, 15 ms]
+  Pass  AC14 HTTP 401 - Token cũ của tài khoản khóa bị từ chối
+
+Sub-folder AC15 Refresh của tài khoản khóa bị từ chối
+
+  POST http://127.0.0.1:18090/s1/auth/api/auth/refresh [401 Unauthorized, 415 B, 19 ms]
+  Pass  AC15 HTTP 401 - Refresh của tài khoản khóa bị từ chối
+
+Sub-folder AC16 Mở khóa tài khoản
+
+  PATCH http://127.0.0.1:18090/s1/auth/api/users/admin/2b453ae0-aaa4-49b3-8532-8ea454c1ad7d/status [200 OK, 657 B, 34 ms]
+  Pass  AC16 HTTP 200 - Mở khóa tài khoản
+  Pass  Không trả password hash
+
+Sub-folder AC16B Mở khóa không làm token cũ sống lại
+
+  GET http://127.0.0.1:18090/s1/auth/api/users/me [401 Unauthorized, 341 B, 9 ms]
+  Pass  AC16B HTTP 401 - Mở khóa không làm token cũ sống lại
+
+Sub-folder AC17 Đăng nhập sau mở khóa
+
+  POST http://127.0.0.1:18090/s1/auth/api/auth/login [200 OK, 1.4 KB, 148 ms]
+  Pass  AC17 HTTP 200 - Đăng nhập sau mở khóa
+  Pass  Không trả password hash
+  Pass  Đúng loại dữ liệu đăng nhập
+
+Sub-folder AC18 Cấp thêm vai trò bác sĩ cho tài khoản riêng
+
+  POST http://127.0.0.1:18090/s1/auth/api/users/admin/2b453ae0-aaa4-49b3-8532-8ea454c1ad7d/roles/ROLE_DOCTOR [200 OK, 669 B, 21 ms]
+  Pass  AC18 HTTP 200 - Cấp thêm vai trò bác sĩ cho tài khoản riêng
+  Pass  Không trả password hash
+  Pass  Có role bác sĩ
+
+Sub-folder AC19 Đổi vai trò thu hồi access token cũ
+
+  GET http://127.0.0.1:18090/s1/auth/api/users/me [401 Unauthorized, 341 B, 8 ms]
+  Pass  AC19 HTTP 401 - Đổi vai trò thu hồi access token cũ
+
+Sub-folder AC20 Refresh trước khi đổi role đã bị thu hồi
+
+  POST http://127.0.0.1:18090/s1/auth/api/auth/refresh [401 Unauthorized, 415 B, 11 ms]
+  Pass  AC20 HTTP 401 - Refresh trước khi đổi role đã bị thu hồi
+
+Sub-folder AC20B Đăng nhập lại sau đổi vai trò
+
+  POST http://127.0.0.1:18090/s1/auth/api/auth/login [200 OK, 1.43 KB, 79 ms]
+  Pass  AC20B HTTP 200 - Đăng nhập lại sau đổi vai trò
+  Pass  Không trả password hash
+  Pass  Đúng loại dữ liệu đăng nhập
+
+Sub-folder AC20C Phiên mới nhận đúng vai trò đã cấp
+
+  GET http://127.0.0.1:18090/s1/auth/api/users/me [200 OK, 608 B, 9 ms]
+  Pass  AC20C HTTP 200 - Phiên mới nhận đúng vai trò đã cấp
+  Pass  Không trả password hash
+  Pass  Phiên mới có vai trò bác sĩ
+
+Sub-folder AC21 Thu hồi vai trò bác sĩ
+
+  DELETE http://127.0.0.1:18090/s1/auth/api/users/admin/2b453ae0-aaa4-49b3-8532-8ea454c1ad7d/roles/ROLE_DOCTOR [200 OK, 655 B, 27 ms]
+  Pass  AC21 HTTP 200 - Thu hồi vai trò bác sĩ
+  Pass  Không trả password hash
+  Pass  Không còn role bác sĩ
+
+Sub-folder AC22 Không bỏ vai trò cuối cùng
+
+  PUT http://127.0.0.1:18090/s1/auth/api/users/admin/2b453ae0-aaa4-49b3-8532-8ea454c1ad7d/roles [400 Bad Request, 356 B, 10 ms]
+  Pass  AC22 HTTP 400 - Không bỏ vai trò cuối cùng
+
+Sub-folder AC23 Không tự bỏ quyền quản trị đang dùng
+
+  DELETE http://127.0.0.1:18090/s1/auth/api/users/admin/ea33c261-c320-406a-b051-7e11fc5056cc/roles/ROLE_ADMIN [409 Conflict, 386 B, 15 ms]
+  Pass  AC23 HTTP 409 - Không tự bỏ quyền quản trị đang dùng
+
+Sub-folder AC24 Không tự khóa tài khoản quản trị
+
+  PATCH http://127.0.0.1:18090/s1/auth/api/users/admin/ea33c261-c320-406a-b051-7e11fc5056cc/status [409 Conflict, 407 B, 13 ms]
+  Pass  AC24 HTTP 409 - Không tự khóa tài khoản quản trị
+
+Sub-folder AC25 Bệnh nhân A không đọc tài khoản B qua URL
+
+  GET http://127.0.0.1:18090/s1/auth/api/users/admin/6e11e15b-98a7-431b-bad1-953cdd169298 [403 Forbidden, 335 B, 8 ms]
+  Pass  AC25 HTTP 403 - Bệnh nhân A không đọc tài khoản B qua URL
+
+Sub-folder AC26 ID tài khoản không tồn tại
+
+  GET http://127.0.0.1:18090/s1/auth/api/users/admin/00000000-0000-0000-0000-000000000000 [404 Not Found, 382 B, 12 ms]
+  Pass  AC26 HTTP 404 - ID tài khoản không tồn tại
+
+Sub-folder AC27 Query userId B không đổi chủ /users/me
+
+  GET http://127.0.0.1:18090/s1/auth/api/users/me?userId=6e11e15b-98a7-431b-bad1-953cdd169298 [200 OK, 588 B, 49 ms]
+  Pass  AC27 HTTP 200 - Query userId B không đổi chủ /users/me
+  Pass  Không trả password hash
+  Pass  Kết quả vẫn của A
+
+Folder 04 Identity IAM vai trò và phạm vi
+Sub-folder IA01 Danh tính hiện tại admin
+
+  GET http://127.0.0.1:18090/s1/identity/api/me/current [200 OK, 356 B, 31 ms]
+  Pass  IA01 HTTP 200 - Danh tính hiện tại admin
+  Pass  Không trả password hash
+  Pass  Đúng actor
+  Pass  Quản trị phòng khám không mặc định là kiểm duyệt
+
+Sub-folder IA02 Danh tính hiện tại doctor
+
+  GET http://127.0.0.1:18090/s1/identity/api/me/current [200 OK, 357 B, 24 ms]
+  Pass  IA02 HTTP 200 - Danh tính hiện tại doctor
+  Pass  Không trả password hash
+  Pass  Đúng actor
+
+Sub-folder IA03 Danh tính hiện tại staff
+
+  GET http://127.0.0.1:18090/s1/identity/api/me/current [200 OK, 363 B, 25 ms]
+  Pass  IA03 HTTP 200 - Danh tính hiện tại staff
+  Pass  Không trả password hash
+  Pass  Đúng actor
+
+Sub-folder IA04 Danh tính hiện tại patient
+
+  GET http://127.0.0.1:18090/s1/identity/api/me/current [200 OK, 358 B, 17 ms]
+  Pass  IA04 HTTP 200 - Danh tính hiện tại patient
+  Pass  Không trả password hash
+  Pass  Đúng actor
+
+Sub-folder IA05 Danh tính hiện tại platform
+
+  GET http://127.0.0.1:18090/s1/identity/api/me/current [200 OK, 355 B, 25 ms]
+  Pass  IA05 HTTP 200 - Danh tính hiện tại platform
+  Pass  Không trả password hash
+  Pass  Đúng actor
+  Pass  Có quyền nền tảng
+
+Sub-folder IA06 Phạm vi phòng khám admin
+
+  GET http://127.0.0.1:18090/s1/identity/api/me/contexts [200 OK, 421 B, 28 ms]
+  Pass  IA06 HTTP 200 - Phạm vi phòng khám admin
+  Pass  Không trả password hash
+  Pass  Danh sách phạm vi hợp lệ
+
+Sub-folder IA07 Phạm vi phòng khám doctor
+
+  GET http://127.0.0.1:18090/s1/identity/api/me/contexts [200 OK, 461 B, 28 ms]
+  Pass  IA07 HTTP 200 - Phạm vi phòng khám doctor
+  Pass  Không trả password hash
+  Pass  Danh sách phạm vi hợp lệ
+
+Sub-folder IA08 Phạm vi phòng khám staff
+
+  GET http://127.0.0.1:18090/s1/identity/api/me/contexts [200 OK, 460 B, 22 ms]
+  Pass  IA08 HTTP 200 - Phạm vi phòng khám staff
+  Pass  Không trả password hash
+  Pass  Danh sách phạm vi hợp lệ
+
+Sub-folder IA09 Phạm vi phòng khám patient
+
+  GET http://127.0.0.1:18090/s1/identity/api/me/contexts [200 OK, 253 B, 14 ms]
+  Pass  IA09 HTTP 200 - Phạm vi phòng khám patient
+  Pass  Không trả password hash
+  Pass  Danh sách phạm vi hợp lệ
+
+Sub-folder IA10 Không token không đọc được IAM
+
+  GET http://127.0.0.1:18090/s1/identity/api/me/current [401 Unauthorized, 365 B, 5 ms]
+  Pass  IA10 HTTP 401 - Không token không đọc được IAM
+
+Sub-folder IA11 Refresh token bị IAM từ chối
+
+  GET http://127.0.0.1:18090/s1/identity/api/me/current [401 Unauthorized, 365 B, 7 ms]
+  Pass  IA11 HTTP 401 - Refresh token bị IAM từ chối
+
+Sub-folder IA12 Danh sách nhân sự phòng khám
+
+  GET http://127.0.0.1:18090/s1/identity/api/clinics/03136db2-48e0-4320-bbdd-5c49e24b6db3/memberships [200 OK, 11.46 KB, 25 ms]
+  Pass  IA12 HTTP 200 - Danh sách nhân sự phòng khám
+  Pass  Không trả password hash
+  Pass  Có nhân sự trong phòng khám
+
+Sub-folder IA13 Bác sĩ không quản lý membership
+
+  GET http://127.0.0.1:18090/s1/identity/api/clinics/03136db2-48e0-4320-bbdd-5c49e24b6db3/memberships [403 Forbidden, 332 B, 13 ms]
+  Pass  IA13 HTTP 403 - Bác sĩ không quản lý membership
+
+Sub-folder IA14 Lễ tân không quản lý membership
+
+  GET http://127.0.0.1:18090/s1/identity/api/clinics/03136db2-48e0-4320-bbdd-5c49e24b6db3/memberships [403 Forbidden, 332 B, 15 ms]
+  Pass  IA14 HTTP 403 - Lễ tân không quản lý membership
+
+Sub-folder IA15 Bệnh nhân không quản lý membership
+
+  GET http://127.0.0.1:18090/s1/identity/api/clinics/03136db2-48e0-4320-bbdd-5c49e24b6db3/memberships [403 Forbidden, 332 B, 16 ms]
+  Pass  IA15 HTTP 403 - Bệnh nhân không quản lý membership
+
+Sub-folder IA16 Đổi clinicId không vượt phạm vi
+
+  GET http://127.0.0.1:18090/s1/identity/api/clinics/00000000-0000-0000-0000-000000000000/memberships [403 Forbidden, 332 B, 13 ms]
+  Pass  IA16 HTTP 403 - Đổi clinicId không vượt phạm vi
+
+Sub-folder IA17 Mời tài khoản A vào phòng khám
+
+  POST http://127.0.0.1:18090/s1/identity/api/clinics/03136db2-48e0-4320-bbdd-5c49e24b6db3/memberships [201 Created, 538 B, 78 ms]
+  Pass  IA17 HTTP 201 - Mời tài khoản A vào phòng khám
+  Pass  Không trả password hash
+  Pass  Đang chờ chấp nhận
+
+Sub-folder IA18 A xem được lời mời của mình
+
+  GET http://127.0.0.1:18090/s1/identity/api/me/invitations [200 OK, 535 B, 15 ms]
+  Pass  IA18 HTTP 200 - A xem được lời mời của mình
+  Pass  Không trả password hash
+  Pass  Có đúng lời mời
+
+Sub-folder IA19 B không chấp nhận lời mời của A
+
+  POST http://127.0.0.1:18090/s1/identity/api/memberships/009aedd7-955f-4f33-8e31-2dc8ff992b1c/activate [404 Not Found, 320 B, 15 ms]
+  Pass  IA19 HTTP 404 - B không chấp nhận lời mời của A
+
+Sub-folder IA20 A chấp nhận lời mời
+
+  POST http://127.0.0.1:18090/s1/identity/api/memberships/009aedd7-955f-4f33-8e31-2dc8ff992b1c/activate [200 OK, 560 B, 65 ms]
+  Pass  IA20 HTTP 200 - A chấp nhận lời mời
+  Pass  Không trả password hash
+  Pass  Membership ACTIVE
+
+Sub-folder IA21 Chấp nhận lại không tạo membership thứ hai
+
+  POST http://127.0.0.1:18090/s1/identity/api/memberships/009aedd7-955f-4f33-8e31-2dc8ff992b1c/activate [409 Conflict, 349 B, 22 ms]
+  Pass  IA21 HTTP 409 - Chấp nhận lại không tạo membership thứ hai
+
+Sub-folder IA22 Cấp quyền địa điểm cho A
+
+  POST http://127.0.0.1:18090/s1/identity/api/clinics/03136db2-48e0-4320-bbdd-5c49e24b6db3/memberships/009aedd7-955f-4f33-8e31-2dc8ff992b1c/branches [200 OK, 595 B, 86 ms]
+  Pass  IA22 HTTP 200 - Cấp quyền địa điểm cho A
+  Pass  Không trả password hash
+  Pass  Đúng branch grant
+
+Sub-folder IA23 Cấp branch lặp không tăng bản ghi
+
+  POST http://127.0.0.1:18090/s1/identity/api/clinics/03136db2-48e0-4320-bbdd-5c49e24b6db3/memberships/009aedd7-955f-4f33-8e31-2dc8ff992b1c/branches [200 OK, 595 B, 40 ms]
+  Pass  IA23 HTTP 200 - Cấp branch lặp không tăng bản ghi
+  Pass  Không trả password hash
+  Pass  Chỉ một grant cho branch
+
+Sub-folder IA24 A nhìn thấy quyền đang được cấp
+
+  GET http://127.0.0.1:18090/s1/identity/api/me/contexts [200 OK, 460 B, 24 ms]
+  Pass  IA24 HTTP 200 - A nhìn thấy quyền đang được cấp
+  Pass  Không trả password hash
+  Pass  Nhìn thấy membership
+
+Sub-folder IA25 Đổi vai trò có kiểm tra phiên bản
+
+  PUT http://127.0.0.1:18090/s1/identity/api/clinics/03136db2-48e0-4320-bbdd-5c49e24b6db3/staff/009aedd7-955f-4f33-8e31-2dc8ff992b1c/role [200 OK, 596 B, 49 ms]
+  Pass  IA25 HTTP 200 - Đổi vai trò có kiểm tra phiên bản
+  Pass  Không trả password hash
+  Pass  Đã đổi vai trò DOCTOR
+
+Sub-folder IA26 Phiên bản cũ bị từ chối
+
+  PUT http://127.0.0.1:18090/s1/identity/api/clinics/03136db2-48e0-4320-bbdd-5c49e24b6db3/staff/009aedd7-955f-4f33-8e31-2dc8ff992b1c/role [409 Conflict, 380 B, 30 ms]
+  Pass  IA26 HTTP 409 - Phiên bản cũ bị từ chối
+
+Sub-folder IA27 Thu hồi branch grant
+
+  POST http://127.0.0.1:18090/s1/identity/api/clinics/03136db2-48e0-4320-bbdd-5c49e24b6db3/memberships/009aedd7-955f-4f33-8e31-2dc8ff992b1c/branches/7d90bfae-5dde-47e8-9a69-6c3c0f0d1798/revoke [200 OK, 558 B, 37 ms]
+  Pass  IA27 HTTP 200 - Thu hồi branch grant
+  Pass  Không trả password hash
+  Pass  Grant đã thu hồi
+
+Sub-folder IA28 Thu hồi membership
+
+  POST http://127.0.0.1:18090/s1/identity/api/clinics/03136db2-48e0-4320-bbdd-5c49e24b6db3/memberships/009aedd7-955f-4f33-8e31-2dc8ff992b1c/revoke [200 OK, 587 B, 24 ms]
+  Pass  IA28 HTTP 200 - Thu hồi membership
+  Pass  Không trả password hash
+  Pass  Membership REVOKED
+
+Sub-folder IA29 Token còn hạn không giữ quyền đã thu hồi
+
+  GET http://127.0.0.1:18090/s1/identity/api/me/contexts [200 OK, 253 B, 14 ms]
+  Pass  IA29 HTTP 200 - Token còn hạn không giữ quyền đã thu hồi
+  Pass  Không trả password hash
+  Pass  Không còn membership đã thu hồi
+
+Sub-folder IA30 Lịch sử cấp và thu hồi quyền
+
+  GET http://127.0.0.1:18090/s1/identity/api/clinics/03136db2-48e0-4320-bbdd-5c49e24b6db3/membership-events [200 OK, 52.17 KB, 25 ms]
+  Pass  IA30 HTTP 200 - Lịch sử cấp và thu hồi quyền
+  Pass  Không trả password hash
+  Pass  Có sự kiện thu hồi
+
+Folder 05 Account nhân sự và liên kết IAM
+Sub-folder ST01 Danh sách nhân sự qua Account
+
+  GET http://127.0.0.1:18090/s1/auth/api/clinic-staff/03136db2-48e0-4320-bbdd-5c49e24b6db3 [200 OK, 14.36 KB, 42 ms]
+  Pass  ST01 HTTP 200 - Danh sách nhân sự qua Account
+  Pass  Không trả password hash
+  Pass  Có membership và account
+
+Sub-folder ST02 Tìm tài khoản bằng email
+
+  GET http://127.0.0.1:18090/s1/auth/api/clinic-staff/03136db2-48e0-4320-bbdd-5c49e24b6db3/lookup?email=postman.qa_managed.muz1h7norfoz2@example.test [200 OK, 470 B, 40 ms]
+  Pass  ST02 HTTP 200 - Tìm tài khoản bằng email
+  Pass  Không trả password hash
+  Pass  Tìm thấy đúng tài khoản
+
+Sub-folder ST03 Bác sĩ không tìm tài khoản qua màn nhân sự
+
+  GET http://127.0.0.1:18090/s1/auth/api/clinic-staff/03136db2-48e0-4320-bbdd-5c49e24b6db3/lookup?email=postman.qa_managed.muz1h7norfoz2@example.test [403 Forbidden, 490 B, 27 ms]
+  Pass  ST03 HTTP 403 - Bác sĩ không tìm tài khoản qua màn nhân sự
+
+Sub-folder ST04 Thêm tài khoản hiện có làm nhân viên
+
+  POST http://127.0.0.1:18090/s1/auth/api/clinic-staff/03136db2-48e0-4320-bbdd-5c49e24b6db3 [200 OK, 676 B, 59 ms]
+  Pass  ST04 HTTP 200 - Thêm tài khoản hiện có làm nhân viên
+  Pass  Không trả password hash
+  Pass  Liên kết đúng tài khoản
+
+Sub-folder ST05 Thêm lại cùng vai trò trả cùng membership
+
+  POST http://127.0.0.1:18090/s1/auth/api/clinic-staff/03136db2-48e0-4320-bbdd-5c49e24b6db3 [200 OK, 676 B, 110 ms]
+  Pass  ST05 HTTP 200 - Thêm lại cùng vai trò trả cùng membership
+  Pass  Không trả password hash
+  Pass  Không tạo bản ghi trùng
+
+Sub-folder ST06 Không cấp ROLE_ADMIN bằng form bác sĩ lễ tân
+
+  POST http://127.0.0.1:18090/s1/auth/api/clinic-staff/03136db2-48e0-4320-bbdd-5c49e24b6db3 [400 Bad Request, 363 B, 10 ms]
+  Pass  ST06 HTTP 400 - Không cấp ROLE_ADMIN bằng form bác sĩ lễ tân
+
+Sub-folder ST07 Cập nhật liên hệ nhân viên
+
+  PUT http://127.0.0.1:18090/s1/auth/api/clinic-staff/03136db2-48e0-4320-bbdd-5c49e24b6db3/325729d4-5c5c-40e5-b23e-5b31ef51c828 [200 OK, 689 B, 57 ms]
+  Pass  ST07 HTTP 200 - Cập nhật liên hệ nhân viên
+  Pass  Không trả password hash
+  Pass  Tên đã cập nhật
+
+Sub-folder ST08 Không sửa chủ phòng khám tại màn nhân sự
+
+  PUT http://127.0.0.1:18090/s1/auth/api/clinic-staff/03136db2-48e0-4320-bbdd-5c49e24b6db3/9e6bdbdc-421f-4973-b0ec-3aed6ddb359a [403 Forbidden, 462 B, 36 ms]
+  Pass  ST08 HTTP 403 - Không sửa chủ phòng khám tại màn nhân sự
+
+Sub-folder ST09 Đặt lại mật khẩu nhân viên riêng
+
+  POST http://127.0.0.1:18090/s1/auth/api/clinic-staff/03136db2-48e0-4320-bbdd-5c49e24b6db3/325729d4-5c5c-40e5-b23e-5b31ef51c828/reset-password [200 OK, 689 B, 132 ms]
+  Pass  ST09 HTTP 200 - Đặt lại mật khẩu nhân viên riêng
+  Pass  Không trả password hash
+  Pass  Đúng nhân viên được đặt lại
+
+Sub-folder ST10 Mật khẩu cũ không đăng nhập được
+
+  POST http://127.0.0.1:18090/s1/auth/api/auth/login [401 Unauthorized, 388 B, 74 ms]
+  Pass  ST10 HTTP 401 - Mật khẩu cũ không đăng nhập được
+
+Sub-folder ST11 Đăng nhập bằng mật khẩu mới
+
+  POST http://127.0.0.1:18090/s1/auth/api/auth/login [200 OK, 1.41 KB, 78 ms]
+  Pass  ST11 HTTP 200 - Đăng nhập bằng mật khẩu mới
+  Pass  Không trả password hash
+  Pass  Đúng loại dữ liệu đăng nhập
+
+Sub-folder ST12 Khóa nhân viên qua clinic staff
+
+  PATCH http://127.0.0.1:18090/s1/auth/api/clinic-staff/03136db2-48e0-4320-bbdd-5c49e24b6db3/325729d4-5c5c-40e5-b23e-5b31ef51c828/status [200 OK, 689 B, 50 ms]
+  Pass  ST12 HTTP 200 - Khóa nhân viên qua clinic staff
+  Pass  Không trả password hash
+
+Sub-folder ST13 IAM từ chối token của tài khoản bị khóa
+
+  GET http://127.0.0.1:18090/s1/identity/api/me/current [401 Unauthorized, 365 B, 9 ms]
+  Pass  ST13 HTTP 401 - IAM từ chối token của tài khoản bị khóa
+
+Sub-folder ST14 Mở khóa nhân viên sau kiểm tra
+
+  PATCH http://127.0.0.1:18090/s1/auth/api/clinic-staff/03136db2-48e0-4320-bbdd-5c49e24b6db3/325729d4-5c5c-40e5-b23e-5b31ef51c828/status [200 OK, 689 B, 66 ms]
+  Pass  ST14 HTTP 200 - Mở khóa nhân viên sau kiểm tra
+  Pass  Không trả password hash
+
+Folder 06 API Gateway định tuyến và bảo vệ biên
+Sub-folder GW01 Route module không tồn tại
+
+  GET http://127.0.0.1:18090/s1/not-a-module/api/me [404 Not Found, 282 B, 6 ms]
+  Pass  GW01 HTTP 404 - Route module không tồn tại
+
+Sub-folder GW02 Không đưa actuator module qua alias API
+
+  GET http://127.0.0.1:18090/s1/auth/actuator/env [404 Not Found, 280 B, 4 ms]
+  Pass  GW02 HTTP 404 - Không đưa actuator module qua alias API
+
+Sub-folder GW03 Chặn đường dẫn traversal mã hóa
+
+  GET http://127.0.0.1:18090/s1/auth/api/%2e%2e/users/me [404 Not Found, 287 B, 4 ms]
+  Pass  GW03 HTTP 400/404 - Chặn đường dẫn traversal mã hóa
+
+Sub-folder GW04 Chuyển tiếp denial của module
+
+  GET http://127.0.0.1:18090/s1/auth/api/users/admin [403 Forbidden, 335 B, 11 ms]
+  Pass  GW04 HTTP 403 - Chuyển tiếp denial của module
+  Pass  Không biến denial thành thành công
+
+Sub-folder GW05 Giữ response JSON và nosniff
+
+  GET http://127.0.0.1:18090/s1/auth/api/users/me [200 OK, 552 B, 12 ms]
+  Pass  GW05 HTTP 200 - Giữ response JSON và nosniff
+  Pass  Không trả password hash
+  Pass  Đúng Content-Type
+  Pass  nosniff
+
+Sub-folder GW06 Giữ query phân trang
+
+  GET http://127.0.0.1:18090/s1/auth/api/users/admin?page=1&size=2 [200 OK, 1.17 KB, 16 ms]
+  Pass  GW06 HTTP 200 - Giữ query phân trang
+  Pass  Không trả password hash
+  Pass  Query page size giữ nguyên
+
+Sub-folder GW07 Không dùng header giả danh thay token
+
+  GET http://127.0.0.1:18090/s1/auth/api/users/admin [401 Unauthorized, 341 B, 7 ms]
+  Pass  GW07 HTTP 401 - Không dùng header giả danh thay token
+
+Sub-folder GW08 Tương đương gọi Identity trực tiếp
+
+  GET http://127.0.0.1:18001/modules/auth/api/users/me [200 OK, 722 B, 7 ms]
+  Pass  GW08 HTTP 200 - Tương đương gọi Identity trực tiếp
+  Pass  Không trả password hash
+  Pass  Cùng tài khoản qua core
+
+Folder 07 Phạm vi thu hồi phiên và chẩn đoán thiếu sót
+Sub-folder SE01 Thu hồi phiên IAM của B
+
+  POST http://127.0.0.1:18090/s1/identity/api/sessions/revoke-current [200 OK, 314 B, 46 ms]
+  Pass  SE01 HTTP 200 - Thu hồi phiên IAM của B
+  Pass  Không trả password hash
+  Pass  Có mốc invalidBefore
+
+Sub-folder SE02 Token B cũ bị IAM từ chối ngay
+
+  GET http://127.0.0.1:18090/s1/identity/api/me/current [401 Unauthorized, 365 B, 13 ms]
+  Pass  SE02 HTTP 401 - Token B cũ bị IAM từ chối ngay
+
+Sub-folder DI01 Thu hồi phiên cũng phải chặn Auth access cũ
+
+  GET http://127.0.0.1:18090/s1/auth/api/users/me [401 Unauthorized, 341 B, 6 ms]
+  Pass  DI01 HTTP 401 - Thu hồi phiên cũng phải chặn Auth access cũ
+
+Sub-folder DI02 Thu hồi phiên phải chặn refresh cũ
+
+  POST http://127.0.0.1:18090/s1/auth/api/auth/refresh [401 Unauthorized, 415 B, 8 ms]
+  Pass  DI02 HTTP 401 - Thu hồi phiên phải chặn refresh cũ
+
+Sub-folder DI03 Vai trò JSON sai phải trả lỗi đầu vào 400
+
+  PUT http://127.0.0.1:18090/s1/auth/api/users/admin/2b453ae0-aaa4-49b3-8532-8ea454c1ad7d/roles [400 Bad Request, 359 B, 9 ms]
+  Pass  DI03 HTTP 400 - Vai trò JSON sai phải trả lỗi đầu vào 400
+
+Sub-folder DI04 Email đăng nhập không phân biệt chữ hoa
+
+  POST http://127.0.0.1:18090/s1/auth/api/auth/login [200 OK, 1.39 KB, 77 ms]
+  Pass  DI04 HTTP 200 - Email đăng nhập không phân biệt chữ hoa
+  Pass  Không trả password hash
+
+Folder 08 Kết thúc kiểm thử
+Sub-folder CL01 Thu hồi membership nhân viên riêng
+
+  POST http://127.0.0.1:18090/s1/identity/api/clinics/03136db2-48e0-4320-bbdd-5c49e24b6db3/memberships/325729d4-5c5c-40e5-b23e-5b31ef51c828/revoke [200 OK, 585 B, 23 ms]
+  Pass  CL01 HTTP 200 - Thu hồi membership nhân viên riêng
+  Pass  Không trả password hash
+
+Sub-folder CL02 Ngưng tài khoản riêng qa_a
+
+  PATCH http://127.0.0.1:18090/s1/auth/api/users/admin/42c05dcf-5323-46a4-bfe5-a617eec3475d/status [200 OK, 652 B, 24 ms]
+  Pass  CL02 HTTP 200 - Ngưng tài khoản riêng qa_a
+  Pass  Không trả password hash
+  Pass  Tài khoản kiểm thử đã ngưng
+
+Sub-folder CL03 Ngưng tài khoản riêng qa_b
+
+  PATCH http://127.0.0.1:18090/s1/auth/api/users/admin/6e11e15b-98a7-431b-bad1-953cdd169298/status [200 OK, 656 B, 36 ms]
+  Pass  CL03 HTTP 200 - Ngưng tài khoản riêng qa_b
+  Pass  Không trả password hash
+  Pass  Tài khoản kiểm thử đã ngưng
+
+Sub-folder CL04 Ngưng tài khoản riêng qa_managed
+
+  PATCH http://127.0.0.1:18090/s1/auth/api/users/admin/2b453ae0-aaa4-49b3-8532-8ea454c1ad7d/status [200 OK, 672 B, 23 ms]
+  Pass  CL04 HTTP 200 - Ngưng tài khoản riêng qa_managed
+  Pass  Không trả password hash
+  Pass  Tài khoản kiểm thử đã ngưng
+
+-----------------------------------------------------------------------
+|                         |            executed |              failed |
+--------------------------+---------------------+----------------------
+|              iterations |                   1 |                   0 |
+--------------------------+---------------------+----------------------
+|                requests |                 137 |                   0 |
+--------------------------+---------------------+----------------------
+|            test-scripts |                 135 |                   0 |
+--------------------------+---------------------+----------------------
+|      prerequest-scripts |                  21 |                   0 |
+--------------------------+---------------------+----------------------
+|              assertions |                 293 |                   0 |
+-----------------------------------------------------------------------
+| total run duration: 35.5 s                                          |
+-----------------------------------------------------------------------
+| total data received: 120.16 KB (approx)                             |
+-----------------------------------------------------------------------
+| average response time: 121 ms [min: 4 ms, max: 9.9 s, s.d.: 863 ms] |
+-----------------------------------------------------------------------
+Postman credentials are required for publishing run details to Postman cloud.
+Please specify it by using the `postman login` command

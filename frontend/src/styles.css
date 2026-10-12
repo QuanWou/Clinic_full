@@ -1,0 +1,25 @@
+/* Ordered layers: tokens, surfaces, workflows, then shared desktop refinements. */
+@import "./styles/base.css";
+@import "./styles/fresh-tokens.css";
+@import "./styles/public.css";
+@import "./styles/shell.css";
+@import "./styles/workflows.css";
+@import "./styles/auth.css";
+@import "./styles/workspace.css";
+@import './styles/payments.css';
+@import './styles/management.css';
+@import './styles/admin-workflows.css';
+@import './styles/admin-control.css';
+@import './styles/front-desk.css';
+@import './styles/cashier-desk.css';
+@import './styles/fresh-public-overrides.css';
+@import './styles/reception-workspace.css';
+@import './styles/admin-fresh-clinical.css';
+@import './styles/notifications.css';
+@import './styles/overview.css';
+@import './styles/doctor-account-settings.css';
+@import './styles/workspace-entry.css';
+@import './styles/specialty-detail.css';
+@import './styles/platform-profile.css';
+@import './styles/lab-workspace.css';
+@import './styles/ui-refinements.css';

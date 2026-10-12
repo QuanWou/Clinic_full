@@ -1,0 +1,65 @@
+/* Shared geometry: loaded after page styles; every rule is surface-scoped. */
+.workspace-shell.workspace-shell .workspace-main,.workspace-shell.workspace-shell .workspace-content{min-width:0}
+.workspace-shell.workspace-shell .workspace-content :is(.booking-panel,.dashboard-card,.management-section,.task-card){min-width:0}
+.workspace-shell.workspace-shell .doctor-toolbar[hidden]{display:none}
+.workspace-shell.workspace-shell .workspace-account{position:static;flex:0 0 auto}
+.workspace-shell.workspace-shell #main-content:focus{outline:none}
+.workspace-shell.workspace-shell .workspace-content .worklist-search input,.public-app .worklist-search input{padding-inline:38px 12px}
+.workspace-shell.workspace-shell .workspace-content .worklist-search svg,.public-app .worklist-search svg{left:12px;top:50%;transform:translateY(-50%);pointer-events:none}
+.workspace-shell.workspace-shell .workspace-content :is(input,select,textarea){max-width:100%}
+.workspace-shell.workspace-shell .workspace-content input[type=checkbox]{width:18px;height:18px;min-height:18px;padding:0;flex-shrink:0;accent-color:var(--fresh-forest-700)}
+.workspace-shell.workspace-shell .workspace-content :is(.task-button-row,.management-actions,.configuration-form-actions){min-width:0;flex-wrap:wrap}
+.workspace-shell.workspace-shell .workspace-content :is(.task-button-row,.management-actions,.configuration-form-actions)>button{max-width:100%;white-space:normal;overflow-wrap:anywhere}
+@media(min-width:761px) and (max-width:1199px){
+ .workspace-shell.workspace-shell{grid-template-columns:var(--sidebar) minmax(0,1fr);align-content:start}
+ .workspace-shell.workspace-shell:is(.admin-workspace,.doctor-workspace,.reception-workspace):not(.sidebar-collapsed){--sidebar:200px}
+ .workspace-shell.workspace-shell .workspace-sidebar{position:sticky;top:0;height:100vh;min-height:100vh;align-self:start;min-width:0}
+ .workspace-shell.workspace-shell .workspace-nav{display:grid;flex-direction:column;overflow-x:hidden;overflow-y:auto;max-width:100%}
+ .workspace-shell.workspace-shell .workspace-topbar{display:flex;flex-wrap:nowrap;min-width:0;padding:10px 20px;gap:12px}
+ .workspace-shell.workspace-shell .single-clinic-context{min-width:0;flex:1;gap:8px}
+ .workspace-shell.workspace-shell .single-clinic-field{min-width:0;flex:1}
+ .workspace-shell.workspace-shell:not(.sidebar-collapsed) .workspace-brand>span:not(.brand-mark){display:grid}
+ .workspace-shell.workspace-shell:not(.sidebar-collapsed) .workspace-nav-label{display:block}
+ .workspace-shell.workspace-shell:not(.sidebar-collapsed) .workspace-nav button>span{display:inline}
+ .workspace-shell.workspace-shell:not(.sidebar-collapsed) .workspace-nav button{justify-content:flex-start;padding-inline:10px}
+ .workspace-shell.workspace-shell:not(.sidebar-collapsed) .workspace-brand{justify-content:flex-start}
+ .workspace-shell.workspace-shell:not(.sidebar-collapsed) .workspace-sidebar .sidebar-footer{display:grid}
+ .workspace-shell.workspace-shell .collapse-button{display:grid}
+}
+@media(max-width:760px){
+ .public-app .public-header{height:auto;min-height:0;padding:10px 14px 0;gap:6px 10px;flex-wrap:wrap}
+ .public-app .public-header .public-brand{flex:1 1 120px;min-width:0;gap:8px}
+ .public-app .public-header .brand-mark{width:32px;height:32px}
+ .public-app .public-header .public-brand>span:last-child{min-width:0}
+ .public-app .public-header .public-brand strong{max-width:100%;font-size:11px;line-height:1.35}
+ .public-app .public-header .public-header-actions{flex:0 0 auto;gap:6px}
+ .public-app .public-header .public-login-link{display:flex;font-size:11px;padding:8px 2px}
+ .public-app .public-header .public-account-menu{display:block}
+ .public-app .public-header .public-account-menu>summary{width:32px;min-height:34px;justify-content:center}
+ .public-app .public-header .public-account-menu>summary :is(span,svg:last-child){display:none}
+ .public-app .public-header .public-header-actions .public-sign-in{min-height:36px;padding-inline:10px;font-size:10px;gap:6px}
+ .public-app .public-header .public-nav{display:flex;order:3;flex:0 0 100%;width:100%;justify-content:space-between;gap:6px;flex-wrap:wrap;font-size:11px;border-top:1px solid var(--fresh-line)}
+ .public-app .public-header .public-nav>a,.public-app .public-header .public-nav summary{min-height:38px}
+ .public-app .public-header .public-nav-dropdown{display:block}
+ .public-app .public-header .public-nav-dropdown>div{left:0;min-width:200px;max-width:calc(100vw - 28px);top:100%}
+ .public-app .public-header .public-specialty-menu>div{left:auto;right:0}
+ .workspace-shell.workspace-shell:is(.admin-workspace,.doctor-workspace,.reception-workspace),.workspace-shell.workspace-shell{grid-template-columns:minmax(0,1fr);align-content:start}
+ .workspace-shell.workspace-shell .workspace-sidebar{position:static;height:auto;min-height:0;max-width:100%;padding:10px 12px;border-right:0;border-bottom:1px solid var(--fresh-line)}
+ .workspace-shell.workspace-shell .workspace-brand{height:36px;padding:0 2px}
+ .workspace-shell.workspace-shell .workspace-brand .brand-mark{width:32px;height:32px}
+ .workspace-shell.workspace-shell .workspace-brand>span:not(.brand-mark){display:grid}
+ .workspace-shell.workspace-shell .collapse-button,.workspace-shell.workspace-shell .sidebar-footer,.workspace-shell.workspace-shell .workspace-nav-label{display:none}
+ .workspace-shell.workspace-shell .workspace-nav{display:flex;flex-direction:row;flex-wrap:nowrap;gap:6px;max-width:100%;margin:8px 0 0;padding:3px 2px;overflow-x:auto;overflow-y:hidden;scrollbar-width:thin}
+ .workspace-shell.workspace-shell .workspace-nav button{flex:0 0 auto;width:auto;min-height:38px;height:auto;padding:8px 11px;justify-content:flex-start;white-space:nowrap;font-size:12px}
+ .workspace-shell.workspace-shell .workspace-nav button>span{display:inline}
+ .workspace-shell.workspace-shell .workspace-topbar{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:10px;min-height:58px;height:auto;padding:9px 14px}
+ .workspace-shell.workspace-shell .single-clinic-context{width:auto;min-width:0;height:auto;min-height:0;gap:0}
+ .workspace-shell.workspace-shell .single-clinic-field{width:100%;min-width:0;max-width:none;min-height:36px;height:auto;padding:0;border:0;background:transparent}
+ .workspace-shell.workspace-shell .single-clinic-field>div{min-width:0}
+ .workspace-shell.workspace-shell .single-clinic-field strong{display:block;max-width:100%;font-size:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+ .workspace-shell.workspace-shell .single-clinic-field>svg{flex-shrink:0}
+ .workspace-shell.workspace-shell .context-role,.workspace-shell.workspace-shell .workspace-account>span{display:none}
+ .workspace-shell.workspace-shell .workspace-account{width:auto;min-width:0;height:auto;min-height:0;gap:4px;margin:0}
+ .workspace-shell.workspace-shell .workspace-account>button,.workspace-shell.workspace-shell .notification-inbox .notification-trigger{width:34px;height:34px;min-height:34px;padding:0;display:grid;place-items:center}
+ .workspace-shell.workspace-shell .workspace-content{width:100%;max-width:100%;padding:20px 14px 32px}
+}

@@ -1,0 +1,94 @@
+{
+  "checkedAt": "2026-10-07T20:52:00.926Z",
+  "status": "PASS",
+  "enabledProvider": "PAYOS",
+  "vnpayEnabled": false,
+  "bankTransferConfigured": false,
+  "health": [
+    {
+      "service": "appointment",
+      "port": 18004,
+      "status": "UP"
+    },
+    {
+      "service": "doctor",
+      "port": 18002,
+      "status": "UP"
+    },
+    {
+      "service": "web",
+      "port": 4176,
+      "status": "HTTP 200"
+    },
+    {
+      "service": "billing",
+      "port": 18005,
+      "status": "UP"
+    },
+    {
+      "service": "identity",
+      "port": 18001,
+      "status": "UP"
+    },
+    {
+      "service": "gateway",
+      "port": 18090,
+      "status": "UP"
+    },
+    {
+      "service": "patient",
+      "port": 18003,
+      "status": "UP"
+    }
+  ],
+  "tests": {
+    "gateway": {
+      "passed": 6,
+      "failed": 0
+    },
+    "billingPostgres": {
+      "passed": 35,
+      "failed": 0,
+      "skipped": 0,
+      "database": "clinic_v2_s1_billing_sandbox"
+    },
+    "frontend": {
+      "files": 2,
+      "passed": 22,
+      "failed": 0
+    },
+    "frontendBuild": "PASS"
+  },
+  "liveVerification": {
+    "status": "PASS",
+    "checkedAt": "2026-10-07T20:49:42.899Z",
+    "checks": [
+      "PayOS enabled; VNPAY absent from payment choices",
+      "Repeated staff request keeps one provider intent",
+      "Public customer display shows signed provider QR and correct amount",
+      "Invoice balance and receipt count remain unchanged",
+      "Invalid webhook signature rejected",
+      "Reopening a pending payment reuses the provider intent",
+      "Provider cancellation signature and CANCELLED status verified",
+      "Billing reconciles the cancelled link without collecting money"
+    ],
+    "realMoneyTransferred": false,
+    "realPaymentConfirmationTested": false,
+    "liveLinkCancelled": true
+  },
+  "testLinksCreated": 3,
+  "testLinksCancelled": 3,
+  "testReceiptsCreated": 0,
+  "realMoneyTransferred": false,
+  "realPaymentConfirmationTested": false,
+  "publicWebhookVerified": false,
+  "browserChecks": [
+    "Cashier payOS option enabled; VNPAY absent",
+    "Customer screen renders provider QR with 45000 VND"
+  ],
+  "limitations": [
+    "No public HTTPS webhook address configured",
+    "Real paid transaction and incoming success webhook not exercised",
+    "Patient test accounts do not yet link to a clinic patient record"
+  ]
+}

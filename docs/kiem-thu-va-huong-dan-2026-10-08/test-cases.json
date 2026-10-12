@@ -1,0 +1,1352 @@
+[
+  {
+    "id": "H01",
+    "group": "00 Chuẩn bị và sức khỏe dịch vụ",
+    "name": "Gateway đang hoạt động",
+    "method": "GET",
+    "url": "{{gatewayBase}}/actuator/health",
+    "expected": "200",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "H02",
+    "group": "00 Chuẩn bị và sức khỏe dịch vụ",
+    "name": "Identity đang hoạt động",
+    "method": "GET",
+    "url": "{{identityBase}}/actuator/health",
+    "expected": "200",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "H03",
+    "group": "00 Chuẩn bị và sức khỏe dịch vụ",
+    "name": "Doctor đang hoạt động",
+    "method": "GET",
+    "url": "{{doctorBase}}/actuator/health",
+    "expected": "200",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "H04",
+    "group": "00 Chuẩn bị và sức khỏe dịch vụ",
+    "name": "Patient đang hoạt động",
+    "method": "GET",
+    "url": "{{patientBase}}/actuator/health",
+    "expected": "200",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "H05",
+    "group": "00 Chuẩn bị và sức khỏe dịch vụ",
+    "name": "Appointment đang hoạt động",
+    "method": "GET",
+    "url": "{{appointmentBase}}/actuator/health",
+    "expected": "200",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "H06",
+    "group": "00 Chuẩn bị và sức khỏe dịch vụ",
+    "name": "Billing đang hoạt động",
+    "method": "GET",
+    "url": "{{billingBase}}/actuator/health",
+    "expected": "200",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "AU01",
+    "group": "01 Authentication và loại token",
+    "name": "Đăng nhập admin",
+    "method": "POST",
+    "url": "{{gatewayBase}}/s1/auth/api/auth/login",
+    "expected": "200",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "AU02",
+    "group": "01 Authentication và loại token",
+    "name": "Đăng nhập doctor",
+    "method": "POST",
+    "url": "{{gatewayBase}}/s1/auth/api/auth/login",
+    "expected": "200",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "AU03",
+    "group": "01 Authentication và loại token",
+    "name": "Đăng nhập staff",
+    "method": "POST",
+    "url": "{{gatewayBase}}/s1/auth/api/auth/login",
+    "expected": "200",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "AU04",
+    "group": "01 Authentication và loại token",
+    "name": "Đăng nhập patient",
+    "method": "POST",
+    "url": "{{gatewayBase}}/s1/auth/api/auth/login",
+    "expected": "200",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "AU05",
+    "group": "01 Authentication và loại token",
+    "name": "Đăng nhập platform",
+    "method": "POST",
+    "url": "{{gatewayBase}}/s1/auth/api/auth/login",
+    "expected": "200",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "AU06",
+    "group": "01 Authentication và loại token",
+    "name": "Đọc tài khoản admin",
+    "method": "GET",
+    "url": "{{gatewayBase}}/s1/auth/api/users/me",
+    "expected": "200",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "AU07",
+    "group": "01 Authentication và loại token",
+    "name": "Đọc tài khoản doctor",
+    "method": "GET",
+    "url": "{{gatewayBase}}/s1/auth/api/users/me",
+    "expected": "200",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "AU08",
+    "group": "01 Authentication và loại token",
+    "name": "Đọc tài khoản staff",
+    "method": "GET",
+    "url": "{{gatewayBase}}/s1/auth/api/users/me",
+    "expected": "200",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "AU09",
+    "group": "01 Authentication và loại token",
+    "name": "Đọc tài khoản patient",
+    "method": "GET",
+    "url": "{{gatewayBase}}/s1/auth/api/users/me",
+    "expected": "200",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "AU10",
+    "group": "01 Authentication và loại token",
+    "name": "Đọc tài khoản platform",
+    "method": "GET",
+    "url": "{{gatewayBase}}/s1/auth/api/users/me",
+    "expected": "200",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "AU11",
+    "group": "01 Authentication và loại token",
+    "name": "Sai mật khẩu",
+    "method": "POST",
+    "url": "{{gatewayBase}}/s1/auth/api/auth/login",
+    "expected": "401",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "AU12",
+    "group": "01 Authentication và loại token",
+    "name": "Email chưa đăng ký",
+    "method": "POST",
+    "url": "{{gatewayBase}}/s1/auth/api/auth/login",
+    "expected": "401",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "AU13",
+    "group": "01 Authentication và loại token",
+    "name": "Email không hợp lệ",
+    "method": "POST",
+    "url": "{{gatewayBase}}/s1/auth/api/auth/login",
+    "expected": "400",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "AU14",
+    "group": "01 Authentication và loại token",
+    "name": "Thiếu mật khẩu",
+    "method": "POST",
+    "url": "{{gatewayBase}}/s1/auth/api/auth/login",
+    "expected": "400",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "AU15",
+    "group": "01 Authentication và loại token",
+    "name": "Đọc tài khoản khi chưa đăng nhập",
+    "method": "GET",
+    "url": "{{gatewayBase}}/s1/auth/api/users/me",
+    "expected": "401",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "AU16",
+    "group": "01 Authentication và loại token",
+    "name": "Token sai chữ ký",
+    "method": "GET",
+    "url": "{{gatewayBase}}/s1/auth/api/users/me",
+    "expected": "401",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "AU17",
+    "group": "01 Authentication và loại token",
+    "name": "Refresh token không được làm access token",
+    "method": "GET",
+    "url": "{{gatewayBase}}/s1/auth/api/users/me",
+    "expected": "401",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "AU18",
+    "group": "01 Authentication và loại token",
+    "name": "Access token không được dùng để refresh",
+    "method": "POST",
+    "url": "{{gatewayBase}}/s1/auth/api/auth/refresh",
+    "expected": "401",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "AU19",
+    "group": "01 Authentication và loại token",
+    "name": "Refresh token không tồn tại",
+    "method": "POST",
+    "url": "{{gatewayBase}}/s1/auth/api/auth/refresh",
+    "expected": "401",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "AU20",
+    "group": "01 Authentication và loại token",
+    "name": "Tạo tài khoản với mật khẩu quá ngắn",
+    "method": "POST",
+    "url": "{{gatewayBase}}/s1/auth/api/auth/register",
+    "expected": "400",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "AU21",
+    "group": "01 Authentication và loại token",
+    "name": "Tạo tài khoản thiếu họ tên",
+    "method": "POST",
+    "url": "{{gatewayBase}}/s1/auth/api/auth/register",
+    "expected": "400",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "ID01",
+    "group": "01 Authentication và loại token",
+    "name": "Đăng nhập bệnh nhân B để kiểm tra chủ dữ liệu",
+    "method": "POST",
+    "url": "{{gatewayBase}}/s1/auth/api/auth/login",
+    "expected": "200",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "ID02",
+    "group": "01 Authentication và loại token",
+    "name": "Hồ sơ bệnh nhân A",
+    "method": "GET",
+    "url": "{{gatewayBase}}/s1/patient/api/me/patient-profile",
+    "expected": "200",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "ID03",
+    "group": "01 Authentication và loại token",
+    "name": "Hồ sơ bệnh nhân B",
+    "method": "GET",
+    "url": "{{gatewayBase}}/s1/patient/api/me/patient-profile",
+    "expected": "200",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "ID04",
+    "group": "01 Authentication và loại token",
+    "name": "Query patientId B không đổi chủ hồ sơ A",
+    "method": "GET",
+    "url": "{{gatewayBase}}/s1/patient/api/me/patient-profile?patientId={{patient_profile_b_id}}",
+    "expected": "200",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "ID05",
+    "group": "01 Authentication và loại token",
+    "name": "A không đọc lịch hẹn của B qua ID",
+    "method": "GET",
+    "url": "{{gatewayBase}}/s1/appointment/api/me/appointments?clinicId={{clinicId}}&patientId={{patient_profile_b_id}}",
+    "expected": "403",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "ID06",
+    "group": "01 Authentication và loại token",
+    "name": "A không đọc giờ giữ của B qua ID",
+    "method": "GET",
+    "url": "{{gatewayBase}}/s1/appointment/api/me/appointment-holds?clinicId={{clinicId}}&patientId={{patient_profile_b_id}}",
+    "expected": "403",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "RG01",
+    "group": "02 Đăng ký và xoay vòng refresh token",
+    "name": "Đăng ký tài khoản qa_a",
+    "method": "POST",
+    "url": "{{gatewayBase}}/s1/auth/api/auth/register",
+    "expected": "200",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "RG02",
+    "group": "02 Đăng ký và xoay vòng refresh token",
+    "name": "Đăng ký tài khoản qa_b",
+    "method": "POST",
+    "url": "{{gatewayBase}}/s1/auth/api/auth/register",
+    "expected": "200",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "RG03",
+    "group": "02 Đăng ký và xoay vòng refresh token",
+    "name": "Email trùng bị từ chối",
+    "method": "POST",
+    "url": "{{gatewayBase}}/s1/auth/api/auth/register",
+    "expected": "409",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "RG04",
+    "group": "02 Đăng ký và xoay vòng refresh token",
+    "name": "Refresh token được xoay vòng",
+    "method": "POST",
+    "url": "{{gatewayBase}}/s1/auth/api/auth/refresh",
+    "expected": "200",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "RG05",
+    "group": "02 Đăng ký và xoay vòng refresh token",
+    "name": "Refresh cũ không dùng lại được",
+    "method": "POST",
+    "url": "{{gatewayBase}}/s1/auth/api/auth/refresh",
+    "expected": "401",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "RG06",
+    "group": "02 Đăng ký và xoay vòng refresh token",
+    "name": "Refresh đồng thời chỉ một request thành công",
+    "method": "GET",
+    "url": "{{gatewayBase}}/s1/auth/api/users/me",
+    "expected": "200",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "RG07",
+    "group": "02 Đăng ký và xoay vòng refresh token",
+    "name": "Logout thu hồi refresh đang dùng",
+    "method": "POST",
+    "url": "{{gatewayBase}}/s1/auth/api/auth/logout",
+    "expected": "200",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "RG08",
+    "group": "02 Đăng ký và xoay vòng refresh token",
+    "name": "Refresh sau logout bị từ chối",
+    "method": "POST",
+    "url": "{{gatewayBase}}/s1/auth/api/auth/refresh",
+    "expected": "401",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "RG09",
+    "group": "02 Đăng ký và xoay vòng refresh token",
+    "name": "Kiểm chứng access còn hạn sau logout Auth",
+    "method": "GET",
+    "url": "{{gatewayBase}}/s1/auth/api/users/me",
+    "expected": "200",
+    "diagnostic": false,
+    "description": "Auth logout hiện chỉ thu hồi refresh token. Access JWT còn hạn vẫn được Auth chấp nhận; đây là giới hạn cần ghi nhận."
+  },
+  {
+    "id": "RG10",
+    "group": "02 Đăng ký và xoay vòng refresh token",
+    "name": "Đăng nhập lại A để chạy các ca IAM",
+    "method": "POST",
+    "url": "{{gatewayBase}}/s1/auth/api/auth/login",
+    "expected": "200",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "AC01",
+    "group": "03 Account quản lý tài khoản",
+    "name": "Danh sách tài khoản phân trang",
+    "method": "GET",
+    "url": "{{gatewayBase}}/s1/auth/api/users/admin?page=0&size=10",
+    "expected": "200",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "AC02",
+    "group": "03 Account quản lý tài khoản",
+    "name": "Giới hạn trang tối đa 100",
+    "method": "GET",
+    "url": "{{gatewayBase}}/s1/auth/api/users/admin?page=0&size=101",
+    "expected": "400",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "AC03",
+    "group": "03 Account quản lý tài khoản",
+    "name": "Bệnh nhân không đọc danh sách quản trị",
+    "method": "GET",
+    "url": "{{gatewayBase}}/s1/auth/api/users/admin",
+    "expected": "403",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "AC04",
+    "group": "03 Account quản lý tài khoản",
+    "name": "Bác sĩ không đọc danh sách quản trị",
+    "method": "GET",
+    "url": "{{gatewayBase}}/s1/auth/api/users/admin",
+    "expected": "403",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "AC05",
+    "group": "03 Account quản lý tài khoản",
+    "name": "Lễ tân không đọc danh sách quản trị",
+    "method": "GET",
+    "url": "{{gatewayBase}}/s1/auth/api/users/admin",
+    "expected": "403",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "AC06",
+    "group": "03 Account quản lý tài khoản",
+    "name": "Tạo tài khoản do quản trị cấp",
+    "method": "POST",
+    "url": "{{gatewayBase}}/s1/auth/api/users/admin",
+    "expected": "200",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "AC07",
+    "group": "03 Account quản lý tài khoản",
+    "name": "Đọc chi tiết tài khoản vừa tạo",
+    "method": "GET",
+    "url": "{{gatewayBase}}/s1/auth/api/users/admin/{{qa_managed_id}}",
+    "expected": "200",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "AC08",
+    "group": "03 Account quản lý tài khoản",
+    "name": "Không tạo trùng email quản trị",
+    "method": "POST",
+    "url": "{{gatewayBase}}/s1/auth/api/users/admin",
+    "expected": "409",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "AC09",
+    "group": "03 Account quản lý tài khoản",
+    "name": "Không tạo tài khoản thiếu vai trò",
+    "method": "POST",
+    "url": "{{gatewayBase}}/s1/auth/api/users/admin",
+    "expected": "400",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "AC10",
+    "group": "03 Account quản lý tài khoản",
+    "name": "Cập nhật thông tin tài khoản",
+    "method": "PUT",
+    "url": "{{gatewayBase}}/s1/auth/api/users/admin/{{qa_managed_id}}",
+    "expected": "200",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "AC11",
+    "group": "03 Account quản lý tài khoản",
+    "name": "Đăng nhập tài khoản mới",
+    "method": "POST",
+    "url": "{{gatewayBase}}/s1/auth/api/auth/login",
+    "expected": "200",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "AC12",
+    "group": "03 Account quản lý tài khoản",
+    "name": "Khóa tài khoản",
+    "method": "PATCH",
+    "url": "{{gatewayBase}}/s1/auth/api/users/admin/{{qa_managed_id}}/status",
+    "expected": "200",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "AC13",
+    "group": "03 Account quản lý tài khoản",
+    "name": "Tài khoản khóa không đăng nhập được",
+    "method": "POST",
+    "url": "{{gatewayBase}}/s1/auth/api/auth/login",
+    "expected": "401",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "AC14",
+    "group": "03 Account quản lý tài khoản",
+    "name": "Token cũ của tài khoản khóa bị từ chối",
+    "method": "GET",
+    "url": "{{gatewayBase}}/s1/auth/api/users/me",
+    "expected": "401",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "AC15",
+    "group": "03 Account quản lý tài khoản",
+    "name": "Refresh của tài khoản khóa bị từ chối",
+    "method": "POST",
+    "url": "{{gatewayBase}}/s1/auth/api/auth/refresh",
+    "expected": "401",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "AC16",
+    "group": "03 Account quản lý tài khoản",
+    "name": "Mở khóa tài khoản",
+    "method": "PATCH",
+    "url": "{{gatewayBase}}/s1/auth/api/users/admin/{{qa_managed_id}}/status",
+    "expected": "200",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "AC16B",
+    "group": "03 Account quản lý tài khoản",
+    "name": "Mở khóa không làm token cũ sống lại",
+    "method": "GET",
+    "url": "{{gatewayBase}}/s1/auth/api/users/me",
+    "expected": "401",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "AC17",
+    "group": "03 Account quản lý tài khoản",
+    "name": "Đăng nhập sau mở khóa",
+    "method": "POST",
+    "url": "{{gatewayBase}}/s1/auth/api/auth/login",
+    "expected": "200",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "AC18",
+    "group": "03 Account quản lý tài khoản",
+    "name": "Cấp thêm vai trò bác sĩ cho tài khoản riêng",
+    "method": "POST",
+    "url": "{{gatewayBase}}/s1/auth/api/users/admin/{{qa_managed_id}}/roles/ROLE_DOCTOR",
+    "expected": "200",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "AC19",
+    "group": "03 Account quản lý tài khoản",
+    "name": "Đổi vai trò thu hồi access token cũ",
+    "method": "GET",
+    "url": "{{gatewayBase}}/s1/auth/api/users/me",
+    "expected": "401",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "AC20",
+    "group": "03 Account quản lý tài khoản",
+    "name": "Refresh trước khi đổi role đã bị thu hồi",
+    "method": "POST",
+    "url": "{{gatewayBase}}/s1/auth/api/auth/refresh",
+    "expected": "401",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "AC20B",
+    "group": "03 Account quản lý tài khoản",
+    "name": "Đăng nhập lại sau đổi vai trò",
+    "method": "POST",
+    "url": "{{gatewayBase}}/s1/auth/api/auth/login",
+    "expected": "200",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "AC20C",
+    "group": "03 Account quản lý tài khoản",
+    "name": "Phiên mới nhận đúng vai trò đã cấp",
+    "method": "GET",
+    "url": "{{gatewayBase}}/s1/auth/api/users/me",
+    "expected": "200",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "AC21",
+    "group": "03 Account quản lý tài khoản",
+    "name": "Thu hồi vai trò bác sĩ",
+    "method": "DELETE",
+    "url": "{{gatewayBase}}/s1/auth/api/users/admin/{{qa_managed_id}}/roles/ROLE_DOCTOR",
+    "expected": "200",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "AC22",
+    "group": "03 Account quản lý tài khoản",
+    "name": "Không bỏ vai trò cuối cùng",
+    "method": "PUT",
+    "url": "{{gatewayBase}}/s1/auth/api/users/admin/{{qa_managed_id}}/roles",
+    "expected": "400",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "AC23",
+    "group": "03 Account quản lý tài khoản",
+    "name": "Không tự bỏ quyền quản trị đang dùng",
+    "method": "DELETE",
+    "url": "{{gatewayBase}}/s1/auth/api/users/admin/{{admin_id}}/roles/ROLE_ADMIN",
+    "expected": "409",
+    "diagnostic": false,
+    "description": "Server bảo vệ tài khoản quản trị đang dùng; request bị từ chối nên không thay đổi dữ liệu."
+  },
+  {
+    "id": "AC24",
+    "group": "03 Account quản lý tài khoản",
+    "name": "Không tự khóa tài khoản quản trị",
+    "method": "PATCH",
+    "url": "{{gatewayBase}}/s1/auth/api/users/admin/{{admin_id}}/status",
+    "expected": "409",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "AC25",
+    "group": "03 Account quản lý tài khoản",
+    "name": "Bệnh nhân A không đọc tài khoản B qua URL",
+    "method": "GET",
+    "url": "{{gatewayBase}}/s1/auth/api/users/admin/{{qa_b_id}}",
+    "expected": "403",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "AC26",
+    "group": "03 Account quản lý tài khoản",
+    "name": "ID tài khoản không tồn tại",
+    "method": "GET",
+    "url": "{{gatewayBase}}/s1/auth/api/users/admin/00000000-0000-0000-0000-000000000000",
+    "expected": "404",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "AC27",
+    "group": "03 Account quản lý tài khoản",
+    "name": "Query userId B không đổi chủ /users/me",
+    "method": "GET",
+    "url": "{{gatewayBase}}/s1/auth/api/users/me?userId={{qa_b_id}}",
+    "expected": "200",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "IA01",
+    "group": "04 Identity IAM vai trò và phạm vi",
+    "name": "Danh tính hiện tại admin",
+    "method": "GET",
+    "url": "{{gatewayBase}}/s1/identity/api/me/current",
+    "expected": "200",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "IA02",
+    "group": "04 Identity IAM vai trò và phạm vi",
+    "name": "Danh tính hiện tại doctor",
+    "method": "GET",
+    "url": "{{gatewayBase}}/s1/identity/api/me/current",
+    "expected": "200",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "IA03",
+    "group": "04 Identity IAM vai trò và phạm vi",
+    "name": "Danh tính hiện tại staff",
+    "method": "GET",
+    "url": "{{gatewayBase}}/s1/identity/api/me/current",
+    "expected": "200",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "IA04",
+    "group": "04 Identity IAM vai trò và phạm vi",
+    "name": "Danh tính hiện tại patient",
+    "method": "GET",
+    "url": "{{gatewayBase}}/s1/identity/api/me/current",
+    "expected": "200",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "IA05",
+    "group": "04 Identity IAM vai trò và phạm vi",
+    "name": "Danh tính hiện tại platform",
+    "method": "GET",
+    "url": "{{gatewayBase}}/s1/identity/api/me/current",
+    "expected": "200",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "IA06",
+    "group": "04 Identity IAM vai trò và phạm vi",
+    "name": "Phạm vi phòng khám admin",
+    "method": "GET",
+    "url": "{{gatewayBase}}/s1/identity/api/me/contexts",
+    "expected": "200",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "IA07",
+    "group": "04 Identity IAM vai trò và phạm vi",
+    "name": "Phạm vi phòng khám doctor",
+    "method": "GET",
+    "url": "{{gatewayBase}}/s1/identity/api/me/contexts",
+    "expected": "200",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "IA08",
+    "group": "04 Identity IAM vai trò và phạm vi",
+    "name": "Phạm vi phòng khám staff",
+    "method": "GET",
+    "url": "{{gatewayBase}}/s1/identity/api/me/contexts",
+    "expected": "200",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "IA09",
+    "group": "04 Identity IAM vai trò và phạm vi",
+    "name": "Phạm vi phòng khám patient",
+    "method": "GET",
+    "url": "{{gatewayBase}}/s1/identity/api/me/contexts",
+    "expected": "200",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "IA10",
+    "group": "04 Identity IAM vai trò và phạm vi",
+    "name": "Không token không đọc được IAM",
+    "method": "GET",
+    "url": "{{gatewayBase}}/s1/identity/api/me/current",
+    "expected": "401",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "IA11",
+    "group": "04 Identity IAM vai trò và phạm vi",
+    "name": "Refresh token bị IAM từ chối",
+    "method": "GET",
+    "url": "{{gatewayBase}}/s1/identity/api/me/current",
+    "expected": "401",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "IA12",
+    "group": "04 Identity IAM vai trò và phạm vi",
+    "name": "Danh sách nhân sự phòng khám",
+    "method": "GET",
+    "url": "{{gatewayBase}}/s1/identity/api/clinics/{{clinicId}}/memberships",
+    "expected": "200",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "IA13",
+    "group": "04 Identity IAM vai trò và phạm vi",
+    "name": "Bác sĩ không quản lý membership",
+    "method": "GET",
+    "url": "{{gatewayBase}}/s1/identity/api/clinics/{{clinicId}}/memberships",
+    "expected": "403",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "IA14",
+    "group": "04 Identity IAM vai trò và phạm vi",
+    "name": "Lễ tân không quản lý membership",
+    "method": "GET",
+    "url": "{{gatewayBase}}/s1/identity/api/clinics/{{clinicId}}/memberships",
+    "expected": "403",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "IA15",
+    "group": "04 Identity IAM vai trò và phạm vi",
+    "name": "Bệnh nhân không quản lý membership",
+    "method": "GET",
+    "url": "{{gatewayBase}}/s1/identity/api/clinics/{{clinicId}}/memberships",
+    "expected": "403",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "IA16",
+    "group": "04 Identity IAM vai trò và phạm vi",
+    "name": "Đổi clinicId không vượt phạm vi",
+    "method": "GET",
+    "url": "{{gatewayBase}}/s1/identity/api/clinics/00000000-0000-0000-0000-000000000000/memberships",
+    "expected": "403",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "IA17",
+    "group": "04 Identity IAM vai trò và phạm vi",
+    "name": "Mời tài khoản A vào phòng khám",
+    "method": "POST",
+    "url": "{{gatewayBase}}/s1/identity/api/clinics/{{clinicId}}/memberships",
+    "expected": "201",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "IA18",
+    "group": "04 Identity IAM vai trò và phạm vi",
+    "name": "A xem được lời mời của mình",
+    "method": "GET",
+    "url": "{{gatewayBase}}/s1/identity/api/me/invitations",
+    "expected": "200",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "IA19",
+    "group": "04 Identity IAM vai trò và phạm vi",
+    "name": "B không chấp nhận lời mời của A",
+    "method": "POST",
+    "url": "{{gatewayBase}}/s1/identity/api/memberships/{{qa_membership_id}}/activate",
+    "expected": "404",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "IA20",
+    "group": "04 Identity IAM vai trò và phạm vi",
+    "name": "A chấp nhận lời mời",
+    "method": "POST",
+    "url": "{{gatewayBase}}/s1/identity/api/memberships/{{qa_membership_id}}/activate",
+    "expected": "200",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "IA21",
+    "group": "04 Identity IAM vai trò và phạm vi",
+    "name": "Chấp nhận lại không tạo membership thứ hai",
+    "method": "POST",
+    "url": "{{gatewayBase}}/s1/identity/api/memberships/{{qa_membership_id}}/activate",
+    "expected": "409",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "IA22",
+    "group": "04 Identity IAM vai trò và phạm vi",
+    "name": "Cấp quyền địa điểm cho A",
+    "method": "POST",
+    "url": "{{gatewayBase}}/s1/identity/api/clinics/{{clinicId}}/memberships/{{qa_membership_id}}/branches",
+    "expected": "200",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "IA23",
+    "group": "04 Identity IAM vai trò và phạm vi",
+    "name": "Cấp branch lặp không tăng bản ghi",
+    "method": "POST",
+    "url": "{{gatewayBase}}/s1/identity/api/clinics/{{clinicId}}/memberships/{{qa_membership_id}}/branches",
+    "expected": "200",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "IA24",
+    "group": "04 Identity IAM vai trò và phạm vi",
+    "name": "A nhìn thấy quyền đang được cấp",
+    "method": "GET",
+    "url": "{{gatewayBase}}/s1/identity/api/me/contexts",
+    "expected": "200",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "IA25",
+    "group": "04 Identity IAM vai trò và phạm vi",
+    "name": "Đổi vai trò có kiểm tra phiên bản",
+    "method": "PUT",
+    "url": "{{gatewayBase}}/s1/identity/api/clinics/{{clinicId}}/staff/{{qa_membership_id}}/role",
+    "expected": "200",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "IA26",
+    "group": "04 Identity IAM vai trò và phạm vi",
+    "name": "Phiên bản cũ bị từ chối",
+    "method": "PUT",
+    "url": "{{gatewayBase}}/s1/identity/api/clinics/{{clinicId}}/staff/{{qa_membership_id}}/role",
+    "expected": "409",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "IA27",
+    "group": "04 Identity IAM vai trò và phạm vi",
+    "name": "Thu hồi branch grant",
+    "method": "POST",
+    "url": "{{gatewayBase}}/s1/identity/api/clinics/{{clinicId}}/memberships/{{qa_membership_id}}/branches/{{branchId}}/revoke",
+    "expected": "200",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "IA28",
+    "group": "04 Identity IAM vai trò và phạm vi",
+    "name": "Thu hồi membership",
+    "method": "POST",
+    "url": "{{gatewayBase}}/s1/identity/api/clinics/{{clinicId}}/memberships/{{qa_membership_id}}/revoke",
+    "expected": "200",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "IA29",
+    "group": "04 Identity IAM vai trò và phạm vi",
+    "name": "Token còn hạn không giữ quyền đã thu hồi",
+    "method": "GET",
+    "url": "{{gatewayBase}}/s1/identity/api/me/contexts",
+    "expected": "200",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "IA30",
+    "group": "04 Identity IAM vai trò và phạm vi",
+    "name": "Lịch sử cấp và thu hồi quyền",
+    "method": "GET",
+    "url": "{{gatewayBase}}/s1/identity/api/clinics/{{clinicId}}/membership-events",
+    "expected": "200",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "ST01",
+    "group": "05 Account nhân sự và liên kết IAM",
+    "name": "Danh sách nhân sự qua Account",
+    "method": "GET",
+    "url": "{{gatewayBase}}/s1/auth/api/clinic-staff/{{clinicId}}",
+    "expected": "200",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "ST02",
+    "group": "05 Account nhân sự và liên kết IAM",
+    "name": "Tìm tài khoản bằng email",
+    "method": "GET",
+    "url": "{{gatewayBase}}/s1/auth/api/clinic-staff/{{clinicId}}/lookup?email={{qa_managed_email}}",
+    "expected": "200",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "ST03",
+    "group": "05 Account nhân sự và liên kết IAM",
+    "name": "Bác sĩ không tìm tài khoản qua màn nhân sự",
+    "method": "GET",
+    "url": "{{gatewayBase}}/s1/auth/api/clinic-staff/{{clinicId}}/lookup?email={{qa_managed_email}}",
+    "expected": "403",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "ST04",
+    "group": "05 Account nhân sự và liên kết IAM",
+    "name": "Thêm tài khoản hiện có làm nhân viên",
+    "method": "POST",
+    "url": "{{gatewayBase}}/s1/auth/api/clinic-staff/{{clinicId}}",
+    "expected": "200",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "ST05",
+    "group": "05 Account nhân sự và liên kết IAM",
+    "name": "Thêm lại cùng vai trò trả cùng membership",
+    "method": "POST",
+    "url": "{{gatewayBase}}/s1/auth/api/clinic-staff/{{clinicId}}",
+    "expected": "200",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "ST06",
+    "group": "05 Account nhân sự và liên kết IAM",
+    "name": "Không cấp ROLE_ADMIN bằng form bác sĩ lễ tân",
+    "method": "POST",
+    "url": "{{gatewayBase}}/s1/auth/api/clinic-staff/{{clinicId}}",
+    "expected": "400",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "ST07",
+    "group": "05 Account nhân sự và liên kết IAM",
+    "name": "Cập nhật liên hệ nhân viên",
+    "method": "PUT",
+    "url": "{{gatewayBase}}/s1/auth/api/clinic-staff/{{clinicId}}/{{qa_staff_membership_id}}",
+    "expected": "200",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "ST08",
+    "group": "05 Account nhân sự và liên kết IAM",
+    "name": "Không sửa chủ phòng khám tại màn nhân sự",
+    "method": "PUT",
+    "url": "{{gatewayBase}}/s1/auth/api/clinic-staff/{{clinicId}}/{{owner_membership_id}}",
+    "expected": "403",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "ST09",
+    "group": "05 Account nhân sự và liên kết IAM",
+    "name": "Đặt lại mật khẩu nhân viên riêng",
+    "method": "POST",
+    "url": "{{gatewayBase}}/s1/auth/api/clinic-staff/{{clinicId}}/{{qa_staff_membership_id}}/reset-password",
+    "expected": "200",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "ST10",
+    "group": "05 Account nhân sự và liên kết IAM",
+    "name": "Mật khẩu cũ không đăng nhập được",
+    "method": "POST",
+    "url": "{{gatewayBase}}/s1/auth/api/auth/login",
+    "expected": "401",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "ST11",
+    "group": "05 Account nhân sự và liên kết IAM",
+    "name": "Đăng nhập bằng mật khẩu mới",
+    "method": "POST",
+    "url": "{{gatewayBase}}/s1/auth/api/auth/login",
+    "expected": "200",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "ST12",
+    "group": "05 Account nhân sự và liên kết IAM",
+    "name": "Khóa nhân viên qua clinic staff",
+    "method": "PATCH",
+    "url": "{{gatewayBase}}/s1/auth/api/clinic-staff/{{clinicId}}/{{qa_staff_membership_id}}/status",
+    "expected": "200",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "ST13",
+    "group": "05 Account nhân sự và liên kết IAM",
+    "name": "IAM từ chối token của tài khoản bị khóa",
+    "method": "GET",
+    "url": "{{gatewayBase}}/s1/identity/api/me/current",
+    "expected": "401",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "ST14",
+    "group": "05 Account nhân sự và liên kết IAM",
+    "name": "Mở khóa nhân viên sau kiểm tra",
+    "method": "PATCH",
+    "url": "{{gatewayBase}}/s1/auth/api/clinic-staff/{{clinicId}}/{{qa_staff_membership_id}}/status",
+    "expected": "200",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "GW01",
+    "group": "06 API Gateway định tuyến và bảo vệ biên",
+    "name": "Route module không tồn tại",
+    "method": "GET",
+    "url": "{{gatewayBase}}/s1/not-a-module/api/me",
+    "expected": "404",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "GW02",
+    "group": "06 API Gateway định tuyến và bảo vệ biên",
+    "name": "Không đưa actuator module qua alias API",
+    "method": "GET",
+    "url": "{{gatewayBase}}/s1/auth/actuator/env",
+    "expected": "404",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "GW03",
+    "group": "06 API Gateway định tuyến và bảo vệ biên",
+    "name": "Chặn đường dẫn traversal mã hóa",
+    "method": "GET",
+    "url": "{{gatewayBase}}/s1/auth/api/%2e%2e/users/me",
+    "expected": "400/404",
+    "diagnostic": false,
+    "description": "Tomcat hoặc Gateway có thể từ chối trước khi vào module; cả 400/404 đều không tiết lộ dữ liệu."
+  },
+  {
+    "id": "GW04",
+    "group": "06 API Gateway định tuyến và bảo vệ biên",
+    "name": "Chuyển tiếp denial của module",
+    "method": "GET",
+    "url": "{{gatewayBase}}/s1/auth/api/users/admin",
+    "expected": "403",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "GW05",
+    "group": "06 API Gateway định tuyến và bảo vệ biên",
+    "name": "Giữ response JSON và nosniff",
+    "method": "GET",
+    "url": "{{gatewayBase}}/s1/auth/api/users/me",
+    "expected": "200",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "GW06",
+    "group": "06 API Gateway định tuyến và bảo vệ biên",
+    "name": "Giữ query phân trang",
+    "method": "GET",
+    "url": "{{gatewayBase}}/s1/auth/api/users/admin?page=1&size=2",
+    "expected": "200",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "GW07",
+    "group": "06 API Gateway định tuyến và bảo vệ biên",
+    "name": "Không dùng header giả danh thay token",
+    "method": "GET",
+    "url": "{{gatewayBase}}/s1/auth/api/users/admin",
+    "expected": "401",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "GW08",
+    "group": "06 API Gateway định tuyến và bảo vệ biên",
+    "name": "Tương đương gọi Identity trực tiếp",
+    "method": "GET",
+    "url": "{{identityBase}}/modules/auth/api/users/me",
+    "expected": "200",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "SE01",
+    "group": "07 Phạm vi thu hồi phiên và chẩn đoán thiếu sót",
+    "name": "Thu hồi phiên IAM của B",
+    "method": "POST",
+    "url": "{{gatewayBase}}/s1/identity/api/sessions/revoke-current",
+    "expected": "200",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "SE02",
+    "group": "07 Phạm vi thu hồi phiên và chẩn đoán thiếu sót",
+    "name": "Token B cũ bị IAM từ chối ngay",
+    "method": "GET",
+    "url": "{{gatewayBase}}/s1/identity/api/me/current",
+    "expected": "401",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "DI01",
+    "group": "07 Phạm vi thu hồi phiên và chẩn đoán thiếu sót",
+    "name": "Thu hồi phiên cũng phải chặn Auth access cũ",
+    "method": "GET",
+    "url": "{{gatewayBase}}/s1/auth/api/users/me",
+    "expected": "401",
+    "diagnostic": true,
+    "description": "Mục tiêu thu hồi toàn bộ phiên. Nếu HTTP 200, Auth chưa kiểm tra invalidBefore của IAM."
+  },
+  {
+    "id": "DI02",
+    "group": "07 Phạm vi thu hồi phiên và chẩn đoán thiếu sót",
+    "name": "Thu hồi phiên phải chặn refresh cũ",
+    "method": "POST",
+    "url": "{{gatewayBase}}/s1/auth/api/auth/refresh",
+    "expected": "401",
+    "diagnostic": true,
+    "description": "Nếu HTTP 200, refresh cũ tạo JWT mới vượt qua mốc thu hồi IAM. Ghi nhận thiếu sót, không coi đây là PASS."
+  },
+  {
+    "id": "DI03",
+    "group": "07 Phạm vi thu hồi phiên và chẩn đoán thiếu sót",
+    "name": "Vai trò JSON sai phải trả lỗi đầu vào 400",
+    "method": "PUT",
+    "url": "{{gatewayBase}}/s1/auth/api/users/admin/{{qa_managed_id}}/roles",
+    "expected": "400",
+    "diagnostic": true,
+    "description": "Không có role này. HTTP 500 cho payload không hợp lệ là lỗi xử lý exception; request không được cập nhật role."
+  },
+  {
+    "id": "DI04",
+    "group": "07 Phạm vi thu hồi phiên và chẩn đoán thiếu sót",
+    "name": "Email đăng nhập không phân biệt chữ hoa",
+    "method": "POST",
+    "url": "{{gatewayBase}}/s1/auth/api/auth/login",
+    "expected": "200",
+    "diagnostic": true,
+    "description": "Kiểm tra tính nhất quán chuẩn hóa email giữa đăng ký/đăng nhập và tạo tài khoản quản trị."
+  },
+  {
+    "id": "CL01",
+    "group": "08 Kết thúc kiểm thử",
+    "name": "Thu hồi membership nhân viên riêng",
+    "method": "POST",
+    "url": "{{gatewayBase}}/s1/identity/api/clinics/{{clinicId}}/memberships/{{qa_staff_membership_id}}/revoke",
+    "expected": "200",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "CL02",
+    "group": "08 Kết thúc kiểm thử",
+    "name": "Ngưng tài khoản riêng qa_a",
+    "method": "PATCH",
+    "url": "{{gatewayBase}}/s1/auth/api/users/admin/{{qa_a_id}}/status",
+    "expected": "200",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "CL03",
+    "group": "08 Kết thúc kiểm thử",
+    "name": "Ngưng tài khoản riêng qa_b",
+    "method": "PATCH",
+    "url": "{{gatewayBase}}/s1/auth/api/users/admin/{{qa_b_id}}/status",
+    "expected": "200",
+    "diagnostic": false,
+    "description": ""
+  },
+  {
+    "id": "CL04",
+    "group": "08 Kết thúc kiểm thử",
+    "name": "Ngưng tài khoản riêng qa_managed",
+    "method": "PATCH",
+    "url": "{{gatewayBase}}/s1/auth/api/users/admin/{{qa_managed_id}}/status",
+    "expected": "200",
+    "diagnostic": false,
+    "description": ""
+  }
+]

@@ -1,0 +1,571 @@
+{
+  "clinic": {
+    "media": {
+      "hero": {
+        "alt": "ngoại thất phòng khám",
+        "src": "/images/generated/clinic-exterior-ai.png",
+        "caption": "Không gian phòng khám"
+      },
+      "contact": {
+        "alt": "không gian phòng khám",
+        "src": "/images/generated/clinic-corridor-ai.png",
+        "caption": "Không gian phòng khám"
+      },
+      "gallery": [
+        {
+          "alt": "không gian chờ",
+          "src": "/images/generated/clinic-waiting-area-ai.png",
+          "caption": "Không gian chờ"
+        },
+        {
+          "alt": "phòng khám",
+          "src": "/images/generated/clinic-consultation-room-ai.png",
+          "caption": "Phòng khám"
+        },
+        {
+          "alt": "khu vực hỗ trợ",
+          "src": "/images/generated/clinic-corridor-ai.png",
+          "caption": "Khu vực hỗ trợ"
+        }
+      ],
+      "reception": {
+        "alt": "khu tiếp đón",
+        "src": "/images/generated/clinic-reception-ai.png",
+        "caption": "Khu tiếp đón"
+      }
+    },
+    "facilities": "Không gian khám ngoại trú được tổ chức theo các khu vực tiếp đón, chờ và phòng khám.",
+    "careProcess": "Đặt lịch → tiếp nhận → khám → nhận hướng dẫn và hồ sơ được phát hành.",
+    "heroMessage": "Chăm sóc sức khỏe cho bạn và gia đình tại Long Biên, Hà Nội. Tìm hiểu các dịch vụ khám, lựa chọn bác sĩ và chủ động sắp xếp lịch hẹn.",
+    "shortIntroduction": "Chăm sóc sức khỏe cho bạn và gia đình tại Long Biên, Hà Nội. Tìm hiểu các dịch vụ khám, lựa chọn bác sĩ và chủ động sắp xếp lịch hẹn.",
+    "detailedIntroduction": "Chăm sóc sức khỏe cho bạn và gia đình tại Long Biên, Hà Nội. Tìm hiểu các dịch vụ khám, lựa chọn bác sĩ và chủ động sắp xếp lịch hẹn."
+  },
+  "dataset": {
+    "note": "Bộ dữ liệu được chuẩn hóa từ dữ liệu local đã bảo toàn. Tên, hồ sơ và ảnh minh họa phục vụ phát triển/kiểm thử phần mềm; không khẳng định đây là người hành nghề hoặc cơ sở ngoài đời thực.",
+    "classification": "local-operating-synthetic",
+    "legacyDoctorCount": 23,
+    "publicDoctorCount": 18
+  },
+  "doctors": [
+    {
+      "cta": "Đặt lịch khám",
+      "code": "BS000005",
+      "title": "Bác sĩ",
+      "summary": "Khám và tư vấn chuyên khoa Tim mạch.",
+      "doctorId": "7e40d157-72e0-43fb-9c86-bd3f251ae214",
+      "headline": "Bác sĩ Tim mạch",
+      "imageUrl": "/images/doctors/BS000005.png",
+      "education": [],
+      "expertise": [],
+      "imageKind": "illustration",
+      "experience": [],
+      "displayName": "Nguyễn Minh Khôi",
+      "specialtyName": "Tim mạch",
+      "specialtySlug": "tim-mach",
+      "sourceDoctorId": "e1000000-0000-4000-8000-000000000001",
+      "yearsExperience": null,
+      "consultationAreas": [
+        "Tim mạch"
+      ]
+    },
+    {
+      "cta": "Đặt lịch khám",
+      "code": "BS000006",
+      "title": "Bác sĩ",
+      "summary": "Khám và tư vấn chuyên khoa Nội tổng quát.",
+      "doctorId": "90781699-97b7-40cb-aecb-838e84ceea66",
+      "headline": "Bác sĩ Nội tổng quát",
+      "imageUrl": "/images/doctors/BS000006.png",
+      "education": [],
+      "expertise": [],
+      "imageKind": "illustration",
+      "experience": [],
+      "displayName": "Trần Thanh Tùng",
+      "specialtyName": "Nội tổng quát",
+      "specialtySlug": "noi-tong-quat",
+      "sourceDoctorId": "e1000000-0000-4000-8000-000000000002",
+      "yearsExperience": null,
+      "consultationAreas": [
+        "Nội tổng quát"
+      ]
+    },
+    {
+      "cta": "Đặt lịch khám",
+      "code": "BS000007",
+      "title": "Bác sĩ",
+      "summary": "Khám và tư vấn chuyên khoa Thần kinh.",
+      "doctorId": "c452b1ee-b880-432c-a728-048935b1d4ca",
+      "headline": "Bác sĩ Thần kinh",
+      "imageUrl": "/images/doctors/BS000007.png",
+      "education": [],
+      "expertise": [],
+      "imageKind": "illustration",
+      "experience": [],
+      "displayName": "Lê Thị Minh Anh",
+      "specialtyName": "Thần kinh",
+      "specialtySlug": "than-kinh",
+      "sourceDoctorId": "e1000000-0000-4000-8000-000000000003",
+      "yearsExperience": null,
+      "consultationAreas": [
+        "Thần kinh"
+      ]
+    },
+    {
+      "cta": "Đặt lịch khám",
+      "code": "BS000008",
+      "title": "Bác sĩ",
+      "summary": "Khám và tư vấn chuyên khoa Ung bướu.",
+      "doctorId": "b5a43c74-94eb-485e-b94c-79526b88a9f0",
+      "headline": "Bác sĩ Ung bướu",
+      "imageUrl": "/images/doctors/BS000008.png",
+      "education": [],
+      "expertise": [],
+      "imageKind": "illustration",
+      "experience": [],
+      "displayName": "Phạm Quốc Huy",
+      "specialtyName": "Ung bướu",
+      "specialtySlug": "ung-buou",
+      "sourceDoctorId": "e1000000-0000-4000-8000-000000000004",
+      "yearsExperience": null,
+      "consultationAreas": [
+        "Ung bướu"
+      ]
+    },
+    {
+      "cta": "Đặt lịch khám",
+      "code": "BS000009",
+      "title": "Bác sĩ",
+      "summary": "Khám và tư vấn chuyên khoa Cơ xương khớp.",
+      "doctorId": "e7e6bac5-5e02-4cbb-b192-3e4cae19b2ef",
+      "headline": "Bác sĩ Cơ xương khớp",
+      "imageUrl": "/images/doctors/BS000009.png",
+      "education": [],
+      "expertise": [],
+      "imageKind": "illustration",
+      "experience": [],
+      "displayName": "Hoàng Thu Hà",
+      "specialtyName": "Cơ xương khớp",
+      "specialtySlug": "co-xuong-khop",
+      "sourceDoctorId": "e1000000-0000-4000-8000-000000000005",
+      "yearsExperience": null,
+      "consultationAreas": [
+        "Cơ xương khớp"
+      ]
+    },
+    {
+      "cta": "Đặt lịch khám",
+      "code": "BS000010",
+      "title": "Bác sĩ",
+      "summary": "Khám và tư vấn chuyên khoa Nhi khoa.",
+      "doctorId": "6e0b896d-4abb-4f36-b00f-d5cfc8f4bf77",
+      "headline": "Bác sĩ Nhi khoa",
+      "imageUrl": "/images/doctors/BS000010.png",
+      "education": [],
+      "expertise": [],
+      "imageKind": "illustration",
+      "experience": [],
+      "displayName": "Vũ Đức Long",
+      "specialtyName": "Nhi khoa",
+      "specialtySlug": "nhi-khoa",
+      "sourceDoctorId": "e1000000-0000-4000-8000-000000000006",
+      "yearsExperience": null,
+      "consultationAreas": [
+        "Nhi khoa"
+      ]
+    },
+    {
+      "cta": "Đặt lịch khám",
+      "code": "BS000011",
+      "title": "Bác sĩ",
+      "summary": "Khám và tư vấn chuyên khoa Tim mạch.",
+      "doctorId": "5ab5c383-dc0b-48ed-b88a-a0c5d99a0680",
+      "headline": "Bác sĩ Tim mạch",
+      "imageUrl": "/images/doctors/BS000011.png",
+      "education": [],
+      "expertise": [],
+      "imageKind": "illustration",
+      "experience": [],
+      "displayName": "Đặng Ngọc Mai",
+      "specialtyName": "Tim mạch",
+      "specialtySlug": "tim-mach",
+      "sourceDoctorId": "e1000000-0000-4000-8000-000000000007",
+      "yearsExperience": null,
+      "consultationAreas": [
+        "Tim mạch"
+      ]
+    },
+    {
+      "cta": "Đặt lịch khám",
+      "code": "BS000012",
+      "title": "Bác sĩ",
+      "summary": "Khám và tư vấn chuyên khoa Nội tổng quát.",
+      "doctorId": "a0d01901-acfe-4730-b8a5-6f2ccabac980",
+      "headline": "Bác sĩ Nội tổng quát",
+      "imageUrl": "/images/doctors/BS000012.png",
+      "education": [],
+      "expertise": [],
+      "imageKind": "illustration",
+      "experience": [],
+      "displayName": "Bùi Văn Nam",
+      "specialtyName": "Nội tổng quát",
+      "specialtySlug": "noi-tong-quat",
+      "sourceDoctorId": "e1000000-0000-4000-8000-000000000008",
+      "yearsExperience": null,
+      "consultationAreas": [
+        "Nội tổng quát"
+      ]
+    },
+    {
+      "cta": "Đặt lịch khám",
+      "code": "BS000013",
+      "title": "Bác sĩ",
+      "summary": "Khám và tư vấn chuyên khoa Thần kinh.",
+      "doctorId": "f85294a0-afe6-4b50-9d70-5b38ab9a0f02",
+      "headline": "Bác sĩ Thần kinh",
+      "imageUrl": "/images/doctors/BS000013.png",
+      "education": [],
+      "expertise": [],
+      "imageKind": "illustration",
+      "experience": [],
+      "displayName": "Đỗ Thị Hạnh",
+      "specialtyName": "Thần kinh",
+      "specialtySlug": "than-kinh",
+      "sourceDoctorId": "e1000000-0000-4000-8000-000000000009",
+      "yearsExperience": null,
+      "consultationAreas": [
+        "Thần kinh"
+      ]
+    },
+    {
+      "cta": "Đặt lịch khám",
+      "code": "BS000014",
+      "title": "Bác sĩ",
+      "summary": "Khám và tư vấn chuyên khoa Ung bướu.",
+      "doctorId": "d319b9f9-80fa-4633-9d43-f023b0c62881",
+      "headline": "Bác sĩ Ung bướu",
+      "imageUrl": "/images/doctors/BS000014.png",
+      "education": [],
+      "expertise": [],
+      "imageKind": "illustration",
+      "experience": [],
+      "displayName": "Phan Quang Minh",
+      "specialtyName": "Ung bướu",
+      "specialtySlug": "ung-buou",
+      "sourceDoctorId": "e1000000-0000-4000-8000-000000000010",
+      "yearsExperience": null,
+      "consultationAreas": [
+        "Ung bướu"
+      ]
+    },
+    {
+      "cta": "Đặt lịch khám",
+      "code": "BS000015",
+      "title": "Bác sĩ",
+      "summary": "Khám và tư vấn chuyên khoa Cơ xương khớp.",
+      "doctorId": "cccb6202-61c4-4ab9-b63d-787ef863ef01",
+      "headline": "Bác sĩ Cơ xương khớp",
+      "imageUrl": "/images/doctors/BS000015.png",
+      "education": [],
+      "expertise": [],
+      "imageKind": "illustration",
+      "experience": [],
+      "displayName": "Võ Thanh Bình",
+      "specialtyName": "Cơ xương khớp",
+      "specialtySlug": "co-xuong-khop",
+      "sourceDoctorId": "e1000000-0000-4000-8000-000000000011",
+      "yearsExperience": null,
+      "consultationAreas": [
+        "Cơ xương khớp"
+      ]
+    },
+    {
+      "cta": "Đặt lịch khám",
+      "code": "BS000016",
+      "title": "Bác sĩ",
+      "summary": "Khám và tư vấn chuyên khoa Nhi khoa.",
+      "doctorId": "f274b9ac-04b2-4d29-a050-7116ee7db33b",
+      "headline": "Bác sĩ Nhi khoa",
+      "imageUrl": "/images/doctors/BS000016.png",
+      "education": [],
+      "expertise": [],
+      "imageKind": "illustration",
+      "experience": [],
+      "displayName": "Hồ Ngọc Lan",
+      "specialtyName": "Nhi khoa",
+      "specialtySlug": "nhi-khoa",
+      "sourceDoctorId": "e1000000-0000-4000-8000-000000000012",
+      "yearsExperience": null,
+      "consultationAreas": [
+        "Nhi khoa"
+      ]
+    },
+    {
+      "cta": "Đặt lịch khám",
+      "code": "BS000017",
+      "title": "Bác sĩ",
+      "summary": "Khám và tư vấn chuyên khoa Tim mạch.",
+      "doctorId": "3ccc0acc-f023-4de2-ab7a-9c6f2136eacd",
+      "headline": "Bác sĩ Tim mạch",
+      "imageUrl": "/images/doctors/BS000017.png",
+      "education": [],
+      "expertise": [],
+      "imageKind": "illustration",
+      "experience": [],
+      "displayName": "Nguyễn Hải Đăng",
+      "specialtyName": "Tim mạch",
+      "specialtySlug": "tim-mach",
+      "sourceDoctorId": "e1000000-0000-4000-8000-000000000013",
+      "yearsExperience": null,
+      "consultationAreas": [
+        "Tim mạch"
+      ]
+    },
+    {
+      "cta": "Đặt lịch khám",
+      "code": "BS000018",
+      "title": "Bác sĩ",
+      "summary": "Khám và tư vấn chuyên khoa Nội tổng quát.",
+      "doctorId": "40f78f89-7229-402a-8222-b15690ed8d18",
+      "headline": "Bác sĩ Nội tổng quát",
+      "imageUrl": "/images/doctors/BS000018.png",
+      "education": [],
+      "expertise": [],
+      "imageKind": "illustration",
+      "experience": [],
+      "displayName": "Trần Thị Thu Trang",
+      "specialtyName": "Nội tổng quát",
+      "specialtySlug": "noi-tong-quat",
+      "sourceDoctorId": "e1000000-0000-4000-8000-000000000014",
+      "yearsExperience": null,
+      "consultationAreas": [
+        "Nội tổng quát"
+      ]
+    },
+    {
+      "cta": "Đặt lịch khám",
+      "code": "BS000019",
+      "title": "Bác sĩ",
+      "summary": "Khám và tư vấn chuyên khoa Thần kinh.",
+      "doctorId": "602ac35b-51fa-4bbb-8fed-c0295b502345",
+      "headline": "Bác sĩ Thần kinh",
+      "imageUrl": "/images/doctors/BS000019.png",
+      "education": [],
+      "expertise": [],
+      "imageKind": "illustration",
+      "experience": [],
+      "displayName": "Lê Đức Anh",
+      "specialtyName": "Thần kinh",
+      "specialtySlug": "than-kinh",
+      "sourceDoctorId": "e1000000-0000-4000-8000-000000000015",
+      "yearsExperience": null,
+      "consultationAreas": [
+        "Thần kinh"
+      ]
+    },
+    {
+      "cta": "Đặt lịch khám",
+      "code": "BS000020",
+      "title": "Bác sĩ",
+      "summary": "Khám và tư vấn chuyên khoa Ung bướu.",
+      "doctorId": "496c25e7-629a-4803-a6b5-360d5b46991b",
+      "headline": "Bác sĩ Ung bướu",
+      "imageUrl": "/images/doctors/BS000020.png",
+      "education": [],
+      "expertise": [],
+      "imageKind": "illustration",
+      "experience": [],
+      "displayName": "Phạm Thị Diệu Linh",
+      "specialtyName": "Ung bướu",
+      "specialtySlug": "ung-buou",
+      "sourceDoctorId": "e1000000-0000-4000-8000-000000000016",
+      "yearsExperience": null,
+      "consultationAreas": [
+        "Ung bướu"
+      ]
+    },
+    {
+      "cta": "Đặt lịch khám",
+      "code": "BS000021",
+      "title": "Bác sĩ",
+      "summary": "Khám và tư vấn chuyên khoa Cơ xương khớp.",
+      "doctorId": "f39944fe-063a-47d0-bc96-ae80dea27595",
+      "headline": "Bác sĩ Cơ xương khớp",
+      "imageUrl": "/images/doctors/BS000021.png",
+      "education": [],
+      "expertise": [],
+      "imageKind": "illustration",
+      "experience": [],
+      "displayName": "Hoàng Gia Bảo",
+      "specialtyName": "Cơ xương khớp",
+      "specialtySlug": "co-xuong-khop",
+      "sourceDoctorId": "e1000000-0000-4000-8000-000000000017",
+      "yearsExperience": null,
+      "consultationAreas": [
+        "Cơ xương khớp"
+      ]
+    },
+    {
+      "cta": "Đặt lịch khám",
+      "code": "BS000022",
+      "title": "Bác sĩ",
+      "summary": "Khám và tư vấn chuyên khoa Nhi khoa.",
+      "doctorId": "5cacce3b-b17a-43a6-8812-e668e2c2266d",
+      "headline": "Bác sĩ Nhi khoa",
+      "imageUrl": "/images/doctors/BS000022.png",
+      "education": [],
+      "expertise": [],
+      "imageKind": "illustration",
+      "experience": [],
+      "displayName": "Vũ Thị Quỳnh Anh",
+      "specialtyName": "Nhi khoa",
+      "specialtySlug": "nhi-khoa",
+      "sourceDoctorId": "e1000000-0000-4000-8000-000000000018",
+      "yearsExperience": null,
+      "consultationAreas": [
+        "Nhi khoa"
+      ]
+    }
+  ],
+  "services": [
+    {
+      "cta": "Đặt lịch khám",
+      "code": "CONSULT-CARD",
+      "name": "Khám tim mạch",
+      "offeringId": "3eeb5af5-e06c-4ed7-9b7d-72f78c7f66ab",
+      "description": "Khám và chăm sóc các vấn đề tim mạch.",
+      "preparation": "Mang theo giấy tờ và hồ sơ khám trước đây nếu có.",
+      "suitableFor": "Khám và tư vấn theo chuyên khoa Tim mạch",
+      "specialtyName": "Tim mạch",
+      "specialtySlug": "tim-mach"
+    },
+    {
+      "cta": "Đặt lịch khám",
+      "code": "CONSULT-GEN",
+      "name": "Khám nội tổng quát",
+      "offeringId": "da07dc79-47d7-4d70-a2d0-d7912e6ef2b7",
+      "description": "Khám nội tổng quát và chăm sóc sức khỏe người lớn.",
+      "preparation": "Mang theo giấy tờ và hồ sơ khám trước đây nếu có.",
+      "suitableFor": "Khám và tư vấn theo chuyên khoa Nội tổng quát",
+      "specialtyName": "Nội tổng quát",
+      "specialtySlug": "noi-tong-quat"
+    },
+    {
+      "cta": "Đặt lịch khám",
+      "code": "CONSULT-NEURO",
+      "name": "Khám thần kinh",
+      "offeringId": "fae054a9-0b14-41cb-9e03-0346983fa4cb",
+      "description": "Khám và đánh giá các vấn đề thần kinh.",
+      "preparation": "Mang theo giấy tờ và hồ sơ khám trước đây nếu có.",
+      "suitableFor": "Khám và tư vấn theo chuyên khoa Thần kinh",
+      "specialtyName": "Thần kinh",
+      "specialtySlug": "than-kinh"
+    },
+    {
+      "cta": "Đặt lịch khám",
+      "code": "CONSULT-ONC",
+      "name": "Khám ung bướu",
+      "offeringId": "51f191c3-5dd8-4194-83af-bb5c809d31de",
+      "description": "Khám, đánh giá và tư vấn các vấn đề ung bướu.",
+      "preparation": "Mang theo giấy tờ và hồ sơ khám trước đây nếu có.",
+      "suitableFor": "Khám và tư vấn theo chuyên khoa Ung bướu",
+      "specialtyName": "Ung bướu",
+      "specialtySlug": "ung-buou"
+    },
+    {
+      "cta": "Đặt lịch khám",
+      "code": "CONSULT-ORTHO",
+      "name": "Khám cơ xương khớp",
+      "offeringId": "8192eb8d-0efa-4db1-bbe2-6cdc5351c2ff",
+      "description": "Khám các vấn đề xương, khớp và hệ vận động.",
+      "preparation": "Mang theo giấy tờ và hồ sơ khám trước đây nếu có.",
+      "suitableFor": "Khám và tư vấn theo chuyên khoa Cơ xương khớp",
+      "specialtyName": "Cơ xương khớp",
+      "specialtySlug": "co-xuong-khop"
+    },
+    {
+      "cta": "Đặt lịch khám",
+      "code": "CONSULT-PED",
+      "name": "Khám nhi khoa",
+      "offeringId": "398d3306-b969-45ce-a577-a039a9b7320f",
+      "description": "Khám và chăm sóc sức khỏe trẻ em.",
+      "preparation": "Mang theo giấy tờ và hồ sơ khám trước đây nếu có.",
+      "suitableFor": "Khám và tư vấn theo chuyên khoa Nhi khoa",
+      "specialtyName": "Nhi khoa",
+      "specialtySlug": "nhi-khoa"
+    }
+  ],
+  "specialties": [
+    {
+      "cta": "Xem bác sĩ",
+      "slug": "tim-mach",
+      "description": "Khám và chăm sóc các vấn đề tim mạch.",
+      "displayName": "Tim mạch",
+      "doctorCount": 3,
+      "specialtyId": "10000000-0000-0000-0000-000000000001",
+      "databaseName": "Cardiology",
+      "keyExpertise": [],
+      "commonConditions": [],
+      "shortDescription": "Khám và chăm sóc các vấn đề tim mạch."
+    },
+    {
+      "cta": "Xem bác sĩ",
+      "slug": "noi-tong-quat",
+      "description": "Khám nội tổng quát và chăm sóc sức khỏe người lớn.",
+      "displayName": "Nội tổng quát",
+      "doctorCount": 3,
+      "specialtyId": "10000000-0000-0000-0000-000000000002",
+      "databaseName": "General Medicine",
+      "keyExpertise": [],
+      "commonConditions": [],
+      "shortDescription": "Khám nội tổng quát và chăm sóc sức khỏe người lớn."
+    },
+    {
+      "cta": "Xem bác sĩ",
+      "slug": "than-kinh",
+      "description": "Khám và đánh giá các vấn đề thần kinh.",
+      "displayName": "Thần kinh",
+      "doctorCount": 3,
+      "specialtyId": "10000000-0000-0000-0000-000000000003",
+      "databaseName": "Neurology",
+      "keyExpertise": [],
+      "commonConditions": [],
+      "shortDescription": "Khám và đánh giá các vấn đề thần kinh."
+    },
+    {
+      "cta": "Xem bác sĩ",
+      "slug": "ung-buou",
+      "description": "Khám, đánh giá và tư vấn các vấn đề ung bướu.",
+      "displayName": "Ung bướu",
+      "doctorCount": 3,
+      "specialtyId": "10000000-0000-0000-0000-000000000004",
+      "databaseName": "Oncology",
+      "keyExpertise": [],
+      "commonConditions": [],
+      "shortDescription": "Khám, đánh giá và tư vấn các vấn đề ung bướu."
+    },
+    {
+      "cta": "Xem bác sĩ",
+      "slug": "co-xuong-khop",
+      "description": "Khám các vấn đề xương, khớp và hệ vận động.",
+      "displayName": "Cơ xương khớp",
+      "doctorCount": 3,
+      "specialtyId": "10000000-0000-0000-0000-000000000005",
+      "databaseName": "Orthopedics",
+      "keyExpertise": [],
+      "commonConditions": [],
+      "shortDescription": "Khám các vấn đề xương, khớp và hệ vận động."
+    },
+    {
+      "cta": "Xem bác sĩ",
+      "slug": "nhi-khoa",
+      "description": "Khám và chăm sóc sức khỏe trẻ em.",
+      "displayName": "Nhi khoa",
+      "doctorCount": 3,
+      "specialtyId": "10000000-0000-0000-0000-000000000006",
+      "databaseName": "Pediatrics",
+      "keyExpertise": [],
+      "commonConditions": [],
+      "shortDescription": "Khám và chăm sóc sức khỏe trẻ em."
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+.git
+.archive
+.runtime
+.sandbox
+**/node_modules
+**/dist
+.env
+.vscode
+.idea
+.claude
+**/target
+**/.mvn/wrapper/maven-wrapper.jar
+*.iml
+*.log
+.DS_Store

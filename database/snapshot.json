@@ -1,0 +1,10 @@
+{
+  "sourceDatabase": "clinic_db",
+  "sourcePostgresVersion": "16.15",
+  "exportedAt": "2026-10-07T21:46:39.5183984+07:00",
+  "clinicId": "03136db2-48e0-4320-bbdd-5c49e24b6db3",
+  "branchId": "7d90bfae-5dde-47e8-9a69-6c3c0f0d1798",
+  "tableCount": 143,
+  "dumpFile": "clinic_db-current.dump",
+  "dumpSha256": "486469b913407ba7f969f6df4db12903c0461f0abe1c8937955e0e2b987aac4e"
+}

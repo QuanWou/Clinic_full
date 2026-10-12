@@ -1,0 +1,22 @@
+**/target/
+.idea/
+.claude/settings.local.json
+*.iml
+.DS_Store
+**/node_modules/
+**/dist/
+*.log
+.env
+.sandbox/
+.runtime/
+.archive/
+v2/.sandbox/
+v2/.runtime/
+*.tsbuildinfo
+**/test-results/
+**/playwright-report/
+
+# Local database snapshots and Postman environments contain private data.
+/database/*.dump
+/database/*.backup
+**/*.postman_environment.json

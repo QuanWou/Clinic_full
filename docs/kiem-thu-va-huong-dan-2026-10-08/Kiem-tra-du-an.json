@@ -1,0 +1,1062 @@
+{
+  "checkedAt": "2026-10-07T19:56:37.172Z",
+  "database": {
+    "host": "127.0.0.1",
+    "port": 5433,
+    "name": "clinic_team_current",
+    "schemas": [
+      {
+        "table_schema": "appointment",
+        "tables": 6
+      },
+      {
+        "table_schema": "appointment_v2",
+        "tables": 10
+      },
+      {
+        "table_schema": "audit_v2",
+        "tables": 5
+      },
+      {
+        "table_schema": "billing",
+        "tables": 5
+      },
+      {
+        "table_schema": "billing_v2",
+        "tables": 17
+      },
+      {
+        "table_schema": "catalog",
+        "tables": 5
+      },
+      {
+        "table_schema": "catalog_v2",
+        "tables": 5
+      },
+      {
+        "table_schema": "clinic",
+        "tables": 6
+      },
+      {
+        "table_schema": "doctor",
+        "tables": 13
+      },
+      {
+        "table_schema": "encounter_v2",
+        "tables": 14
+      },
+      {
+        "table_schema": "iam",
+        "tables": 6
+      },
+      {
+        "table_schema": "identity",
+        "tables": 6
+      },
+      {
+        "table_schema": "medical_record",
+        "tables": 8
+      },
+      {
+        "table_schema": "medical_v2",
+        "tables": 11
+      },
+      {
+        "table_schema": "notification",
+        "tables": 3
+      },
+      {
+        "table_schema": "notification_v2",
+        "tables": 6
+      },
+      {
+        "table_schema": "patient",
+        "tables": 2
+      },
+      {
+        "table_schema": "patient_v2",
+        "tables": 6
+      },
+      {
+        "table_schema": "search_v2",
+        "tables": 9
+      }
+    ],
+    "totalTables": 143,
+    "rlsTables": 72,
+    "forcedRlsTables": 72,
+    "runtimeRoles": [
+      {
+        "rolname": "clinic_v2_appointment_runtime",
+        "rolsuper": false,
+        "rolbypassrls": false
+      },
+      {
+        "rolname": "clinic_v2_audit_runtime",
+        "rolsuper": false,
+        "rolbypassrls": false
+      },
+      {
+        "rolname": "clinic_v2_billing_runtime",
+        "rolsuper": false,
+        "rolbypassrls": false
+      },
+      {
+        "rolname": "clinic_v2_catalog_runtime",
+        "rolsuper": false,
+        "rolbypassrls": false
+      },
+      {
+        "rolname": "clinic_v2_clinic_runtime",
+        "rolsuper": false,
+        "rolbypassrls": false
+      },
+      {
+        "rolname": "clinic_v2_doctor_runtime",
+        "rolsuper": false,
+        "rolbypassrls": false
+      },
+      {
+        "rolname": "clinic_v2_encounter_runtime",
+        "rolsuper": false,
+        "rolbypassrls": false
+      },
+      {
+        "rolname": "clinic_v2_iam_runtime",
+        "rolsuper": false,
+        "rolbypassrls": false
+      },
+      {
+        "rolname": "clinic_v2_medical_runtime",
+        "rolsuper": false,
+        "rolbypassrls": false
+      },
+      {
+        "rolname": "clinic_v2_notification_runtime",
+        "rolsuper": false,
+        "rolbypassrls": false
+      },
+      {
+        "rolname": "clinic_v2_patient_runtime",
+        "rolsuper": false,
+        "rolbypassrls": false
+      },
+      {
+        "rolname": "clinic_v2_search_runtime",
+        "rolsuper": false,
+        "rolbypassrls": false
+      },
+      {
+        "rolname": "main_v2_appointment_runtime",
+        "rolsuper": false,
+        "rolbypassrls": false
+      },
+      {
+        "rolname": "main_v2_audit_runtime",
+        "rolsuper": false,
+        "rolbypassrls": false
+      },
+      {
+        "rolname": "main_v2_auth_runtime",
+        "rolsuper": false,
+        "rolbypassrls": false
+      },
+      {
+        "rolname": "main_v2_billing_runtime",
+        "rolsuper": false,
+        "rolbypassrls": false
+      },
+      {
+        "rolname": "main_v2_catalog_runtime",
+        "rolsuper": false,
+        "rolbypassrls": false
+      },
+      {
+        "rolname": "main_v2_clinic_runtime",
+        "rolsuper": false,
+        "rolbypassrls": false
+      },
+      {
+        "rolname": "main_v2_doctor_runtime",
+        "rolsuper": false,
+        "rolbypassrls": false
+      },
+      {
+        "rolname": "main_v2_encounter_runtime",
+        "rolsuper": false,
+        "rolbypassrls": false
+      },
+      {
+        "rolname": "main_v2_identity_runtime",
+        "rolsuper": false,
+        "rolbypassrls": false
+      },
+      {
+        "rolname": "main_v2_medical_runtime",
+        "rolsuper": false,
+        "rolbypassrls": false
+      },
+      {
+        "rolname": "main_v2_notification_runtime",
+        "rolsuper": false,
+        "rolbypassrls": false
+      },
+      {
+        "rolname": "main_v2_patient_runtime",
+        "rolsuper": false,
+        "rolbypassrls": false
+      },
+      {
+        "rolname": "main_v2_search_runtime",
+        "rolsuper": false,
+        "rolbypassrls": false
+      }
+    ],
+    "accounts": [
+      {
+        "email": "bacsi1@gmail.com",
+        "account_code": "TK000208",
+        "status": "ACTIVE",
+        "full_name": "Bác sĩ 1",
+        "roles": [
+          "ROLE_DOCTOR"
+        ]
+      },
+      {
+        "email": "bacsi2@gmail.com",
+        "account_code": "TK000209",
+        "status": "ACTIVE",
+        "full_name": "Bác sĩ 2",
+        "roles": [
+          "ROLE_DOCTOR"
+        ]
+      },
+      {
+        "email": "benhnhan1@gmail.com",
+        "account_code": "TK000210",
+        "status": "ACTIVE",
+        "full_name": "Bệnh nhân 1",
+        "roles": [
+          "ROLE_PATIENT"
+        ]
+      },
+      {
+        "email": "benhnhan2@gmail.com",
+        "account_code": "TK000211",
+        "status": "ACTIVE",
+        "full_name": "Bệnh nhân 2",
+        "roles": [
+          "ROLE_PATIENT"
+        ]
+      },
+      {
+        "email": "kiemduyet1@gmail.com",
+        "account_code": "TK000212",
+        "status": "ACTIVE",
+        "full_name": "Kiểm duyệt 1",
+        "roles": [
+          "ROLE_ADMIN"
+        ]
+      },
+      {
+        "email": "kiemduyet2@gmail.com",
+        "account_code": "TK000213",
+        "status": "ACTIVE",
+        "full_name": "Kiểm duyệt 2",
+        "roles": [
+          "ROLE_ADMIN"
+        ]
+      },
+      {
+        "email": "nhanvien1@gmail.com",
+        "account_code": "TK000206",
+        "status": "ACTIVE",
+        "full_name": "Nhân viên 1",
+        "roles": [
+          "ROLE_RECEPTIONIST"
+        ]
+      },
+      {
+        "email": "nhanvien2@gmail.com",
+        "account_code": "TK000207",
+        "status": "ACTIVE",
+        "full_name": "Nhân viên 2",
+        "roles": [
+          "ROLE_RECEPTIONIST"
+        ]
+      },
+      {
+        "email": "quantri1@gmail.com",
+        "account_code": "TK000204",
+        "status": "ACTIVE",
+        "full_name": "Quản trị 1",
+        "roles": [
+          "ROLE_ADMIN"
+        ]
+      },
+      {
+        "email": "quantri2@gmail.com",
+        "account_code": "TK000205",
+        "status": "ACTIVE",
+        "full_name": "Quản trị 2",
+        "roles": [
+          "ROLE_ADMIN"
+        ]
+      }
+    ],
+    "public": {
+      "publishedClinics": 1,
+      "visibleDoctors": 18,
+      "visibleOfferings": 6
+    },
+    "unbalancedJournals": 0,
+    "negativeBillBalance": 0,
+    "chargeInbox": [
+      {
+        "status": "APPLIED",
+        "count": 22
+      }
+    ],
+    "qaUsers": [
+      {
+        "status": "INACTIVE",
+        "count": 12
+      }
+    ],
+    "memberships": [
+      {
+        "email": "bacsi1@gmail.com",
+        "role": "DOCTOR",
+        "status": "ACTIVE",
+        "all_branches": false
+      },
+      {
+        "email": "bacsi2@gmail.com",
+        "role": "DOCTOR",
+        "status": "ACTIVE",
+        "all_branches": false
+      },
+      {
+        "email": "nhanvien1@gmail.com",
+        "role": "STAFF",
+        "status": "ACTIVE",
+        "all_branches": false
+      },
+      {
+        "email": "nhanvien2@gmail.com",
+        "role": "STAFF",
+        "status": "ACTIVE",
+        "all_branches": false
+      },
+      {
+        "email": "quantri1@gmail.com",
+        "role": "ADMIN",
+        "status": "ACTIVE",
+        "all_branches": true
+      },
+      {
+        "email": "quantri2@gmail.com",
+        "role": "ADMIN",
+        "status": "ACTIVE",
+        "all_branches": true
+      }
+    ]
+  },
+  "backend": {
+    "suites": [
+      {
+        "file": "backend/api-gateway/target/surefire-reports/TEST-com.clinic.gateway.GatewayApplicationTest.xml",
+        "name": "com.clinic.gateway.GatewayApplicationTest",
+        "tests": 1,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "file": "backend/api-gateway/target/surefire-reports/TEST-com.clinic.gateway.GatewayServletTest.xml",
+        "name": "com.clinic.gateway.GatewayServletTest",
+        "tests": 2,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "file": "backend/appointment-service/modules/appointment/target/surefire-reports/TEST-com.clinic.appointment.AppointmentPostgresTest.xml",
+        "name": "com.clinic.appointment.AppointmentPostgresTest",
+        "tests": 27,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 27
+      },
+      {
+        "file": "backend/appointment-service/modules/appointment/target/surefire-reports/TEST-com.clinic.appointment.AppointmentServiceTest.xml",
+        "name": "com.clinic.appointment.AppointmentServiceTest",
+        "tests": 9,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "file": "backend/appointment-service/modules/appointment/target/surefire-reports/TEST-com.clinic.appointment.DoctorPeerVerifierTest.xml",
+        "name": "com.clinic.appointment.DoctorPeerVerifierTest",
+        "tests": 1,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "file": "backend/appointment-service/modules/appointment/target/surefire-reports/TEST-com.clinic.appointment.EncounterPeerVerifierTest.xml",
+        "name": "com.clinic.appointment.EncounterPeerVerifierTest",
+        "tests": 1,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "file": "backend/appointment-service/modules/appointment/target/surefire-reports/TEST-com.clinic.appointment.FollowUpSourcesTest.xml",
+        "name": "com.clinic.appointment.FollowUpSourcesTest",
+        "tests": 2,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "file": "backend/appointment-service/modules/encounter/target/surefire-reports/TEST-com.clinic.encounter.EncounterPostgresTest.xml",
+        "name": "com.clinic.encounter.EncounterPostgresTest",
+        "tests": 35,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 35
+      },
+      {
+        "file": "backend/appointment-service/modules/encounter/target/surefire-reports/TEST-com.clinic.encounter.ReceptionTicketViewTest.xml",
+        "name": "com.clinic.encounter.ReceptionTicketViewTest",
+        "tests": 2,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "file": "backend/appointment-service/modules/encounter/target/surefire-reports/TEST-com.clinic.encounter.security.BillingPeerVerifierTest.xml",
+        "name": "com.clinic.encounter.security.BillingPeerVerifierTest",
+        "tests": 1,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "file": "backend/billing-service/modules/billing/target/surefire-reports/TEST-com.clinic.billing.BillingPostgresTest.xml",
+        "name": "com.clinic.billing.BillingPostgresTest",
+        "tests": 35,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 35
+      },
+      {
+        "file": "backend/billing-service/modules/billing/target/surefire-reports/TEST-com.clinic.billing.ChargeSourceClientTest.xml",
+        "name": "com.clinic.billing.ChargeSourceClientTest",
+        "tests": 2,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "file": "backend/billing-service/modules/billing/target/surefire-reports/TEST-com.clinic.billing.FinancialNotificationClientTest.xml",
+        "name": "com.clinic.billing.FinancialNotificationClientTest",
+        "tests": 2,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "file": "backend/billing-service/modules/billing/target/surefire-reports/TEST-com.clinic.billing.PaymentGatewaysTest.xml",
+        "name": "com.clinic.billing.PaymentGatewaysTest",
+        "tests": 5,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "file": "backend/billing-service/modules/billing/target/surefire-reports/TEST-com.clinic.billing.service.BillingAuthorizationTest.xml",
+        "name": "com.clinic.billing.service.BillingAuthorizationTest",
+        "tests": 2,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "file": "backend/billing-service/modules/catalog/target/surefire-reports/TEST-com.clinic.catalog.CatalogExternalPostgresTest.xml",
+        "name": "com.clinic.catalog.CatalogExternalPostgresTest",
+        "tests": 5,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 5
+      },
+      {
+        "file": "backend/billing-service/modules/catalog/target/surefire-reports/TEST-com.clinic.catalog.ProjectionOutboxPostgresTest.xml",
+        "name": "com.clinic.catalog.ProjectionOutboxPostgresTest",
+        "tests": 2,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 2
+      },
+      {
+        "file": "backend/billing-service/modules/catalog/target/surefire-reports/TEST-com.clinic.catalog.service.CatalogServiceTest.xml",
+        "name": "com.clinic.catalog.service.CatalogServiceTest",
+        "tests": 6,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "file": "backend/billing-service/modules/notification/target/surefire-reports/TEST-com.clinic.notification.FinancialNotificationPostgresTest.xml",
+        "name": "com.clinic.notification.FinancialNotificationPostgresTest",
+        "tests": 4,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 4
+      },
+      {
+        "file": "backend/billing-service/modules/notification/target/surefire-reports/TEST-com.clinic.notification.NotificationPostgresTest.xml",
+        "name": "com.clinic.notification.NotificationPostgresTest",
+        "tests": 6,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 6
+      },
+      {
+        "file": "backend/billing-service/modules/notification/target/surefire-reports/TEST-com.clinic.notification.security.WorkloadTokenVerifierTest.xml",
+        "name": "com.clinic.notification.security.WorkloadTokenVerifierTest",
+        "tests": 2,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "file": "backend/core-runtime/target/surefire-reports/TEST-com.clinic.runtime.SharedServerTest.xml",
+        "name": "com.clinic.runtime.SharedServerTest",
+        "tests": 1,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "file": "backend/doctor-service/modules/clinic/target/surefire-reports/TEST-com.clinic.clinic.ClinicConfigurationPostgresTest.xml",
+        "name": "com.clinic.clinic.ClinicConfigurationPostgresTest",
+        "tests": 2,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 2
+      },
+      {
+        "file": "backend/doctor-service/modules/clinic/target/surefire-reports/TEST-com.clinic.clinic.ClinicExternalPostgresTest.xml",
+        "name": "com.clinic.clinic.ClinicExternalPostgresTest",
+        "tests": 2,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 2
+      },
+      {
+        "file": "backend/doctor-service/modules/clinic/target/surefire-reports/TEST-com.clinic.clinic.ClinicPostgresIntegrationTest.xml",
+        "name": "com.clinic.clinic.ClinicPostgresIntegrationTest",
+        "tests": 3,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 3
+      },
+      {
+        "file": "backend/doctor-service/modules/clinic/target/surefire-reports/TEST-com.clinic.clinic.ClinicTenancyExternalPostgresTest.xml",
+        "name": "com.clinic.clinic.ClinicTenancyExternalPostgresTest",
+        "tests": 1,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 1
+      },
+      {
+        "file": "backend/doctor-service/modules/clinic/target/surefire-reports/TEST-com.clinic.clinic.PatientHistoryPostgresTest.xml",
+        "name": "com.clinic.clinic.PatientHistoryPostgresTest",
+        "tests": 1,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 1
+      },
+      {
+        "file": "backend/doctor-service/modules/clinic/target/surefire-reports/TEST-com.clinic.clinic.ProjectionOutboxPostgresTest.xml",
+        "name": "com.clinic.clinic.ProjectionOutboxPostgresTest",
+        "tests": 2,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 2
+      },
+      {
+        "file": "backend/doctor-service/modules/clinic/target/surefire-reports/TEST-com.clinic.clinic.security.TokenVerifierTest.xml",
+        "name": "com.clinic.clinic.security.TokenVerifierTest",
+        "tests": 3,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "file": "backend/doctor-service/modules/clinic/target/surefire-reports/TEST-com.clinic.clinic.service.ClinicOnboardingServiceTest.xml",
+        "name": "com.clinic.clinic.service.ClinicOnboardingServiceTest",
+        "tests": 24,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "file": "backend/doctor-service/modules/doctor/target/surefire-reports/TEST-com.clinic.doctor.AbsencePostgresTest.xml",
+        "name": "com.clinic.doctor.AbsencePostgresTest",
+        "tests": 4,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 4
+      },
+      {
+        "file": "backend/doctor-service/modules/doctor/target/surefire-reports/TEST-com.clinic.doctor.DoctorExternalPostgresTest.xml",
+        "name": "com.clinic.doctor.DoctorExternalPostgresTest",
+        "tests": 4,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 4
+      },
+      {
+        "file": "backend/doctor-service/modules/doctor/target/surefire-reports/TEST-com.clinic.doctor.EncounterPeerVerifierTest.xml",
+        "name": "com.clinic.doctor.EncounterPeerVerifierTest",
+        "tests": 1,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "file": "backend/doctor-service/modules/doctor/target/surefire-reports/TEST-com.clinic.doctor.ProjectionOutboxPostgresTest.xml",
+        "name": "com.clinic.doctor.ProjectionOutboxPostgresTest",
+        "tests": 2,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 2
+      },
+      {
+        "file": "backend/doctor-service/modules/doctor/target/surefire-reports/TEST-com.clinic.doctor.service.DoctorServiceTest.xml",
+        "name": "com.clinic.doctor.service.DoctorServiceTest",
+        "tests": 9,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "file": "backend/doctor-service/modules/search/target/surefire-reports/TEST-com.clinic.search.SearchPostgresTest.xml",
+        "name": "com.clinic.search.SearchPostgresTest",
+        "tests": 5,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 5
+      },
+      {
+        "file": "backend/doctor-service/modules/search/target/surefire-reports/TEST-com.clinic.search.SearchProjectionServiceTest.xml",
+        "name": "com.clinic.search.SearchProjectionServiceTest",
+        "tests": 2,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "file": "backend/identity-service/modules/audit/target/surefire-reports/TEST-com.clinic.audit.api.AdminAuditControllerTest.xml",
+        "name": "com.clinic.audit.api.AdminAuditControllerTest",
+        "tests": 2,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "file": "backend/identity-service/modules/audit/target/surefire-reports/TEST-com.clinic.audit.AppointmentAuditPostgresTest.xml",
+        "name": "com.clinic.audit.AppointmentAuditPostgresTest",
+        "tests": 4,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 4
+      },
+      {
+        "file": "backend/identity-service/modules/audit/target/surefire-reports/TEST-com.clinic.audit.AuditExternalPostgresTest.xml",
+        "name": "com.clinic.audit.AuditExternalPostgresTest",
+        "tests": 3,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 3
+      },
+      {
+        "file": "backend/identity-service/modules/audit/target/surefire-reports/TEST-com.clinic.audit.BillingAuditHttpPostgresTest.xml",
+        "name": "com.clinic.audit.BillingAuditHttpPostgresTest",
+        "tests": 4,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 4
+      },
+      {
+        "file": "backend/identity-service/modules/audit/target/surefire-reports/TEST-com.clinic.audit.ChargeRecoveryAuditHttpPostgresTest.xml",
+        "name": "com.clinic.audit.ChargeRecoveryAuditHttpPostgresTest",
+        "tests": 1,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 1
+      },
+      {
+        "file": "backend/identity-service/modules/audit/target/surefire-reports/TEST-com.clinic.audit.ClinicalAccessPostgresTest.xml",
+        "name": "com.clinic.audit.ClinicalAccessPostgresTest",
+        "tests": 2,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 2
+      },
+      {
+        "file": "backend/identity-service/modules/audit/target/surefire-reports/TEST-com.clinic.audit.MedicalAuditHttpPostgresTest.xml",
+        "name": "com.clinic.audit.MedicalAuditHttpPostgresTest",
+        "tests": 2,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 2
+      },
+      {
+        "file": "backend/identity-service/modules/audit/target/surefire-reports/TEST-com.clinic.audit.security.WorkloadTokenVerifierTest.xml",
+        "name": "com.clinic.audit.security.WorkloadTokenVerifierTest",
+        "tests": 3,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "file": "backend/identity-service/modules/audit/target/surefire-reports/TEST-com.clinic.audit.service.AuditServiceAdminFeedTest.xml",
+        "name": "com.clinic.audit.service.AuditServiceAdminFeedTest",
+        "tests": 2,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "file": "backend/identity-service/modules/audit/target/surefire-reports/TEST-com.clinic.audit.service.EventEnvelopeValidatorTest.xml",
+        "name": "com.clinic.audit.service.EventEnvelopeValidatorTest",
+        "tests": 3,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "file": "backend/identity-service/modules/auth/target/surefire-reports/TEST-com.clinic.identity.controller.AdminUserAuthorizationTest.xml",
+        "name": "com.clinic.identity.controller.AdminUserAuthorizationTest",
+        "tests": 2,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "file": "backend/identity-service/modules/auth/target/surefire-reports/TEST-com.clinic.identity.controller.ClinicStaffControllerTest.xml",
+        "name": "com.clinic.identity.controller.ClinicStaffControllerTest",
+        "tests": 7,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "file": "backend/identity-service/modules/auth/target/surefire-reports/TEST-com.clinic.identity.security.AccountStateSecurityTest.xml",
+        "name": "com.clinic.identity.security.AccountStateSecurityTest",
+        "tests": 3,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "file": "backend/identity-service/modules/auth/target/surefire-reports/TEST-com.clinic.identity.security.JwtAuthenticationFilterTest.xml",
+        "name": "com.clinic.identity.security.JwtAuthenticationFilterTest",
+        "tests": 3,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "file": "backend/identity-service/modules/auth/target/surefire-reports/TEST-com.clinic.identity.security.JwtPurposeFilterIntegrationTest.xml",
+        "name": "com.clinic.identity.security.JwtPurposeFilterIntegrationTest",
+        "tests": 9,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "file": "backend/identity-service/modules/auth/target/surefire-reports/TEST-com.clinic.identity.security.JwtServiceTest.xml",
+        "name": "com.clinic.identity.security.JwtServiceTest",
+        "tests": 2,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "file": "backend/identity-service/modules/auth/target/surefire-reports/TEST-com.clinic.identity.security.JwtTokenTypeTest.xml",
+        "name": "com.clinic.identity.security.JwtTokenTypeTest",
+        "tests": 2,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "file": "backend/identity-service/modules/auth/target/surefire-reports/TEST-com.clinic.identity.service.AuthRefreshConcurrencyIntegrationTest.xml",
+        "name": "com.clinic.identity.service.AuthRefreshConcurrencyIntegrationTest",
+        "tests": 1,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 1
+      },
+      {
+        "file": "backend/identity-service/modules/auth/target/surefire-reports/TEST-com.clinic.identity.service.AuthServiceRefreshTest.xml",
+        "name": "com.clinic.identity.service.AuthServiceRefreshTest",
+        "tests": 7,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "file": "backend/identity-service/modules/auth/target/surefire-reports/TEST-com.clinic.identity.service.impl.AdminUserServiceImplTest.xml",
+        "name": "com.clinic.identity.service.impl.AdminUserServiceImplTest",
+        "tests": 10,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "file": "backend/identity-service/modules/auth/target/surefire-reports/TEST-com.clinic.identity.service.RefreshAccountStateTest.xml",
+        "name": "com.clinic.identity.service.RefreshAccountStateTest",
+        "tests": 1,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "file": "backend/identity-service/modules/identity/target/surefire-reports/TEST-com.clinic.iam.AcademicRoleMigrationPostgresTest.xml",
+        "name": "com.clinic.iam.AcademicRoleMigrationPostgresTest",
+        "tests": 1,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 1
+      },
+      {
+        "file": "backend/identity-service/modules/identity/target/surefire-reports/TEST-com.clinic.iam.IamExternalPostgresTest.xml",
+        "name": "com.clinic.iam.IamExternalPostgresTest",
+        "tests": 5,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 5
+      },
+      {
+        "file": "backend/identity-service/modules/identity/target/surefire-reports/TEST-com.clinic.iam.IdentityS2PostgresTest.xml",
+        "name": "com.clinic.iam.IdentityS2PostgresTest",
+        "tests": 2,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 2
+      },
+      {
+        "file": "backend/identity-service/modules/identity/target/surefire-reports/TEST-com.clinic.iam.security.SecurityTokenTest.xml",
+        "name": "com.clinic.iam.security.SecurityTokenTest",
+        "tests": 4,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "file": "backend/identity-service/modules/identity/target/surefire-reports/TEST-com.clinic.iam.security.SessionSecurityServiceTest.xml",
+        "name": "com.clinic.iam.security.SessionSecurityServiceTest",
+        "tests": 3,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "file": "backend/identity-service/modules/identity/target/surefire-reports/TEST-com.clinic.iam.service.MembershipSecurityTest.xml",
+        "name": "com.clinic.iam.service.MembershipSecurityTest",
+        "tests": 7,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "file": "backend/identity-service/modules/identity/target/surefire-reports/TEST-com.clinic.iam.service.MembershipServiceTest.xml",
+        "name": "com.clinic.iam.service.MembershipServiceTest",
+        "tests": 12,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "file": "backend/patient-service/modules/medical/target/surefire-reports/TEST-com.clinic.medical.MedicalPostgresTest.xml",
+        "name": "com.clinic.medical.MedicalPostgresTest",
+        "tests": 12,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 12
+      },
+      {
+        "file": "backend/patient-service/modules/patient/target/surefire-reports/TEST-com.clinic.patient.EncounterPeerVerifierTest.xml",
+        "name": "com.clinic.patient.EncounterPeerVerifierTest",
+        "tests": 1,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "file": "backend/patient-service/modules/patient/target/surefire-reports/TEST-com.clinic.patient.PatientPostgresTest.xml",
+        "name": "com.clinic.patient.PatientPostgresTest",
+        "tests": 4,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 4
+      },
+      {
+        "file": "backend/patient-service/modules/patient/target/surefire-reports/TEST-com.clinic.patient.ReceptionPatientPostgresTest.xml",
+        "name": "com.clinic.patient.ReceptionPatientPostgresTest",
+        "tests": 3,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 3
+      },
+      {
+        "file": "backend/patient-service/modules/patient/target/surefire-reports/TEST-com.clinic.patient.security.WorkloadTokenVerifierTest.xml",
+        "name": "com.clinic.patient.security.WorkloadTokenVerifierTest",
+        "tests": 2,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "file": "backend/realtime-lib/target/surefire-reports/TEST-com.clinic.realtime.PostgresRealtimeTest.xml",
+        "name": "com.clinic.realtime.PostgresRealtimeTest",
+        "tests": 3,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    ],
+    "tests": 350,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 184,
+    "executed": 166,
+    "skippedReasons": {
+      "System property [appointment.it.enabled] does not exist": 27,
+      "System property [encounter.it.enabled] does not exist": 35,
+      "System property [billing.it.enabled] does not exist": 35,
+      "System property [catalog.it.enabled] does not exist": 7,
+      "System property [notification.it.enabled] does not exist": 10,
+      "System property [clinic.it.enabled] does not exist": 7,
+      "disabledWithoutDocker is true and Docker is not available": 3,
+      "System property [clinic.s003.it.enabled] does not exist": 1,
+      "System property [doctor.it.enabled] does not exist": 10,
+      "System property [search.it.enabled] does not exist": 5,
+      "System property [audit.it.enabled] does not exist": 16,
+      "Environment variable [CLINIC_SECURITY_TEST_DB] does not exist": 1,
+      "System property [role.it.enabled] does not exist": 1,
+      "System property [iam.it.enabled] does not exist": 5,
+      "System property [identity.it.enabled] does not exist": 2,
+      "System property [medical.it.enabled] does not exist": 12,
+      "System property [patient.it.enabled] does not exist": 7
+    },
+    "skippedReason": "180 ca chưa bật flag tích hợp, 3 ca thiếu Docker, 1 ca thiếu CLINIC_SECURITY_TEST_DB; xem skippedReasons"
+  },
+  "frontend": {
+    "buildPassed": true,
+    "fullRun": {
+      "total": 195,
+      "passed": 188,
+      "failed": 7
+    },
+    "serialRecheck": {
+      "files": 3,
+      "total": 46,
+      "passed": 46,
+      "failed": 0,
+      "testTimeoutSeconds": 20,
+      "passedEvidence": true
+    },
+    "uniqueCasesValidated": 195,
+    "note": "Lượt chạy toàn bộ có 7 ca chờ UI hoặc timeout; chạy lại tuần tự 3 file liên quan đạt 46/46. Kết quả đạt được tổng hợp qua các lượt chạy, không phải một lượt full suite đạt ngay."
+  },
+  "health": [
+    {
+      "service": "appointment",
+      "port": 18004,
+      "http": 200,
+      "status": "UP"
+    },
+    {
+      "service": "doctor",
+      "port": 18002,
+      "http": 200,
+      "status": "UP"
+    },
+    {
+      "service": "billing",
+      "port": 18005,
+      "http": 200,
+      "status": "UP"
+    },
+    {
+      "service": "identity",
+      "port": 18001,
+      "http": 200,
+      "status": "UP"
+    },
+    {
+      "service": "gateway",
+      "port": 18090,
+      "http": 200,
+      "status": "UP"
+    },
+    {
+      "service": "patient",
+      "port": 18003,
+      "http": 200,
+      "status": "UP"
+    }
+  ],
+  "preconditions": {
+    "doctors": [
+      {
+        "email": "bacsi1@gmail.com",
+        "practitioner_id": "c14ed935-adfc-4805-b3b6-4dcf7266e5c3",
+        "display_name": "Bác sĩ 1",
+        "affiliations": 1,
+        "public_affiliations": 0
+      },
+      {
+        "email": "bacsi2@gmail.com",
+        "practitioner_id": "01320dba-c832-4171-9518-a7a63003ea8a",
+        "display_name": "Bác sĩ 2",
+        "affiliations": 1,
+        "public_affiliations": 0
+      }
+    ],
+    "paymentFeatureFlags": {},
+    "paymentConfigPresent": false
+  },
+  "sourceObservations": [
+    {
+      "area": "Kiểm duyệt nền tảng",
+      "finding": "API quyết định chỉ gửi reason và evidenceVerified, chưa có expectedVersion từ client",
+      "validation": "Đọc source frontend/api/platform.ts và ClinicDto.DecisionInput; chưa thực thi sửa hồ sơ đồng thời"
+    }
+  ],
+  "ui": {
+    "workspacePages": 17,
+    "publicPages": 17,
+    "manualReview": [
+      "overview",
+      "clinic profile three tabs",
+      "platform review selected clinic"
+    ],
+    "responsiveBrowserOverrideVerified": false,
+    "removedComponents": 4,
+    "removedCssSelectors": 184
+  },
+  "limits": [
+    "Audit dựa trên source, test suite và kiểm thử read-only trên runtime. Không hoàn thành một vòng khám và thu tiền mới trên dữ liệu đang sử dụng.",
+    "Không kiểm thử callback thanh toán thực, tải lớn, Docker deployment hoặc toàn bộ tình huống mất mạng.",
+    "Không khẳng định môi trường hiện tại sẵn sàng triển khai thực tế."
+  ]
+}
